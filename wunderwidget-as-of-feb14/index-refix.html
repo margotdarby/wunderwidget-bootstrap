@@ -1,0 +1,2294 @@
+<html>
+<head>
+
+
+
+
+
+<title> WUNDERWIDGET-for-Portfolio Refix 1.2</title>
+<link href="myDailyDiv_R4h.css" media="screen" rel="stylesheet" type="text/css" />
+
+<script src="jquery-1.7.min.js" type="text/javascript"></script>
+<script src="doylyDiv5-min.js" type="text/javascript"></script>
+
+
+
+<!-- MOST OF THE OPTIONS CAN BE SET BELOW. THERE SHOULD BE NO NEED TO LOOK AT THE JAVASCRIPT ITSELF, WHICH HAS PROBABLY BEEN MINIFIED AND UGLIFIED! -->
+
+
+
+<script type="text/javascript">
+
+//earliest Day Of Year with content (any number from 1 [January 1] .... to 365 or 366 [December 31]
+//var beginwithDOY = 298; 
+//var beginwithDOY = 1; 
+//var beginwithDOY = 334; 
+var beginwithDOY = 6; 
+
+//How far back into the previous calendar year can you look? (must be a number greater than beginwithDOY)
+var previousyearstartday = 366;
+
+//set fade-in time of initial div (in milliseconds!)
+var openingFadeIn = 500;   //fade-in speed of initial div, in milliseconds
+
+
+//Alert and text messages. Alert messages can be rewritten or removed. Text messages can be hidden through css (add display:none; to the appropriate style).
+
+var comebacktomorrowalert
+var noselectionalert
+var noselectionalert_next
+
+
+//alert message for when one tries to see past today
+comebacktomorrowalert = "Nobody can see tomorrow!" 
+//comebacktomorrowalert = "That's too bad, come back tomorrow!" 
+
+//alert message for when one goes back to a day with no content
+noselectionalert = "I can't show you that day." 
+
+//alert message for for when one goes back to a day with no content, keeps clicking backward, then moves forward again in the no-content zone!
+noselectionalert_next = "I can't show you that either! Keep going."
+
+
+/*define optional opening message*/
+
+var todaysmessage
+
+//Example 1: "Day of Year is 328" 
+//todaysmessage = "<p id='todaysMessage'>Day of Year is "+ DOY + "</p>"  
+
+//Example 2: "Day 328 of 2011"
+//todaysmessage = "<p id='todaysMessage'>Day "+ DOY + " of " + fy +"</p>"  
+
+//Example 3: "Today is Thursday, 24 November 2011. Day of Year is 328."
+todaysmessage = "<p id='todaysMessage'>Today is "+ wd + ", "+ da + " " + mo + " " + fy + ". Day of Year is "+ DOY + ".</p>"  
+
+//Example 4: "Thursday, November 24, 2011"
+//todaysmessage = "<p id='todaysMessage'>"+ wd + ",<br/>"+ mo + " " + da + ", " + fy + "</p>"  
+
+//Example 5: (blank!)
+//todaysmessage = "<p id='todaysMessage'></p>"  
+
+
+
+</script>    
+    
+</head>
+
+<body>
+
+<div id="winewrap">
+<img src="magicpixel.gif" onload="InitTimer()" />
+
+<div id="mySecretVineyard" style="display:none;">
+
+
+<div class="winetext" id="day1" name="item">
+<div class="winename">Departures</div>
+<img src="departures1.jpg" />
+<h5>Why?</h5>
+<p>Departures, 2012 homepage revamp.</p>
+</div>
+
+<div class="winetext" id="day2" name="item">
+<div class="winename">Departures</div>
+<img src="departures2.jpg" />
+<h5>Why?</h5>
+<p>Departures, 2012 inside search.</p>
+</div>
+
+<div class="winetext" id="day3" name="Isle of Sissy">
+<div class="winename">T+L</div>
+<img src="travelandleisure1.jpg" />
+<h5>Why?</h5>
+<p>Travel + Leisure homepage redo 2012.</p>
+</div>
+
+
+<div class="winetext" id="day4" name="Isle of Sissy">
+<div class="winename">Daily</div>
+<img src="thedaily1.jpg" />
+<h5>Why?</h5>
+<p>The Daily, email newsleter, 2011 redesign.</p>
+</div>
+
+<div class="winetext" id="day5" name="Isle of Sissy">
+<div class="winename">item</div>
+<img src="foodandwine1.jpg" />
+<h5>Why?</h5>
+<p>Food and Wine, 2012 revamp.</p>
+</div>
+
+<div class="winetext" id="day6" name="Isle of Sissy">
+<div class="winename">old portfolio landing page</div>
+<a href="http://www.podsnap.net"><img src="explosive1.jpg" /></a>
+<h5>Why?</h5>
+<p>An old 2009 portfolio, AS3 + JS.</p>
+</div>
+
+<div class="winetext" id="day7" name="Isle of Sissy">
+<div class="winename">F&W</div>
+<img src="foodandwine2.jpg" />
+<h5>Why?</h5>
+<p>2012 Food and Wine revamp.</p>
+</div>
+
+<div class="winetext" id="day8" name="Isle of Sissy">
+<div class="winename">Departures</div>
+<img src="departures2.jpg" />
+<h5>Why?</h5>
+<p>2012 Departures homepage revamp.</p>
+</div>
+
+<div class="winetext" id="day9" name="Isle of Sissy">
+<div class="winename">Departures</div>
+<img src="departures3.jpg" />
+<h5>Why?</h5>
+<p>2012 Departures inside redesign, Shopping category.</p>
+</div>
+
+<div class="winetext" id="day10" name="item">
+<div class="winename">T+L</div>
+<img src="travelandleisure1.jpg" />
+<h5>What and Why?</h5>
+<p>Travel + Leisure</p>
+</div>
+
+<div class="winetext" id="day11" name="item">
+<div class="winename">Departures</div>
+<img src="departures2.jpg" />
+<h5>What and Why?</h5>
+<p>Departures, 2012 homepage.</p>
+</div>
+
+<div class="winetext" id="day12" name="item">
+<div class="winename">F&W</div>
+<img src="foodandwine2.jpg" />
+<h5>What and Why?</h5>
+<p>Food and Wine, 2012-13. </p>
+</div>
+
+<div class="winetext" id="day13" name="Isle of Sissy">
+<div class="winename">T+L</div>
+<img src="travelandleisure2.jpg" />
+<h5>What and Why?</h5>
+<p>Travel + Leisure homepage redo 2012.</p>
+</div>
+
+<div class="winetext" id="day14" name="Isle of Sissy">
+<div class="winename">F&W</div>
+<img src="foodandwine2.jpg" />
+<h5>What and Why?</h5>
+<p>Food and Wine, 2012-13.</p>
+</div>
+
+<div class="winetext" id="day15" name="Isle of Sissy">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com"><img src="departures3.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Departures revamp 2012, inside page.</p>
+</div>
+
+<div class="winetext" id="day16" name="Isle of Sissy">
+<div class="winename">F&W Daily</div>
+<img src="thedaily2.jpg" />
+<h5>Why?</h5>
+<p>The Daily e-mail newsletter, 2011 redesign.</p>
+</div>
+
+<div class="winetext" id="day17" name="Isle of Sissy">
+<div class="winename">Zimmern!</div>
+<a href="http://www.foodandwine.com/andrew-zimmern"><img src="fwzimmern1.jpg" /></a>
+<h5>What you show, Joe?</h5>
+<p>Andrew Zimmern page, 2011-2012.</p>
+</div>
+
+<div class="winetext" id="day18" name="Isle of Sissy">
+<div class="winename">Shop</div>
+<a href="http://www.foodandwine.com/shop"><img src="fwshop1.jpg" /></a>
+<h5>What??</h5>
+<p>Promotion page for FW books and wine, 2010-2012.</p>
+</div>
+
+<div class="winetext" id="day19" name="Isle of Sissy">
+<div class="winename">iPad and mobile promo</div>
+<a href="http://www.foodandwine.com/articles/ipad-faq"><img src="ipadad1.jpg" /></a>
+<h5>What?</h5>
+<p>Static ad from original FW iPad launch.</p>
+</div>
+
+
+<div class="winetext" id="day20" name="Isle of Scylla">
+<div class="winename">Classic in Aspen</div>
+<a href="aspen2011/speakers2.html" target="_blank"><img src="speakers2011_4.jpg" /></a><h5>What?</h5>
+<p>Speakers&rsquo; schedule and Itinerary-Builder module for 2011 Classic-in-Aspen site.</p>
+</div>
+
+<div class="winetext" id="day21" name="Isle of Scylla">
+<div class="winename">Departures</div>
+<img src="departures3.jpg" />
+<h5>Why?</h5>
+<p>2012 Departures inside redesign, Shopping category.</p>
+</div>
+
+<div class="winetext" id="day22" name="Isle of Scylla">
+<div class="winename">Demo</div>
+<a href="BOOT/index-Oct3_BOOT_Test.html"><img src="boot-oct3.jpg" /></a>
+<h5>Why?</h5>
+<p>Prototype for photo-contest design, built on Twitter Bootstrap with some jQuery; using public Flicker feed. </p>
+</div>
+
+<div class="winetext" id="day23" name="Isle of Scylla">
+<div class="winename">FW</div>
+<a href="http://www.foodandwine.com/the-peoples-pastry"><img src="pbnc1.jpg" /></a>
+<h5>What and Who?</h5>
+<p>People&rsquo;s Best New Pastry Chef, winner 2012.</p>
+</div>
+
+<div class="winetext" id="day24" name="Isle of Scylla">
+<div class="winename">Classic in Aspen</div>
+<a href="aspen2011/speakers2.html"><img src="speakers2011_3.jpg" /></a><h5>What?</h5>
+<p>Speakers&rsquo; schedule and Itinerary-Builder module for 2011 Classic-in-Aspen site.</p>
+</div>
+
+
+<div class="winetext" id="day25" name="Isle of Scylla">
+<div class="winename">Demo</div>
+<a href="BIB5/index-mod5.html"><img src="BIB5.jpg" /></a>
+<h5>Why?</h5>
+<p>Prototype for photo-contest design, built on Twitter Bootstrap with some Backbone; calling a specific photoset with Flicker API. </p>
+</div>
+
+
+<div class="winetext" id="day26" name="Isle of Scylla">
+<div class="winename">T+L</div>
+<a href="http://www.travelandleisure.com"><img src="travelandleisure2.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Travel + Leisure homepage redo 2012.</p>
+</div>
+
+
+
+
+<div class="winetext" id="day27" name="Isle of Scylla">
+<div class="winename">Nautica Sweeps</div>
+<a href="http://contests.about.com/od/vacationsweepstakes/p/110430travel-leisure-nautica-coastal-life-sweepstakes.htm"><img src="nautica1.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Nautica Coastal Life Sweepstakes</p>
+</div>
+
+<div class="winetext" id="day28" name="Isle of Scylla">
+<div class="winename">F&W Daily</div>
+<img src="thedaily2.jpg" />
+<h5>Why?</h5>
+<p>The Daily e-mail newsletter, 2011 redesign.</p>
+</div>
+
+<div class="winetext" id="day29" name="Isle of Scylla">
+<div class="winename">Zimmern!</div>
+<a href="http://www.foodandwine.com/andrew-zimmern"><img src="fwzimmern1.jpg" /></a>
+<h5>What you show, Joe?</h5>
+<p>Andrew Zimmern page, 2011-2012.</p>
+</div>
+
+<div class="winetext" id="day30" name="Isle of Scylla">
+<div class="winename">Shop</div>
+<a href="http://www.foodandwine.com/shop"><img src="fwshop1.jpg" /></a>
+<h5>What is this fairy form I see before me?</h5>
+<p>Promotion page for FW books and wine, 2010-2012.</p>
+</div>
+
+<div class="winetext" id="day31" name="Isle of Scylla">
+<div class="winename">Nautica Sweeps</div>
+<a href="http://contests.about.com/od/vacationsweepstakes/p/110430travel-leisure-nautica-coastal-life-sweepstakes.htm"><img src="nautica1.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Nautica Coastal Life Sweepstakes</p>
+</div>
+
+
+
+<div class="winetext" id="day32" name="Isle of Scylla">
+<div class="winename">T+L</div>
+<a href="http://www.travelandleisure.com"><img src="travelandleisure2.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Travel + Leisure homepage redo 2012.</p>
+</div>
+
+<div class="winetext" id="day33" name="Isle of Scylla">
+<div class="winename">Shop</div>
+<a href="http://www.foodandwine.com/shop"><img src="fwshop1.jpg" /></a>
+<h5>What is this fairy form I see before me?</h5>
+<p>Promotion page for FW books and wine, 2010-2012.</p>
+</div>
+
+
+<div class="winetext" id="day34" name="Isle of Scylla">
+<div class="winename">old portfolio landing page</div>
+<a href="http://www.podsnap.net" target="_blank"><img src="explosive1.jpg" /></a>
+<h5>Why?</h5>
+<p>An old 2009 portfolio, AS3 + JS.</p>
+</div>
+
+<div class="winetext" id="day35" name="Isle of Scylla">
+<div class="winename">Nautica Sweeps</div>
+<a href="http://contests.about.com/od/vacationsweepstakes/p/110430travel-leisure-nautica-coastal-life-sweepstakes.htm" target="_blank"><img src="nautica1.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Nautica Coastal Life Sweepstakes</p>
+</div>
+
+<div class="winetext" id="day36" name="Isle of Scylla">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com" target="_blank"><img src="departures3.jpg" /></a>
+<h5>Why?</h5>
+<p>2012 Departures inside redesign, Shopping category.</p>
+</div>
+
+<div class="winetext" id="day37" name="Isle of Scylla">
+<div class="winename">Demo</div>
+<a href="BOOT/index-Oct3_BOOT_Test.html" target="_blank"><img src="boot-oct3.jpg" /></a>
+<h5>Why?</h5>
+<p>Prototype for photo-contest design, built on Twitter Bootstrap with some jQuery; using public Flicker feed. </p>
+</div>
+
+<div class="winetext" id="day38" name="item">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com" target="_blank"><img src="departures1.jpg" /></a>
+<h5>Why?</h5>
+<p>Departures, 2012 homepage revamp.</p>
+</div>
+
+<div class="winetext" id="day39" name="item">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com/shopping" target="_blank"><img src="departures3.jpg" /></a>
+<h5>Why?</h5>
+<p>Departures, 2012 inside search.</p>
+</div>
+
+<div class="winetext" id="day40" name="Isle of Scylla">
+<div class="winename">Nautica Sweeps</div>
+<a href="http://contests.about.com/od/vacationsweepstakes/p/110430travel-leisure-nautica-coastal-life-sweepstakes.htm" target="_blank"><img src="nautica1.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Nautica Coastal Life Sweepstakes</p>
+</div>
+
+<div class="winetext" id="day41" name="item">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com" target="_blank"><img src="departures2.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Departures, 2012 homepage.</p>
+</div>
+
+<div class="winetext" id="day42" name="item">
+<div class="winename">F&W</div>
+<a href="http://www.travelandleisure.com" target="_blank"><img src="travelandleisure2.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Travel + Leisure, 2012-13. </p>
+</div>
+
+<div class="winetext" id="day43" name="Isle of Scylla">
+<div class="winename">Demo</div>
+<a href="BOOT/index-Oct3_BOOT_Test.html" target="_blank"><img src="boot-oct3.jpg" /></a>
+<h5>Why?</h5>
+<p>Prototype for photo-contest design, built on Twitter Bootstrap with some jQuery; using public Flicker feed. </p>
+</div>
+
+<div class="winetext" id="day44" name="Isle of Scylla">
+<div class="winename">F&W</div>
+<a href="http://www.foodandwine.com" target="_blank"><img src="foodandwine1.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Food and Wine, 2012-13.</p>
+</div>
+
+<div class="winetext" id="day45" name="Isle of Scylla">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com" target="_blank"><img src="departures3.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Departures revamp 2012, inside page.</p>
+</div>
+
+<div class="winetext" id="day46" name="aug09">
+<div class="winename">Matching Game</div>
+<a href="http://www.podsnap.net/cdm/AugustCDMBanner.html" target="_blank"><img src="augcdmbanner.jpg" /></a>
+<h5>Why banner?</h5>
+<p>Landing page banner, pharma ad firm 2009.</p>
+</div>
+
+<div class="winetext" id="day47" name="sep09">
+<div class="winename">Matching Game</div>
+<a href="http://www.podsnap.net/cdm/SeptemberCDMBanner.html" target="_blank"><img src="sepcdmbanner.jpg" /></a>
+<h5>Why another banner?</h5>
+<p>Landing page banner, pharma ad firm 2009.</p>
+</div>
+
+<div class="winetext" id="day48" name="Recipe Widget">
+<div class="winename">2011 Recipe Widget</div>
+<a href="recipe_finder_widget/deploy/swf/recipe_finder_widget2.swf" target="_blank"><img src="recipe_widget.jpg" /></a>
+<h5>Why a Widget?</h5>
+<p>Very extensive XML and AS3 files make up this deceptively simple-looking F&amp;W recipe selector. I made versions for Thanksgiving and Christmas.</p>
+</div>
+
+<div class="winetext" id="day49" name="Wakefulness">
+<div class="winename">Matching Game</div>
+<a href="http://www.pbolly.com/pharmaworld/jetlagremedy/index.html" target="_blank"><img src="nuvigil.jpg" /></a>
+<h5>Why a Game?</h5>
+<p>Part of a campaign pitch to a pharma company, 2010.</p>
+</div>
+
+<div class="winetext" id="day50" name="Stiff Me">
+<div class="winename">2009</div>
+<a href="http://www.yl.nbnm.net/" target="_blank"><img src="ylhomepage.jpg" /></a>
+<h5>Why Yoga?</h5>
+<p>Freelance project 2009, one of three for which I got stiffed in that blighted year. <a href="http://www.yogalocal.com" target="_blank">YL site.</a></p>
+</div>
+
+<div class="winetext" id="day51" name="Stiff Me Again">
+<div class="winename">2009</div>
+<a href="http://www.iyoga.nbnm.net/"><img src="ylblog.jpg" /></a>
+<h5>Once Again, Why Yoga?</h5>
+<p>Freelance project 2009, the WordPress blog link to <a href="http://www.yogalocal.com">YL site.</a></p>
+</div>
+
+<div class="winetext" id="day52" name="Worst Job Ever">
+<div class="winename">Caduet by Pfizer!</div>
+<a href="http://www.pbolly.com/pharmaworld/noggypie.swf" target="_blank"><img src="noggiepie.jpg" /></a>
+<h5>What you lookin at?</h5>
+<p>Noggiepie for Pfizer 2009</p>
+</div>
+
+<div class="winetext" id="day53" name="Isle of Scylla">
+<div class="winename">Shop</div>
+<a href="http://www.foodandwine.com/shop" target="_blank"><img src="fwshop1.jpg" /></a>
+<h5>What??</h5>
+<p>Promotion page for FW books and wine, 2010-2012.</p>
+
+<div class="winetext" id="day53" name="Isle of Murgatroyd" >
+<div class="winename">Thunderbird Farms</div>
+<img src="day298.jpg" />
+<h5>Why?</h5>
+<p>A white wine with the original grittyness of the first vineyards.</p>
+</div>
+
+<div class="winetext" id="day54" name="Isle of Skippy" >
+<div class="winename">Moran Tugboat Red</div>
+<img src= "day299.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day55" name="Isle of Sissy">
+<div class="winename">The Most Happy Fella Red</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>Best plonk in the whole Napa Valley!</p>
+</div>
+
+<div class="winetext" id="day56" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day326.jpg" />
+<h5>Why?</h5>
+<p>Just the thing with a chili dog.</p>
+</div>
+
+<div class="winetext" id="day57" name="Isle of Sissy">
+<div class="winename">Red Red Claret on Tap</div>
+<img src="day327.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day58" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day328.jpg" />
+<h5>Why?</h5>
+<p>Just the thing with a chili dog.</p>
+</div>
+
+<div class="winetext" id="day59" name="Isle of Sissy">
+<div class="winename">Chalk Hill Furthable</div>
+<img src="day329.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day60" name="Isle of Sissy">
+<div class="winename">The Most Happy Fella Pinot Noir</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>They knew what they wanted.</p>
+</div>
+
+<div class="winetext" id="day61" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day331.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day62" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day332.jpg" />
+<h5>Why?</h5>
+<p>Best south of Hudson's Bay.</p>
+</div>
+
+<div class="winetext" id="day63" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day333.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day64" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day334.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day65" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day311.jpg" />
+<h5>Why?</h5>
+<p>Just the thing with a plate of sugar cookies.</p>
+</div>
+
+<div class="winetext" id="day66" name="Isle of Sissy">
+<div class="winename">2007 Clos La Chance Santa Cruz Mountains Chardonnay ($22)</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>The Santa Cruz Mountains may be the most underrated region in California.</p>
+</div>
+
+<div class="winetext" id="day67" name="Isle of Sissy">
+<div class="winename">Red Red Claret on Tap</div>
+<img src="day313.jpg" />
+<h5>Why?</h5>
+<p>Just the thing with a chili dog.</p>
+</div>
+
+<div class="winetext" id="day68" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day314.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day69" name="Chehalem 3">
+<div class="winename">2009 Chehalem 3 Vineyard Pinot Gris ($17)</div>
+<img src="day339.jpg" />
+<h5>Why?</h5>
+<p>Chehalem is one of 14 Oregon producers that completed the Carbon Neutral Challenge, helping reduce winery greenhouse-gas emissions.</p>
+</div>
+
+<div class="winetext" id="day70" name="Isle of Sissy">
+<div class="winename">Good Wine</div>
+<img src="day320.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Plattsburg.</p>
+</div>
+
+<div class="winetext" id="day71" name="Isle of Sissy">
+<div class="winename">Red Red Claret on Tap</div>
+<img src="day310.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Jamestown, NY.</p>
+</div>
+
+<div class="winetext" id="day72" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day311.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Schenectady.</p>
+</div>
+
+<div class="winetext" id="day73" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day315.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Colonie.</p>
+</div>
+
+
+<div class="winetext" id="day74" name="Isle of Sissy">
+<div class="winename">The Most Happy Fella Pinot Noir</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>They knew what they wanted.</p>
+</div>
+
+<div class="winetext" id="day75" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="drycreek.jpg" />
+<h5>Why?</h5>
+<p>Excellent copy written by excellent folks.</p>
+</div>
+
+<div class="winetext" id="day76" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="healdsberg.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Galway, NY.</p>
+</div>
+
+<div class="winetext" id="day77" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="closlachance.jpg" />
+<h5>Why?</h5>
+<p>Excellent copy written by excellent folks.</p>
+</div>
+
+<div class="winetext" id="day78" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day327.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Saratoga Springs.</p>
+</div>
+
+<div class="winetext" id="day79" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day310.jpg" />
+<h5>Why?</h5>
+<p>Excellent copy written by excellent folks.</p>
+</div>
+
+<div class="winetext" id="day80" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day320.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Skaneateles.</p>
+</div>
+
+<div class="winetext" id="day81" name="Isle of Sissy">
+<div class="winename">Red Red Claret on Tap</div>
+<img src="day310.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Ithaca.</p>
+</div>
+
+<div class="winetext" id="day82" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day311.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Syracuse.</p>
+</div>
+
+<div class="winetext" id="day83" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day315.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Watertown.</p>
+</div>
+
+
+<div class="winetext" id="day84" name="Isle of Sissy">
+<div class="winename">The Most Happy Fella Pinot Noir</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>They knew what they wanted.</p>
+</div>
+
+<div class="winetext" id="day85" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="drycreek.jpg" />
+<h5>Why?</h5>
+<p>Excellent copy written by excellent folks.</p>
+</div>
+
+<div class="winetext" id="day86" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="healdsberg.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Romulus, NY.</p>
+</div>
+
+<div class="winetext" id="day87" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="closlachance.jpg" />
+<h5>Why?</h5>
+<p>Excellent copy written by excellent folks.</p>
+</div>
+
+<div class="winetext" id="day88" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day327.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Fort Ticonderoga.</p>
+</div>
+
+<div class="winetext" id="day89" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day310.jpg" />
+<h5>Why?</h5>
+<p>Excellent copy written by excellent folks.</p>
+</div>
+
+
+
+
+<div class="winetext" id="day98" name="Isle of Murgatroyd" >
+<div class="winename">Thunderbird Farms</div>
+<img src="day298.jpg" />
+<h5>Why?</h5>
+<p>A white wine with the original grittyness of the first vineyards.</p>
+</div>
+
+<div class="winetext" id="day99" name="Isle of Gum" >
+<div class="winename">Thunderbird Farms</div>
+<img src="day301.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+
+<div class="winetext" id="day100" name="Isle of Skouras">
+<div class="winename">Thunderbird Farms</div>
+<img src="day300.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day101" name="Isle of Gum" >
+<div class="winename">Thunderbird Farms</div>
+<img src="day301.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day102" name="Isle of Skags" >
+<div class="winename">Thunderbird Farms</div>
+<img src="day302.jpg" />
+<h5>Why?</h5>
+<p>A white wine with the original grittyness of the first vineyards.</p>
+</div>
+
+<div class="winetext" id="day103" name="Italian Swiss Colony Ros&eacute;s" >
+<div class="winename">Italian Swiss Colony Ros&eacute;</div>
+<img src="day303.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day104" name="Isle of Sissy" >
+<div class="winename">Hans Spritzer</div>
+<img src="ehlers.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day105" name="Isle of Sissy">
+<div class="winename">Papa&rsquo;s Grappa</div>
+<img src="closlachance.jpg" />
+<h5>Why?</h5>
+<p>From the Hemingway heirloom vines of Ketchum, Idaho.</p>
+</div>
+
+<div class="winetext" id="day106" name="Isle of Scilly">
+<div class="winename">Chalky Rose of Sharon</div>
+<img src="mondavi1.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day107" name="Isle of the Dead">
+<div class="winename">Chalky Rose Chancre</div>
+<img src="terradora.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day108" name="Islet of Langerhans" >
+<div class="winename">Chalky White Rosacea</div>
+<img src="almarosa.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day109" name="Isle of Ray">
+<div class="winename">Chalky White Plonk</div>
+<img src="chatdissan.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day110" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="leshalos.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day111" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="healdsberg.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day112" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="day312.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day113" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="day313.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day114" name="Isle of Sissy">
+<div class="winename">What You Need</div>
+<img src="day314.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day115" name="Isle of Sissy">
+<div class="winename">Spumoni Gardens</div>
+<img src="day315.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day116" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day316.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day117" name="Isle of Sissy">
+<div class="winename">Popo Puffer</div>
+<img src="day316.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day118" name="Isle of Sissy">
+<div class="winename">What You Need</div>
+<img src="day318.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day119" name="Isle of Sissy">
+<div class="winename">Spumoni Gardens</div>
+<img src="day319.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day120" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day320.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day121" name="Isle of Sissy">
+<div class="winename">Popo Puffer</div>
+<img src="day321.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day122" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="day322.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day123" name="Isle of Murgatroyd" >
+<div class="winename">Thunderbird Farms</div>
+<img src="day298.jpg" />
+<h5>Why?</h5>
+<p>A white wine with the original grittyness of the first vineyards.</p>
+</div>
+
+<div class="winetext" id="day124" name="Isle of Skippy" >
+<div class="winename">Moran Tugboat Red</div>
+<img src= "day299.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day125" name="Isle of Sissy">
+<div class="winename">The Most Happy Fella Red</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>Best plonk in the whole Napa Valley!</p>
+</div>
+
+<div class="winetext" id="day126" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day326.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day127" name="Isle of Sissy">
+<div class="winename">Red Red Claret on Tap</div>
+<img src="day327.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day128" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day328.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day129" name="Isle of Sissy">
+<div class="winename">Chalk Hill Furthable</div>
+<img src="day329.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day130" name="Isle of Sissy">
+<div class="winename">The Most Happy Fella Pinot Noir</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>They knew what they wanted.</p>
+</div>
+
+<div class="winetext" id="day131" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day331.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day132" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day332.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day133" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day333.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day134" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day334.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day135" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day311.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day136" name="Isle of Sissy">
+<div class="winename">2007 Clos La Chance Santa Cruz Mountains Chardonnay ($22)</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>The Santa Cruz Mountains may be the most underrated region in California.</p>
+</div>
+
+<div class="winetext" id="day137" name="Isle of Sissy">
+<div class="winename">Red Red Claret on Tap</div>
+<img src="day313.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day138" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day314.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day139" name="Chehalem 3">
+<div class="winename">2009 Chehalem 3 Vineyard Pinot Gris ($17)</div>
+<img src="day339.jpg" />
+<h5>Why?</h5>
+<p>Chehalem is one of 14 Oregon producers that completed the Carbon Neutral Challenge, helping reduce winery greenhouse-gas emissions.</p>
+</div>
+
+
+<div class="winetext" id="day140" name="Isle of Skippy" >
+<div class="winename">Moran Tugboat Red</div>
+<img src= "day299.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+
+
+<div class="winetext" id="day141" name="Isle of Gum" >
+<div class="winename">Thunderbird Farms</div>
+<img src="day301.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day142" name="Isle of Skags" >
+<div class="winename">Thunderbird Farms</div>
+<img src="day302.jpg" />
+<h5>Why?</h5>
+<p>A white wine with the original grittyness of the first vineyards.</p>
+</div>
+
+<div class="winetext" id="day143" name="Italian Swiss Colony Ros&eacute;s" >
+<div class="winename">Italian Swiss Colony Ros&eacute;</div>
+<img src="day303.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day144" name="Isle of Sissy" >
+<div class="winename">Hans Spritzer</div>
+<img src="ehlers.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day145" name="Isle of Sissy">
+<div class="winename">Papa&rsquo;s Grappa</div>
+<img src="closlachance.jpg" />
+<h5>Why?</h5>
+<p>From the Hemingway heirloom vines of Ketchum, Idaho.</p>
+</div>
+
+<div class="winetext" id="day146" name="Isle of Scilly">
+<div class="winename">Chalky Rose of Sharon</div>
+<img src="mondavi1.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day147" name="Isle of the Dead">
+<div class="winename">Chalky Rose Chancre</div>
+<img src="terradora.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day148" name="Islet of Langerhans" >
+<div class="winename">Chalky White Rosacea</div>
+<img src="almarosa.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day149" name="Isle of Ray">
+<div class="winename">Chalky White Plonk</div>
+<img src="chatdissan.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day150" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="leshalos.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day151" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="healdsberg.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day152" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="day312.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day153" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="day313.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day154" name="Isle of Sissy">
+<div class="winename">What You Need</div>
+<img src="day314.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day155" name="Isle of Sissy">
+<div class="winename">Spumoni Gardens</div>
+<img src="day315.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day156" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day316.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day157" name="Isle of Sissy">
+<div class="winename">Popo Puffer</div>
+<img src="day316.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day158" name="Isle of Sissy">
+<div class="winename">What You Need</div>
+<img src="day318.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day159" name="Isle of Sissy">
+<div class="winename">Spumoni Gardens</div>
+<img src="day319.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day160" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day320.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day161" name="Isle of Sissy">
+<div class="winename">Popo Puffer</div>
+<img src="day321.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day162" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="day322.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day163" name="Isle of Murgatroyd" >
+<div class="winename">Thunderbird Farms</div>
+<img src="day298.jpg" />
+<h5>Why?</h5>
+<p>A white wine with the original grittyness of the first vineyards.</p>
+</div>
+
+<div class="winetext" id="day164" name="Isle of Skippy" >
+<div class="winename">Moran Tugboat Red</div>
+<img src= "day299.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day165" name="Isle of Sissy">
+<div class="winename">The Most Happy Fella Red</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>Best plonk in the whole Napa Valley!</p>
+</div>
+
+<div class="winetext" id="day166" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day326.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day167" name="Isle of Sissy">
+<div class="winename">Red Red Claret on Tap</div>
+<img src="day327.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day168" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day328.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day169" name="Isle of Sissy">
+<div class="winename">Chalk Hill Furthable</div>
+<img src="day329.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day160" name="Isle of Sissy">
+<div class="winename">The Most Happy Fella Pinot Noir</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>They knew what they wanted.</p>
+</div>
+
+<div class="winetext" id="day161" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day331.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day162" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day332.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day163" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day333.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day164" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day334.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day165" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day311.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+
+<div class="winetext" id="day166" name="Isle of Scilly">
+<div class="winename">Chalky Rose of Sharon</div>
+<img src="mondavi1.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day167" name="Isle of the Dead">
+<div class="winename">Chalky Rose Chancre</div>
+<img src="terradora.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day168" name="Islet of Langerhans" >
+<div class="winename">Chalky White Rosacea</div>
+<img src="almarosa.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day169" name="Isle of Ray">
+<div class="winename">Chalky White Plonk</div>
+<img src="chatdissan.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day170" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="leshalos.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day171" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="healdsberg.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+
+<div class="winetext" id="day172" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day311.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Schenectady.</p>
+</div>
+
+<div class="winetext" id="day173" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day315.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Colonie.</p>
+</div>
+
+
+<div class="winetext" id="day174" name="Isle of Sissy">
+<div class="winename">The Most Happy Fella Pinot Noir</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>They knew what they wanted.</p>
+</div>
+
+<div class="winetext" id="day175" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="drycreek.jpg" />
+<h5>Why?</h5>
+<p>Excellent copy written by excellent folks.</p>
+</div>
+
+<div class="winetext" id="day176" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="healdsberg.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Galway, NY.</p>
+</div>
+
+<div class="winetext" id="day177" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="closlachance.jpg" />
+<h5>Why?</h5>
+<p>Excellent copy written by excellent folks.</p>
+</div>
+
+<div class="winetext" id="day178" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day327.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Saratoga Springs.</p>
+</div>
+
+<div class="winetext" id="day179" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day310.jpg" />
+<h5>Why?</h5>
+<p>Excellent copy written by excellent folks.</p>
+</div>
+
+<div class="winetext" id="day180" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day320.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Skaneateles.</p>
+</div>
+
+
+
+
+
+
+<div class="winetext" id="day181" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="drycreek.jpg" />
+<h5>Why?</h5>
+<p>Excellent copy written by excellent folks.</p>
+</div>
+
+<div class="winetext" id="day182" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day311.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Syracuse.</p>
+</div>
+
+<div class="winetext" id="day183" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day315.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Watertown.</p>
+</div>
+
+
+<div class="winetext" id="day184" name="Isle of Sissy">
+<div class="winename">The Most Happy Fella Pinot Noir</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>They knew what they wanted.</p>
+</div>
+
+<div class="winetext" id="day185" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="drycreek.jpg" />
+<h5>Why?</h5>
+<p>Excellent copy written by excellent folks.</p>
+</div>
+
+<div class="winetext" id="day186" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="healdsberg.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Romulus, NY.</p>
+</div>
+
+<div class="winetext" id="day187" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="closlachance.jpg" />
+<h5>Why?</h5>
+<p>Excellent copy written by excellent folks.</p>
+</div>
+
+<div class="winetext" id="day188" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day327.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Fort Ticonderoga.</p>
+</div>
+
+<div class="winetext" id="day189" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day310.jpg" />
+<h5>Why?</h5>
+<p>Excellent copy written by excellent folks.</p>
+</div>
+
+
+<div class="winetext" id="day190" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="healdsberg.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Galway, NY.</p>
+</div>
+
+<div class="winetext" id="day191" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="healdsberg.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+
+<div class="winetext" id="day192" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day311.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Schenectady.</p>
+</div>
+
+<div class="winetext" id="day193" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day315.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Colonie.</p>
+</div>
+
+
+<div class="winetext" id="day194" name="Isle of Sissy">
+<div class="winename">The Most Happy Fella Pinot Noir</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>They knew what they wanted.</p>
+</div>
+
+<div class="winetext" id="day195" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="drycreek.jpg" />
+<h5>Why?</h5>
+<p>Excellent copy written by excellent folks.</p>
+</div>
+
+<div class="winetext" id="day196" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="healdsberg.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Galway, NY.</p>
+</div>
+
+<div class="winetext" id="day197" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="closlachance.jpg" />
+<h5>Why?</h5>
+<p>Excellent copy written by excellent folks.</p>
+</div>
+
+<div class="winetext" id="day198" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day327.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Saratoga Springs.</p>
+</div>
+
+<div class="winetext" id="day199" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day310.jpg" />
+<h5>Why?</h5>
+<p>Excellent copy written by excellent folks.</p>
+</div>
+
+<div class="winetext" id="day200" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day320.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from Skaneateles.</p>
+</div>
+
+
+<div class="winetext" id="day201" name="Isle of Gum" >
+<div class="winename">Thunderbird Farms</div>
+<img src="day301.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day202" name="Isle of Skags" >
+<div class="winename">Thunderbird Farms</div>
+<img src="day302.jpg" />
+<h5>Why?</h5>
+<p>A white wine with the original grittyness of the first vineyards.</p>
+</div>
+
+<div class="winetext" id="day203" name="Italian Swiss Colony Ros&eacute;s" >
+<div class="winename">Italian Swiss Colony Ros&eacute;</div>
+<img src="day303.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day204" name="Isle of Sissy" >
+<div class="winename">Hans Spritzer</div>
+<img src="ehlers.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day205" name="Isle of Sissy">
+<div class="winename">Papa&rsquo;s Grappa</div>
+<img src="closlachance.jpg" />
+<h5>Why?</h5>
+<p>From the Hemingway heirloom vines of Ketchum, Idaho.</p>
+</div>
+
+<div class="winetext" id="day206" name="Isle of Scilly">
+<div class="winename">Chalky Rose of Sharon</div>
+<img src="mondavi1.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day207" name="Isle of the Dead">
+<div class="winename">Chalky Rose Chancre</div>
+<img src="terradora.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day208" name="Islet of Langerhans" >
+<div class="winename">Chalky White Rosacea</div>
+<img src="almarosa.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day209" name="Isle of Ray">
+<div class="winename">Chalky White Plonk</div>
+<img src="chatdissan.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day210" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="leshalos.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day211" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="healdsberg.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day212" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="day312.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day213" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="day313.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day214" name="Isle of Sissy">
+<div class="winename">What You Need</div>
+<img src="day314.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day215" name="Isle of Sissy">
+<div class="winename">Spumoni Gardens</div>
+<img src="day315.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day216" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day316.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day217" name="Isle of Sissy">
+<div class="winename">Popo Puffer</div>
+<img src="day316.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day218" name="Isle of Sissy">
+<div class="winename">What You Need</div>
+<img src="day318.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day219" name="Isle of Sissy">
+<div class="winename">Spumoni Gardens</div>
+<img src="day319.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day220" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day320.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day221" name="Isle of Sissy">
+<div class="winename">Popo Puffer</div>
+<img src="day321.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day222" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="day322.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day223" name="Isle of Murgatroyd" >
+<div class="winename">Thunderbird Farms</div>
+<img src="day298.jpg" />
+<h5>Why?</h5>
+<p>A white wine with the original grittyness of the first vineyards.</p>
+</div>
+
+<div class="winetext" id="day224" name="Isle of Skippy" >
+<div class="winename">Moran Tugboat Red</div>
+<img src= "day299.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day225" name="Isle of Sissy">
+<div class="winename">The Most Happy Fella Red</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>Best plonk in the whole Napa Valley!</p>
+</div>
+
+<div class="winetext" id="day226" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day326.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day227" name="Isle of Sissy">
+<div class="winename">Red Red Claret on Tap</div>
+<img src="day327.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day228" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day328.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day229" name="Isle of Sissy">
+<div class="winename">Chalk Hill Furthable</div>
+<img src="day329.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day230" name="Isle of Skouras">
+<div class="winename">Thunderbird Farms</div>
+<img src="day300.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day231" name="Isle of Gum" >
+<div class="winename">Thunderbird Farms</div>
+<img src="day301.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day232" name="Isle of Skags" >
+<div class="winename">Thunderbird Farms</div>
+<img src="day302.jpg" />
+<h5>Why?</h5>
+<p>A white wine with the original grittyness of the first vineyards.</p>
+</div>
+
+
+
+
+
+<div class="winetext" id="day300" name="Isle of Skouras">
+<div class="winename">Thunderbird Farms</div>
+<img src="day300.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day301" name="Isle of Gum" >
+<div class="winename">Thunderbird Farms</div>
+<img src="day301.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day302" name="Isle of Skags" >
+<div class="winename">Thunderbird Farms</div>
+<img src="day302.jpg" />
+<h5>Why?</h5>
+<p>A white wine with the original grittyness of the first vineyards.</p>
+</div>
+
+<div class="winetext" id="day303" name="Italian Swiss Colony Ros&eacute;s" >
+<div class="winename">Italian Swiss Colony Ros&eacute;</div>
+<img src="day303.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day304" name="Isle of Sissy" >
+<div class="winename">Hans Spritzer</div>
+<img src="ehlers.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day305" name="Isle of Sissy">
+<div class="winename">Papa&rsquo;s Grappa</div>
+<img src="closlachance.jpg" />
+<h5>Why?</h5>
+<p>From the Hemingway heirloom vines of Ketchum, Idaho.</p>
+</div>
+
+<div class="winetext" id="day306" name="Isle of Scilly">
+<div class="winename">Chalky Rose of Sharon</div>
+<img src="mondavi1.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day307" name="Isle of the Dead">
+<div class="winename">Chalky Rose Chancre</div>
+<img src="terradora.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day308" name="Islet of Langerhans" >
+<div class="winename">Chalky White Rosacea</div>
+<img src="almarosa.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day309" name="Isle of Ray">
+<div class="winename">Chalky White Plonk</div>
+<img src="chatdissan.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day310" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="leshalos.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day311" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="healdsberg.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day312" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="day312.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day313" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="day313.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day314" name="Isle of Sissy">
+<div class="winename">What You Need</div>
+<img src="day314.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day315" name="Isle of Sissy">
+<div class="winename">Spumoni Gardens</div>
+<img src="day315.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day316" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day316.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day317" name="Isle of Sissy">
+<div class="winename">Popo Puffer</div>
+<img src="day316.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day318" name="Isle of Sissy">
+<div class="winename">What You Need</div>
+<img src="day318.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day319" name="Isle of Sissy">
+<div class="winename">Spumoni Gardens</div>
+<img src="day319.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day320" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day320.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day321" name="Isle of Sissy">
+<div class="winename">Popo Puffer</div>
+<img src="day321.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day322" name="Isle of Sissy">
+<div class="winename">Chalky White Spumoni</div>
+<img src="day322.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day323" name="Isle of Murgatroyd" >
+<div class="winename">Thunderbird Farms</div>
+<img src="day298.jpg" />
+<h5>Why?</h5>
+<p>A white wine with the original grittyness of the first vineyards.</p>
+</div>
+
+<div class="winetext" id="day324" name="Isle of Skippy" >
+<div class="winename">Moran Tugboat Red</div>
+<img src= "day299.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day325" name="Isle of Sissy">
+<div class="winename">The Most Happy Fella Red</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>Best plonk in the whole Napa Valley!</p>
+</div>
+
+<div class="winetext" id="day326" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day326.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day327" name="Isle of Sissy">
+<div class="winename">Red Red Claret on Tap</div>
+<img src="day327.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day328" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day328.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day329" name="Isle of Sissy">
+<div class="winename">Chalk Hill Furthable</div>
+<img src="day329.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day330" name="Isle of Sissy">
+<div class="winename">The Most Happy Fella Pinot Noir</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>They knew what they wanted.</p>
+</div>
+
+<div class="winetext" id="day331" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day331.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day332" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day332.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day333" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day333.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day334" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day334.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day335" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day311.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day336" name="Isle of Sissy">
+<div class="winename">2007 Clos La Chance Santa Cruz Mountains Chardonnay ($22)</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>The Santa Cruz Mountains may be the most underrated region in California.</p>
+</div>
+
+<div class="winetext" id="day337" name="Isle of Sissy">
+<div class="winename">Red Red Claret on Tap</div>
+<img src="day313.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day338" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day314.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day339" name="Chehalem 3">
+<div class="winename">2009 Chehalem 3 Vineyard Pinot Gris ($17)</div>
+<img src="day339.jpg" />
+<h5>Why?</h5>
+<p>Chehalem is one of 14 Oregon producers that completed the Carbon Neutral Challenge, helping reduce winery greenhouse-gas emissions.</p>
+</div>
+
+
+
+
+
+
+
+<div class="winetext" id="day340" name="Isle of Sissy">
+<div class="winename">2005 Chateau Lagrezette Zette Malbec ($12)</div>
+<img src="day340.jpg" />
+<h5>Why?</h5>
+<p>If you love Malbec, try the original: Winemakers in France’s Cahors were making great Malbec when Argentina was still ruled by the Perons.</p>
+</div>
+
+<div class="winetext" id="day341" name="Isle of Sissy">
+<div class="winename">2008 Vin du Lac Lehm Dry Riesling ($25)</div>
+<img src="day341.jpg" />
+<h5>Why?</h5>
+<p>Washington’s Lake Chelan region is making a bid to become the next great US Riesling source.</p>
+</div>
+
+<div class="winetext" id="day342" name="Isle of Sissy">
+<div class="winename">2007 Melka Metisse Jumping Goat Vineyard ($125)</div>
+<img src="day332.jpg" />
+<h5>Why?</h5>
+<p>Star winemaking consultant Philippe Melka is making his own superlative Cabernet Sauvignons.</p>
+</div>
+
+<div class="winetext" id="day343" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day333.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day344" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day334.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day345" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day311.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day346" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day347" name="Isle of Sissy">
+<div class="winename">Red Red Claret on Tap</div>
+<img src="day313.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day348" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day314.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day349" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day315.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+
+
+
+
+<div class="winetext" id="day350" name="Isle of Sissy">
+<div class="winename">The Most Happy Fella Pinot Noir</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>They knew what they wanted.</p>
+</div>
+
+<div class="winetext" id="day351" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day331.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day352" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day332.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day353" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day333.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day354" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day334.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day355" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day311.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day356" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day357" name="Isle of Sissy">
+<div class="winename">Red Red Claret on Tap</div>
+<img src="day313.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day358" name="Isle of Sissy">
+<div class="winename">Sideways Table Red</div>
+<img src="day314.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day359" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day315.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+
+
+
+<div class="winetext" id="day360" name="Isle of Sissy">
+<div class="winename">The Most Happy Fella Pinot Noir</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>They knew what they wanted.</p>
+</div>
+
+<div class="winetext" id="day361" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day331.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day362" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day332.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day363" name="Isle of Sissy">
+<div class="winename">Who Yo Daddy</div>
+<img src="day323.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day364" name="Isle of Sissy">
+<div class="winename">Try the Wine</div>
+<img src="day314.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day365" name="item">
+<div class="winename">item</div>
+<img src="departures2.jpg" />
+<h5>Why?</h5>
+<p>Departures, inside search page.</p>
+</div>
+
+<div class="winetext" id="day366" name="item">
+<div class="winename">item</div>
+<img src="departures1.jpg" />
+<h5>Why?</h5>
+<p>Departures, homepage revamp 2012.</p>
+</div>
+
+
+
+
+<div class="winetext" id="dummyWine" name="no-item" >
+<div class="winename">item</div>
+<img src="day000.jpg" />
+<h5>Why Not?</h5>
+<p>Either you&rsquo;ve gone too far into the past...or there's just no content for this date!</p>
+</div>
+
+</div>
+
+<div id="drinkthisnow">
+
+<div id="wine-caddy">
+<h1>Drink This Now.</h1>
+
+<div id="goEarlier" name="arrow"  class="arrows" onClick="ShowPreviousDayWine()">
+<a href="#"></a></div>
+
+<div id="goLater" name="arrow"  class="arrows" onClick="ShowNextDayWine()"><a href="#"></a></div>
+
+<div class="toptext">
+<p>This is a toy I originally built (<em>mostly in raw javascript</em>) as a daily-wine caddy for our executive bottle editor, Gunnar Poetaster. You can look <strong>backwards</strong> for a little while . . . but you can&rsquo;t see <strong>tomorrow!</strong> Just like real life.<br/></p>
+</div>
+
+<div class="daily-wine" id="daily-wine">
+</div>
+
+</div> <!-- /wine-caddy -->
+</div> <!-- /drinkthisnow-->
+<div id="faq-bar">
+<h1>FAQ</h1>
+<p>Does this thing have any earthly use?</p>
+<p>Why isn't this just a slideshow?</p>
+<p>Why couldn't you build it in jQuery?</p>
+<p>Does it use backbone.js?</p>
+<p>Is it animal?</p>
+<p>Can you eat it?</p>
+<br/>
+<p>Serious questions cheerfully addressed.</p>
+
+<img src="Richmond_1865.jpg" alt="richmond65" />
+</div><!-- /faq-bar -->
+</div> <!-- /winewrap -->
+
+
+</body>
+</html>

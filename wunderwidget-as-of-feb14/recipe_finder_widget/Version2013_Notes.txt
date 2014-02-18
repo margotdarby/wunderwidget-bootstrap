@@ -1,0 +1,10 @@
+Version 2013 notes
+
+- changed name of xml file in config.as to th2010rev.xml
+- duplicated the xml, renamed, replaced all ingredient pictures with a single image of slider
+- duplicating the fla (in deploy/lib/)
+
+
+- placing working deploy files in amexpub.net/samples/recipe_widget/
+
+- damn thing doesn't work remotely...why why why

@@ -1,0 +1,72 @@
+//added 3 December, from worldofwebcraft...
+
+
+/* Removes the outline from inputs and textareas when you focus them
+    e.g. if you click on search input here in WOW you can see orange outline, this is what gets     removed or changed. (if needed)
+ */
+:focus {
+outline: none;
+}
+
+/* Same stuff as prev, but for mozilla firefox; works on ff8, not w/ 3.6.3 */
+::-moz-focus-inner {
+border: 0;
+}
+
+/* You know when you highlight text it usually has that blue fill, well with this you can change        it's color
+*/
+::selection {
+background: #cdebef;
+color: #000;
+}
+
+/* once again, same stuff as above, but for mozilla firefox */
+::-moz-selection {
+background: #cdebef;
+color: #000;
+}
+
+
+
+
+#winewrap {position:relative; top:0; left:0; width:800px; height:800px; }
+
+#drinkthisnow { position:absolute; top:10px; left:460px; height:696px;width:171px;}
+#drinkthisnow h3 {font: 1px arial, sans-serif; color:#fff;}	
+
+#wine-caddy {position:relative; top:0px; left:0px;width:171px; height:696px;  background: url(winecaddy-bg.gif) no-repeat;}
+
+
+#wine-caddy .toptext {position:relative; top:70px; left:0; width: 168px; height:100px; text-align:center; padding:0; margin-bottom:2px; }
+#wine-caddy .toptext p {font:11px georgia, serif !important; font-style:italic !important;line-height:14px !important; color: #222;  letter-spacing:0px; margin:0 24px 0 24px;}
+
+#wine-caddy .daily-wine { position:absolute; top:165px; left:22px; width: 122px; height:500px; margin:0; padding:0; font:9px normal arial, sans-serif; color:#ddd; text-align:center; }
+#wine-caddy .daily-wine .winetext {position:relative; top:0; left:2px; height:350px; width:119px; font-family:verdana, sans-serif; font-size:10px;}
+
+#wine-caddy .daily-wine .winetext .winename {font: 12px georgia, serif; font-weight:bold; font-style:italic; line-height 16px;text-align:center; color:#000; margin-top:6px; padding-top:8px;  border-top: thin solid #888;}
+#wine-caddy .daily-wine .winetext img {height:307px; width:111px; margin:0; padding:0;}
+
+#wine-caddy .daily-wine .winetext h5 {width: 117px;font:15px georgia, serif !important; font-weight:bold !important; line-height:17px; color: #cf141b; margin-bottom:4px; text-align:center; margin-left:2px;}
+#wine-caddy .daily-wine .winetext p {width: 117px; font:11px georgia, serif; line-height:13px !important;color: #222; margin:0; text-align:center;  padding-bottom:12px;  margin-left:2px;}	
+
+
+#goEarlier a:link{position:absolute; top:320px; left:0;  height:36px; width:31px; padding:0; z-index:99;background:url(prev-up.jpg) no-repeat;}
+#goEarlier a:visited{position:absolute; top:320px; left:0; height:36px; width:31px; padding:0; z-index:99;background:url(prev-up.jpg) no-repeat;}
+#goEarlier a:hover{position:absolute; top:320px; left:0; height:36px; width:31px; padding:0; z-index:99; background:url(prev-down.jpg) no-repeat;}
+
+#goLater a:link {position:absolute; top:320px; left:141px;  height:36px; width:31px; padding:0; z-index:99;background:url(next-up.jpg) no-repeat;}
+#goLater a:visited {position:absolute; top:320px; left:141px;  height:36px; width:31px; padding:0; z-index:99;background:url(next-up.jpg) no-repeat;}
+#goLater a:hover {position:absolute; top:320px; left:141px; height:36px; width:31px; padding:0; z-index:99; background:url(next-down.jpg) no-repeat;}
+
+#toDiv{width:119px; height:400px; margin-top:0px; padding:0px; font-family:verdana, sans-serif; font-size:8px; color:#333; border:none;text-align:center;}
+
+#prevdiv{width:119px; height:400px; margin-top:10px; margin-left:2px; padding:0px;  font-family:verdana, sans-serif; font-size:8px; color:#333; border:1px solid #ddd;text-align:center;}
+
+#nextdiv{width:119px; height:400px; margin-top:10px; margin-left:2px;padding:0px;  font-family:verdana, sans-serif; font-size:8px; color:#333; border:1px solid #ddd;text-align:center;}
+
+#dummydiv{width:119px; height:400px; margin-top:10px; margin-left:2px; padding:0px; font-family:verdana, sans-serif; font-size:8px; color:#333; border:1px solid #fff;text-align:center;}
+
+#todaysMessage{font:9px normal arial, sans-serif!important; color:#bebebe !important; letter-spacing:1px; text-align:center!important;; line-height:9px;margin:0; padding:0 8px;}
+#prevDayMessage{font:9px normal arial, sans-serif!important; color:#bebebe !important; letter-spacing:1px; text-align:center!important;; line-height:9px;margin:0; padding:0 8px;}
+#nextDayMessage{font:9px normal arial, sans-serif!important; color:#bebebe !important; letter-spacing:1px; text-align:center!important;; line-height:9px;margin:0; padding:0 8px;}
+#dummyMessage{font:9px normal arial, sans-serif!important; color:#bebebe !important; letter-spacing:1px; text-align:center!important;; line-height:9px;margin:0; padding:0 8px;}

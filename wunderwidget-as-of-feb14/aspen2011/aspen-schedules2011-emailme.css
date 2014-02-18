@@ -1,0 +1,247 @@
+/*-- 
+emailme comes in two parts, the container (which is part of the main site),
+and the form, which comes through an iframe from a remote site which emails via a php form. 
+--*/
+
+#itinEmailFormContainer
+{
+	position:absolute;
+    overflow:auto;
+	left:298px;
+    top:0px;
+	width:600px;
+	height:800px;
+	display:none;
+	background-color: #ddd;
+	border: none;
+	float:right;
+}
+
+#itinEmailFormContainer input[type=submit]
+{
+	position:absolute;
+	left:400px;
+    background-color:#36c;
+	border:solid 1px #003;
+	color:#fff;
+	margin:2px 0 0 20px;
+	font-size:13px;
+    font-family: Arial, sans-serif;
+    margin:20px;
+	padding:6px 20px 8px 20px;}
+
+
+#itinEmailForm
+{
+position: absolute;
+	top:0px; left:0px;
+	margin:10px;
+	border: 1px solid #36c;
+	height:700px;
+	width:290px;	
+}
+#itinEmailForm fieldset
+{
+	padding:20px;
+	border:none;
+}      
+#itinEmailForm label
+{
+	display:block;
+	color:#036;
+	font-size:13px;
+    font-family: Arial, sans-serif;
+	margin:6px;padding:0px;
+}      
+
+#itinEmailForm input[type=text]
+{
+	display:block;
+	border:solid 1px #36c;
+	width:80%;
+	margin:2px 0 0 20px;
+	height:30px;
+}  
+
+#itinEmailForm input[type=submit]
+{
+	background-color:#36c;
+	border:solid 1px #003;
+	color:#fff;
+	margin:2px 0 0 20px;
+	font-size:13px;
+    font-family: Arial, sans-serif;
+    margin:20px;
+	padding:6px 20px 8px 20px;
+}                
+
+
+.textitin {
+}
+
+#itinEmailForm textarea
+{	
+
+	border:solid 2px #6c0;
+	width:300px;
+	height:400px;
+	margin-bottom:2px;
+    background-color: #fff;
+    font-size:12px;
+    font-family: Arial, sans-serif;
+} 
+
+
+
+
+
+
+/*-- EXTRA BUSINESS: To show a graphic representation of the itinerary in addition to the email textarea, 1) make #styledItinerary visible here and in markup; 2) in js, replace '.textitin' with '#styledItinerary', 3) also in the js, add line: $('.textitin').clone().appendTo('#styledItinerary'); --*/
+
+#itinEmailFormContainer #styledItinerary
+{
+	position:absolute;
+	top:80px; left:320px;
+	display:none;    
+	border:solid 2px #ddd;
+	width:240px;
+	height:440px;
+    overflow:scroll;
+	margin:10px; padding:0;
+	background-color: #fbfbfb;
+    font-size:10px;
+    font-family: Arial, sans-serif;
+	line-height: 10.5px;
+} 
+
+#itinEmailFormContainer #styledItinerary .party
+{
+    display:block;
+	float:none;
+	background-color: #fefefe;
+	width: 220px;
+	height: 48px;
+	margin:2px; padding:4px;
+	border:none;
+	
+}
+
+
+
+#itinEmailFormContainer #styledItinerary .daybar
+{
+    display:none;
+}
+#itinEmailFormContainer #styledItinerary .addto
+{
+    display:none;
+}
+
+#itinEmailFormContainer #styledItinerary .dist
+{
+      display:block;float:none; margin:0;
+}
+
+#itinEmailFormContainer #styledItinerary .item
+{
+     display:block;float:none; margin:0;
+}
+
+#itinEmailFormContainer #styledItinerary .titl
+{
+     display:block;float:none; margin:0;
+}
+
+#itinEmailFormContainer #styledItinerary .spea
+{
+      display:block;float:none; margin:0;
+}
+
+#itinEmailFormContainer #styledItinerary .desc
+{
+     display:block;float:none; margin:0;
+}
+
+#itinEmailFormContainer #styledItinerary .icon
+{
+    display:none;
+}
+#itinEmailFormContainer #styledItinerary .cookingparty
+{
+  display:block;
+	float:none;
+	background-color: #fefefe;
+	width: 220px;
+	height: 48px;
+	margin:2px; padding:4px;
+	border:none;
+
+}
+#itinEmailFormContainer #styledItinerary .wineparty
+{
+  display:block;
+	float:none;
+	background-color: #fefefe;
+	width: 220px;
+	height: 48px;
+	margin:2px; padding:4px;
+	border:none;
+}
+#itinEmailFormContainer #styledItinerary .reserveparty
+{
+  display:block;
+	float:none;
+	background-color: #fefefe;
+	width: 220px;
+	height: 48px;
+	margin:2px; padding:4px;
+	border:none;
+}
+
+#itinEmailFormContainer #styledItinerary .speakerparty
+{
+  display:block;
+	float:none;
+	background-color: #fefefe;
+	width: 230px;
+	height: 48px;
+	margin:2px; padding:4px;
+	border:none;
+
+}
+
+         
+
+
+
+/*-----not using this now---*/
+/*
+#itinEmailLink
+{
+	height:40px;
+	width:550px;
+	background-image:url('images/slidein_button.png');	
+	display:block;
+	cursor:pointer;
+}
+*/
+
+#messageSent
+{
+	color:#000066;
+	display:none;
+	font-size:13px;
+    font-family: Arial, sans-serif;
+}
+
+#thankYou
+{
+position:absolute;
+left:450px;
+top:60px;
+	color:#000066;
+	display:none;
+	font-size:13px;
+    letter-spacing:0.1em;
+    font-family: Arial, sans-serif;
+}

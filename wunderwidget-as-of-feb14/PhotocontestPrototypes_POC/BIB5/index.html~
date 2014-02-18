@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Photos - MOD 1</title>
+    <meta name="description" content="Collection of Beer Bottle Photos">
+   
+
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="lib/bootstrap.css" rel="stylesheet">
+    <link href="lib/spinner.css" rel="stylesheet">
+    <link href="beer.css" rel="stylesheet">
+
+    <script src="lib/jquery-1.7.1.js"></script>
+    <script src="lib/underscore.js"></script>
+    <script src="lib/backbone.js"></script>
+    <script src="lib/bootstrap-twipsy.js"></script>
+    <script src="lib/bootstrap-popover.js"></script>
+    <script src="lib/bootstrap-modal.js"></script>
+    <script src="lib/bootstrap-tabs.js"></script>
+    <script src="lib/bootstrap-dropdown.js"></script>
+    <script src="beerhack.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  </head>
+
+  <body id="backbone-beer-app">
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="#">MY HACK1 OF Sam's Thing</a>
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about" data-controls-modal="about-modal">About</a></li>
+          </ul>
+          <ul class="nav secondary-nav">
+            <li class="dropdown">
+              <a href="#" id="sort-order-menu-title" class="dropdown-toggle">Date Added</a>
+              <ul class="dropdown-menu">
+                <li><a class="sort-order-menu-item" data-sort-order="date" href="#sort/date/desc">Date Added</a></li>
+                <li><a class="sort-order-menu-item" data-sort-order="alpha" href="#sort/alpha/asc">Alphabetic</a></li>
+                <li class="divider"></li>
+                <li><a id="sort-order-menu-order-item" href="#sort/date/asc">Reverse Order</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="hero-unit">
+        <h1>Happy Pictures!</h1>
+        <p id="hero-text">My pictures instead of Sam's. </p>
+      </div>
+
+      <div id="gateway-content">
+
+        <ul id="gateway-photos" class="media-grid">
+          <div id="page-loading-container">
+            <div class="spinner" style="width: 44px; height: 44px">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+              <div class="bar4"></div>
+              <div class="bar5"></div>
+              <div class="bar6"></div>
+              <div class="bar7"></div>
+              <div class="bar8"></div>
+              <div class="bar9"></div>
+              <div class="bar10"></div>
+              <div class="bar11"></div>
+              <div class="bar12"></div>
+            </div>
+          </div>
+        </ul>
+      </div>
+
+      <footer>
+      <p>&copy; <a href="mailto:margot@wafirst.com">me me</a> 2012</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <div id="show-photo-modal" class="modal hide fade">
+      <div class="modal-header">
+        <a href="#" class="close">&times;</a>
+        <h3>Modal Heading</h3>
+      </div>
+      <div class="modal-body">
+        <p>Loading ...</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" id="show-photo-modal-f-button" class="btn primary">Flickr</a>
+      </div>
+    </div>
+
+    <div id="about-modal" class="modal hide fade">
+      <div class="modal-header">
+        <a href="#" class="close">&times;</a>
+        <h3>About</h3>
+      </div>
+      <div class="modal-body">
+        <h4>The Premise</h4>
+        <p>Create a photographic collection of beer bottles (ideally that I have drunk).
+           While I try to ensure the label is readable, image quality is not a priority.
+           Most photos are taken with my phone and often in poor lighting conditions.
+           The same beer is allowed to feature multiple times in the collection if there is some kind
+           of variation in the bottle.</p>
+        <h4>The Tech</h4>
+        <p>The collection is stored on <a href="http://www.flickr.com/photos/cavenagh/sets/72157625277593652/">Flickr</a> and this
+        site has been built on top of their <a href="http://www.flickr.com/services/api/">REST API</a>.  The aim was to build a rich
+        dynamic site with no server side code.  
+        This is achieved with the use of the <a href="http://documentcloud.github.com/backbone/">Backbone.js</a> MVC framework and
+        <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> for the look and feel.  
+        This site has been developed for <a href="https://www.google.com/chrome/">Chrome</a> 
+        and mostly works in <a href="http://www.mozilla.org/en-US/firefox/">Firefox</a>, 
+        no effort has been made to make it IE compatible.</p>
+        <h4>Contact</h4>
+        <p>Feel free to <a href="mailto:cavenaghweb@hotmail.com">email me</a></p>
+      </div>
+      <div class="modal-footer">
+        <a href="http://o-sam-o.github.com" class="btn primary">Other Sites</a>
+        <a href="http://www.flickr.com/photos/cavenagh" class="btn">More Photos</a>
+        <a href="https://github.com/o-sam-o/Beer.backbone" class="btn">Source</a>
+      </div>
+    </div>
+
+    <!-- Templates -->
+
+    <script type="text/template" id="photo-gateway-template">
+        <li>
+          <div class="gateway-photo-container">
+            <a href="http://www.flickr.com/photos/mrsswift/<%= photo.get('id') %>" 
+              title="<%- photo.get('title') %>" 
+              rel="photoPopover"
+              data-photo-id="<%= photo.id %>"
+              data-placement="<%= (index + 1) % 4 ? 'right' : 'left' %>">
+              <img class="thumbnail" width="180" src="<%= photo.get('url_s') %>" alt="<%- photo.get('title') %>"/>
+            </a>
+          </div>
+        </li>
+    </script>
+
+    <script type="text/template" id="photo-popover-content">
+      <% if (photo.get('brewer')) { %>
+        <p>
+          <strong>Brewer:</strong>  <%= photo.get('brewer') %>
+        </p>
+      <% } %>
+      <% if (photo.get('beer_type')) { %>
+        <p>
+          <strong>Type:</strong>  <%= photo.get('beer_type') %>
+        </p>
+      <% } %>
+      <p>
+        <strong>Description:</strong> <%= photo.get('description') ? photo.get('description') : '-' %>
+      </p>
+      <p>
+        <strong>Added:</strong>  <%- photo.get('taken').toLocaleTimeString() %>, <%- photo.get('taken').toLocaleDateString() %>
+      </p>
+      <% if (photo.get('location')) { %>
+        <p>
+          <strong>Location:</strong>  <%= photo.get('location') %>
+        </p>
+      <% } %>
+    </script>
+
+    <script type="text/template" id="spinner-template">
+      <div class="centre-spinner" id="<%= spinnerId %>">
+        <div class="spinner" style="width: 34px; height: 34px">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+          <div class="bar4"></div>
+          <div class="bar5"></div>
+          <div class="bar6"></div>
+          <div class="bar7"></div>
+          <div class="bar8"></div>
+          <div class="bar9"></div>
+          <div class="bar10"></div>
+          <div class="bar11"></div>
+          <div class="bar12"></div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="show-photo-modal-body-template">
+
+      <ul class="tabs">
+        <li class="active"><a href="#photo-tab">Photo</a></li>
+        <li><a href="#details-tab">Detail</a></li>
+        <% if (photo.get('latitude')) { %>
+          <li id="tab-map-link"><a href="#map-tab">Map</a></li>
+        <% } %>
+      </ul>
+
+      <div class="pill-content">
+        <div class="active" id="photo-tab">
+          <div id="modal-photo-container">
+            <img alt="<%- photo.get('title') %>" src="<%- photo.get('url_m') %>"/>
+          </div>
+        </div>
+        <div id="details-tab">
+          <%= (new PhotoPopoverView(photo)).render() %>
+        </div>
+        <% if (photo.get('latitude')) { %>
+          <div id="map-tab">
+              <div id="<%= photo.get('id') %>-map-container" style="width:510px;height:350px;"></div>
+          </div>
+        <% } %>
+      </div>
+
+    </script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6933374-6']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

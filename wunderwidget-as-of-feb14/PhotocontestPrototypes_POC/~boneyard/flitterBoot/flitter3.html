@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Oct3 BOOT Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+<!----- copied from older ---->
+    <link href="styles/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="scripts/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+    
+    <script type="text/javascript" src="scripts/jquery.1.6.2.js"></script>
+    <script type="text/javascript" src="scripts/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+	<script type="text/javascript" src="scripts/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	
+	
+	<script type="text/javascript">
+        function searchPics(yourKeywords) {
+            
+        $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+            {
+                lang    : 'en-us',
+                tags    : yourKeywords,
+                tagmode : 'all',
+                limit   : '12',
+                format  : 'json'
+            },
+            function(data){
+                    
+                var imgInsert = "";
+                var items = [];
+                
+                //create the element that holds the images
+                $('<div/>', {
+                    'id': 'content',
+                    html: items.join('')
+                }).appendTo('#wrapper').insertAfter('#left_sidebar');
+                
+                /* each image loaded from flickr will have a div as parent then the main parent
+                will append to the wrapper */
+                $.each(data.items, function(i,item){
+                    if (i == 12) return false;
+                    var imgThumb = item.media.m.split('m.jpg')[0] + 'm.jpg'; //size of the image small
+                    var imgLarge = item.media.m.split('m.jpg')[0] + 'b.jpg'; //large size of the image for fancybox
+
+                    imgInsert += '<div class="picpod">';
+                    imgInsert += '<a href="' + imgLarge + '" rel="flickr_group" class="big_img" title="' + item.title + '">';
+                    imgInsert += '<img title="' + item.title + '" src="' + imgThumb + '" alt="' + item.title + '" />';
+                    imgInsert += '</a><div class="picpod-buttons"> <img src="images/flag-thumbsdown.gif" /> <img src="images/editorspick-thumbsup.gif" /> <img src="images/keepfornextround.gif" /> </div> </div>';
+                });
+                var cachedItems = $(imgInsert).data('cached', imgInsert);
+                
+                $('#content').append(imgInsert).addClass(yourKeywords).data('cached', data.items);
+                
+                /* create a history list and insert it into the left sidebar */
+                var listCached = '';
+                listCached += '<div class="history_list">';
+                listCached += '<a class="' + yourKeywords + '_cached" href="javascript:;">';
+                listCached +=  yourKeywords + '</a></div>';
+
+                $(listCached).appendTo('#left_sidebar').insertAfter('form');
+    
+                $('.' + yourKeywords + '_cached').click(function(){
+                    
+                    /* if content has items then remove them
+                    and insert the ca items */
+                    if ( $('#content').length > 0 ) {  
+                        $('#content').empty();
+                        $('#content').html(cachedItems);
+                        
+                        //open the images using fancybox for the cached images
+                        $("a[rel=flickr_group]").fancybox({
+                            'transitionIn': 'none',
+                            'transitionOut': 'none',
+                            'titlePosition': 'over',
+                            'titleFormat': function (title, currentArray, currentIndex, currentOpts) {
+                                return '<span id="fancybox-title-over">Image ' + (currentIndex + 1) + ' / ' + currentArray.length + (title.length ? ' &nbsp; ' + title : '') + '</span>';
+                            }
+                        });                             
+                    }                        
+                })
+
+                //open the images using fancybox for the new search
+                $("a[rel=flickr_group]").fancybox({
+                    'transitionIn': 'none',
+                    'transitionOut': 'none',
+                    'titlePosition': 'over',
+                    'titleFormat': function (title, currentArray, currentIndex, currentOpts) {
+                        return '<span id="fancybox-title-over">Image ' + (currentIndex + 1) + ' / ' + currentArray.length + (title.length ? ' &nbsp; ' + title : '') + '</span>';
+                    }
+                });                
+            });
+        }
+        
+        $(function(){
+            $('.search_form').submit(function(){
+                //if in a search already remove old content and replace
+                if ( $('#content').length > 0 ) {
+                    $('#content').remove();
+                }                        
+                searchPics(document.getElementById('keywords').value );
+				return false;
+            })
+        })
+    </script>
+	
+
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px;
+      }
+    </style>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+   
+    
+    <script src="scripts/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Flickr Search Results App</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <h1>Bootstrap starter template with Flickr public-feed api call.</h1>
+      <p>This version has not been converted to backbone.js.<br></p>
+
+<hr/>
+
+<div id="wrapper">
+        <div id="left_sidebar">
+            <form action="" method="post" class="search_form">
+                <input type="text" id="keywords" />
+                <button name="search" id="search">Search</button>
+            </form>
+        </div>
+        <div class="clear"><!-- empty --></div>
+    </div>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+        <script type="text/javascript" src="assets/js/bootstrap-filestyle.js"></script>
+        <script type="text/javascript">
+            $('#input01').filestyle()
+            
+			$('#input02').filestyle({
+				buttonText: 'My button'
+			});
+
+            $('#input03').filestyle({
+				buttonText: 'No text field',
+				textField: false
+			});
+            
+			$('#input04').filestyle({
+				buttonText: 'Custom',
+				textField: true,
+				classButton: 'btn-success',
+				classText: 'input-small'
+			});
+
+			$('#input05').filestyle({
+				buttonText: 'Open file',
+				classButton: 'btn-primary',
+				icon: true,
+				classIcon: 'icon-arrow-up icon-white'
+			});
+        </script>
+        
+        <div id="bottom-links" style="width:600px; height:400px; margin-top:800px;">
+<a name = "about"> <h5>This forces a stretch of white space above the bottom.</h5>
+<br/><br/>
+<a name = "contact"> <h5>Call MUrray Hill 7-7500 for Gimbels Shop-at-Home Upholstery and Slipcovers. That&rsquo;s MUrray Hill 7-7500. Out of town, call collect.</h5>
+
+</div>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+/* =GENERAL
+====================================================================================== */
+body {	font-size: 11px; background-color: #333; font-family: Arial, Helvetica, sans-serif; color: #6f747b; }
+
+/* =LINKS 
+====================================================================================== */
+/* Defaults */
+a, 
+a:link { text-decoration:none; color:#001a39; outline: none; }
+a:visited {	color:#001a39; }
+a:hover { color:#001a39; text-decoration:underline; }
+a:active { color:#001a39; }
+
+/* =TYPOGRAPHY
+====================================================================================== */
+.text13 { font-size: 14px; margin-bottom: 5px; }
+.textrules { font-size: 9px; }
+.notice { color: green; }
+.error { color: red; }
+
+/* =LAYOUT DIVS
+====================================================================================== */
+#container {position:relative; width: 800px; height: 900px; margin: 0 auto; }
+#wrap {width: 1002px;}
+
+/* =CONTENT - Includes Main Content Well and Sidebar (secondary) 
+====================================================================================== */
+#content { border: 1px solid white; position: relative; width:800px; height:900px; padding: 0px; background: url(../images/refresh-glass800x900.jpg) no-repeat 1px 0px #E9EDF3; }
+#header-logo { width: 800px; height: 124px; padding: 0px; }
+#header-image { width:681px !important; height:57px !important; margin: 16px 0 0 38px; }
+.header-textbox { width: 220px; font-size: 11px; line-height: 14px; letter-spacing: 0.1em; text-align: justify; }
+#header-textbox1 { padding: 0px 0px 0px 44px; float: left; }
+#header-textbox2 { padding: 0px 0px 0px 28px; float: left; }
+#header-textbox3 { padding: 0px 0px 0px 28px; float: left; }
+#main-smalltext { padding: 8px 5px; font-size: 9px; text-align: left; letter-spacing: 1px; }
+#main-thankyou { position:absolute; z-index:999; top: 480px; left:78px; width: 400px; height: 100px; font-size: 12px; text-align: center; padding: 10px 10px 10px 10px; margin: 10px 0px 0px 43px; font-size: 11px; background-color: #FFFFFF; display:none;}
+#main-entryform { position:absolute; z-index:999; top: 480px; left:78px; width:285px; padding: 10px 10px 10px 10px; margin: 10px 0px 0px 43px; font-size: 11px; background-color: #FFFFFF; display:none;}
+#registration-form {position:absolute; z-index:999; top: 480px; left:78px; width: 285px;padding: 10px 10px 10px 10px; margin: 10px 0px 0px 43px; font-size: 11px; background-color: #FFFFFF; display:none;}
+#sorry-vote-once { position:absolute; z-index:999; top: 480px; left:78px; width: 440px; height: 50px; font-size: 12px; text-align: center; padding: 10px 10px 10px 10px; margin: 10px 0px 0px 43px; font-size: 11px; background-color: #FFFFFF; display:none;}
+
+.main-checkbox { width:235px; padding: 5px; font-size: 9px; text-align: left; float: left;}
+.main-checkbox div { margin-left: 22px; }
+#main-flash { width:452px; position: absolute; bottom: 0; right: 0; }
+#footer-rules { width: 750px; padding: 10px; font-size: 9px; }
+#footer-rules a { color: white; }
+#main-fblike { width:285px; height:40px; }
+#gallery-link { text-align: center; margin: 10px 0; font-weight: bold; }
+#sponsors { position: absolute; bottom: 2px; right: 2px; }
+
+	/* =Main Content *******************************/
+	#main {float: left; width: 660px; background: #fff; margin: 0 0 0 11px;}
+	
+
+/* =FORMS
+====================================================================================== */	
+label { font-weight: bold; width: 6em; float: left; text-align: right; margin: 0px 0.5em 0px 0px; padding-top: 4px; }	
+/* input { font-size: 11px; width: 190px; color: #6f747b; background: #d7e0f1; padding: 4px; border: 0px solid #d7e0f1; margin-bottom: 2px; } */
+textarea { font-size: 11px; width: 260px; height: 75px; color: #6f747b; background: #d7e0f1; padding: 4px; border: 0px solid #d7e0f1; margin: 8px 0px 8px 0px; overflow: auto;}
+.browsebutton { cursor:pointer; margin: 0px 0px 15px 0px; padding: 0px; vertical-align: middle; background: url('../images/btn_browse.jpg') no-repeat; height: 28px; width: 88px; }
+.submit-button { float: right; width: 107px; border: 0; background: transparent; margin-right: 16px; }
+.submit-button-img { cursor:pointer; margin: 0px; padding: 5px 0px 0px 0px; }
+.upload { width: 150px; margin-top: 3px;}
+form input,
+form select { background: #d7e0f1; color: #6f747b; border: 0px solid #d7e0f1; padding: 4px; font-size: 11px; }
+.inputtext,
+form select { width: 190px; margin-bottom: 2px; }
+.input-select { width: 198px; }
+.checkbox { vertical-align: middle; float: left; position:relative;  bottom:4px; }
+label.error { width: 250px; text-align: left; clear: both; padding: 0px 0px 3px 0px; }
+
+/* =MISC
+====================================================================================== */	
+.clear { clear: both; }
+

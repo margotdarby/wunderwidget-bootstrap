@@ -1,0 +1,18 @@
+/* Developer Danii Oliver dani.oliver@nytimes.com */
+/* Desktop overrides specific to lp5558.html */
+
+#shell, #page {
+	width:895px;
+}
+p.content {
+	font:12px georgia, times new roman, serif; line-height:150%; margin:0 0 15px 0;
+}
+p.title {
+	font:bold 11px arial, helvetica, sans-serif; display:inline; color:#000; line-height:9px ;margin:0px; padding:0px;
+}
+h6.title {
+	display:none;
+}
+.m {
+	display:none;
+}

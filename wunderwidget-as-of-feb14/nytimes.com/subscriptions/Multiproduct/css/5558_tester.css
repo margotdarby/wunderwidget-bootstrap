@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/* CSS Document */
+
+	  .subscription_options {
+			  text-align:center;
+			  margin:15px 0px 10px 0px;
+			  border-bottom:1px solid #ccc;
+		  }
+		  
+		    
+		  #largeIcons,#smallIcons,#largeImages {
+			 margin:15px 0 20px 0;  
+			 width:100%;
+		  }
+		  
+		  .subscription_options img {
+			 cursor:pointer;
+			 border:none;  
+		  }
+		  
+		  

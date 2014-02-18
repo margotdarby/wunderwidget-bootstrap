@@ -1,0 +1,284 @@
+Stripped-down version 3...starbucks...I get the images and initial interaction to come up by putting the xml right next to the swf. However, activeTimes do not work because I have stripped them out.
+
+
+ReferenceError: Error #1069: Property activeTimes not found on app.models.Model and there is no default value.
+	at app.views.ui::TimeTabSection/getSelectionLength()
+	at app.views.ui::AbstractTabSection/addSelections()
+	at app.views.ui::TimeTabSection/addSelections()
+	at app.views::SearchView/modelIngredientSetHandler()
+	at flash.events::EventDispatcher/dispatchEventFunction()
+	at flash.events::EventDispatcher/dispatchEvent()
+	at app.models::Model/set ingredient()
+	at app.views::SearchView/clickHandler()
+Beans
+
+=> attempt to put activeTimes back into app.models.Model
+
+doesn't work; gets stuck on ArrayUtils.removeDuplicates
+
+=> strip out activeTimes node in app.models.Model
+
+
+try the Propel, put xml next to swf, same difficulty
+tried with xml 1.3 now with 1.2
+
+in Main.as remove all google ref
+at app.utils remove all google ref
+at Model.as remove all google ref
+at GoogleTracker remove all active code
+at MainView.as remove all google ref
+at SearchView.as remove all google ref
+at RecipeSelectionContainer.as remove all google ref
+
+
+august 15
+
+put xml 1.3 back...the widget does not work beyond setting up a few pictures
+pictures though come off foodandwine.com/promo
+
+adding import org.casalib.util.ArrayUtil; to package app.models because removeDuplicates is in there.
+change 	var timesArr:Array = ArrayUtils.removeDuplicates(times.toString().split(''));
+to    	var timesArr:Array = ArrayUtil.removeDuplicates(times.toString().split(''));
+
+Starbucks seems to work now, or work farther...
+??? is the ArrayUtils a necessary class? used elsewhere? try Model.as with it commented out...
+It does work. Widget works all the way to the recipe link, which does not work.
+=> turn //import com.etr.utils.ArrayUtils; on again and see if there is a difference...
+Same difference.
+
+Widget works but does not navigateToURL to the recipe...where is the function for this?
+
+Replace the starbucks recipe xml with the other one...same result except the starbucks recipes don't load...still doesn't take you to the faw recipe
+
+static consts in Config.as name the xmls: 
+public static const SOURCE_XML:String = "starbucks_1.xml";
+public static const RECIPE_XML:String = "starbucks_recipe.xml";
+public static const EMBED_CODE:String = '<object type="application/x-shockwave-flash" data="http://www.foodandwine.com/propel/swf/recipe_finder.swf" id="W49c7b2b12354550949c7df4f108ea542" width="300" height="600"><param name="movie" value="http://www.foodandwine.com/propel/swf/recipe_finder.swf" /></object>';
+
+app.views.ui.RecipeButton.as has a url selection
+RecipeSelectionContainer.as has the click through? I had it commed out. Comming back on...
+
+RecipeSelectionContainer.as when on goes to the foodandwine.com/supercharge/sensometer.cfm for some reason...
+it just opens the browser...doesn't select the actual recipe
+
+SelectionSystem.as ... _items were commented out, try putting them back on again...
+DOESN'T work at all...comment out again
+
+
+
+august 16
+
+Trying to open swf without publishing: 
+SecurityError: Error #2148: SWF file file:///Users/msheehan/Desktop/FW Thanksgiving 2010/food_and_wine_widgets 3_stripped-down-versions/starbucks_recipe_finder_widget/deploy/swf/recipe_finder_widget.swf cannot access local resource file:///Users/msheehan/Desktop/FW Thanksgiving 2010/food_and_wine_widgets 3_stripped-down-versions/starbucks_recipe_finder_widget/deploy/swf/starbucks_recipe.xml. Only local-with-filesystem and trusted local SWF files may access local resources.
+	at flash.net::URLStream/load()
+	at flash.net::URLLoader/load()
+	
+	An error I've encountered before. Look it up, solve it.
+	
+	Global Security settings changed to allow local files
+	
+Starbucks version does not show pictures now. Cannot complete file load. 2044 and 2036.
+
+Try Propel version again. This doesn't load pictures either.
+
+Put import org.casalib.util.ArrayUtil		into Propel too, in Model.as.
+
+august 18
+
+I found today that this version actually works, pictures, links and all, when you put it on promo. So I'm sticking with that. 
+
+Notes on placement and xml schema:
+- I have put the js, the swf, and the xml all next to each other. The index.html page could not access or load the xml from a path. 
+- In this version, the rebuilt Starbucks widget, the xml sheet is identified in Config.as:
+public static const SOURCE_XML:String = "starbucks_1.xml";
+
+There are other things in there, but there is no need to touch them. Maybe the embed code.
+
+XML schema is in four sections: courses, ingredients, times, and recipes. This will remain essentially the same, except that ingredients will become servings, and instead of having many possible ingredients, there will be only three choices.
+
+The courses, ingredients (servings) and recipes are set up in RecipeSpec.as:
+private var _courseID:uint;
+private var _timeID:Array;
+private var _ingredientIDs:Array;
+
+IN REWRITING THE XML, 
+first change the recipe names/links…use the same recipe node over and over, if the recipe is not already in there, which it probably isn't. Then test out. When it's okay and works, see if links work.  
+Then put in timeID, and ingredientIDs (servings). 
+When that works change the word ingredient to serving.
+When that works, fix the art, and take out extraneous business, clean up.
+
+(Correction, 26 Aug: Ingredients remain Ingredients, Time = servings.)
+
+
+19 August
+
+I went into RecipeModel.as and replaced the starbucks_recipe.xml with the real recipe xml. This loads an xml and listens for it to complete, then parses the xml. Now the starbucks recipes do not appear when you look for them, but we won't be wanting that. There should be only one xml sheet in there.
+
+26 August 
+We will have to change dimensions to around 200x500. 200x450 would be exact aspect ratio, but having it relatively deeper will allow us to accommodate a fourth course (main course) which Tracy wants.
+
+Starting up Version 4.
+
+NEED TO CHECK:
+- Where is the size of the modules specified?
+- Where is the array/grid described?
+
+ADDING
+app/models/items/Servings.as
+(duplicating Time.as...to use in case we decide to stop using the old Time for Servings)
+
+TESTING
+com/etr/layout/GridHelper.as
+specifies V and H spacing, how many thumbs per row; originally 2 V and 2 H and 3 thumbs per row; I am changing it to 2 thumbs per row and testing
+...makes no difference, changing it back
+
+IngredientTabSection.as and CourseTabSection.as
+
+In IngredientTabSection.as, changed the space between the instances to 4 px.
+Return 9 items per selection (formerly 6)
+
+Make CourseTabSection.cb.height + 2
+
+Make TimeTabSection??? return 4;
+
+
+
+I have shrunk some of the library elements, getting ready for the smaller design Jinny is drawing up. 
+
+I cannot get the course tabs to show more than three course...we have four. I did the ingredient thing, have twelve showing now. 
+
+
+Aug 27
+
+In AbstractTabSection.as lines 146..
+TRY:
+--------------
+protected function getItemsPerSection():uint
+{
+	return 4;
+-----------------------
+
+
+YESSSSSS! That did it! Four courses up on top now!
+
+
+LATE at work: disappointed that the rebuilding file did not start up when i clicked on the index holder page, or on the swf. After getting ready to trash that and start again, I found that by using the infernal security settings and putting it for local and allowing my own local file to access the internet…it worked.
+
+Aug 30
+Do we need the isLocal in Model.as/Model? Let's take it out and try it.
+
+The labels for the Selection button (Select a course, etc) are in model.as too. Why do they keep coming out in all caps?
+ANSWER: in AbstractButton.as, 	
+this['labelTxt']['label'].htmlText = _label.toUpperCase();
+I am commenting out.
+
+It's also in CourseButton, etc. OK in Course, belongs there. I am taking it out of RecipeButton.as. (Oops, putting it back--'no default constructor' error.) Also ResultSectionHeader.as.
+
+I am taking out the Step 1: Step 2: Step 3: as per Jinny design.
+
+SCREWED UP in trying to make the Course button white with green type. Don't understand how the masking works. I am going to create another course, with an empty description, to fill up room. Course 5. Where??? 
+
+Doh! In the xml that I've been creating for the past two weeks. 
+In AbstractTabSection.as, have it set up so there are 6 course up front…line 146 here:
+
+	protected function getItemsPerSection():uint
+	{
+		return 6;
+
+
+In WidgetMain.as, changing the position of widget:
+	_view = new MainView(_model);
+		_view.y = 100;  (was 143)
+		_view.x = 2;     (was 9)
+
+TRY IT
+YUP that's it…a little off, but that's the right code to use.  110 and 8 or 9 is close to it.
+
+Changing color: in AbstractButton.as:
+protected var OFF_COLOR:Number = 0xC4C0B8;
+	protected var ON_COLOR:Number = 0x441D15;
+
+On color= active buttons…I think.
+Possibly the Selection buttons should be orangey at the start, then green when active. 
+
+
+Changing case from the default in AbstractButton.as and elsewhere
+this['labelTxt']['label'].htmlText = _label.toUpperCase();
+I DO NOT KNOW. There are functions in String utilities but I haven't the time to figure out how to use them. 
+
+Sept 2
+SOLUTION to the Upper Case problem, in AbstractButton.as:
+//	this['labelTxt']['label'].htmlText = _label.toUpperCase();
+	this['labelTxt']['label'].htmlText = _label;
+	
+The toUpperCase() method is used elsewhere in the package, so when we turn this off we get Title Case selection tabs but the other buttons are still all caps.
+
+I turned it off in RecipeButton.as too, but this means I shall have to add capitals to the xml Recipes. See here:
+public function RecipeButton(labelText:String, id:uint, url:String)
+{
+	super(labelText.valueOf(), id);
+//	super(labelText.toUpperCase(), id);
+	trace ("labelText.valueOf(), a useless placeholder in the RecipeButton.as constructor")
+	
+	Sept 3
+	TextMate has a TitleCase key-command (ctrl-opt-U) but it's not perfect. I'd have to do the recipes one at a time, then go back and change any instance of 'and' or 'with' to LC. 
+	
+I keep trying to fnd a toTitleCase method that works. I have a couple that work for simple strings but can't be invoked the way the built-in toUpperCase is.
+
+Jinny says the selector buttons' colors have changed. I told her they all to be the same basic color. We'll work this out.
+
+
+SEPTEMBER 28
+Back in Flash harness, ugh. I have to tweak the styles. Make selection button purple when off and red when on. I will take the red and purple from Jinny's design, just sample in Photoshop...RED #dc2a26  PURPLE #bc3e87...
+no make RED d20241...the other one is too orangey. No that red is no good, try dd3333
+
+
+In XML, making blank courses have ingredients, the ones from main course through desserts...
+OH NO, slight problem with that plan, you get stuck and can't get out. Maybe create an ingredient that says "No course chosen" and "Please choose a course!"
+
+SEPTEMBER 29
+The swf and especially the xml take a long time to show up when they get updated in promo or images.
+
+Model.as: I am turning off the isLocal line. 
+
+Trying another bright red in AbstractButton.as ....	
+protected var ON_COLOR:Number = 0xbe0a0a;
+
+Need less line space in the Recipe buttons.
+
+
+
+SEPTEMBER 30
+Where you change color in the SelectionButton:
+
+public function over():void 
+{
+	TweenLite.to(this['bg'], .2, {tint: ON_COLOR, alpha: .81, ease: Expo.easeOut});
+}
+
+If this is too transparent, the color is watery. I had it at .85 but could hardly read the type. Try it now.
+
+Model.as: I am turning back on the isLocal line. This may have caused problems. Also, I've changed the ampersand in the xml (starters & salads) to a plus because I got a validation error in Safari. 
+
+Put it back...didn't have problems before.
+
+CHANGING THE XML NAME FINALLY...TO th2010.xml.
+That's in config.as.
+
+OCT 5
+Yesterday morning I put the th2010.xml into the public folder of the RoR branch, and ran the ultimate-thanksgiving page in localhost. The widget loaded. I'd thought I was going to have to run it out of promo, and wondered why it wasn't loading even though the swf was local to the xml. The widget in the index.html loaded fine, but not the swfObject div in the thanksgiving page.
+   Anyway, this is the end of major development for Version 4. I am going to save this, then resave the whole project as Version 5, with references to Starbucks mostly removed. The widget will be redone shortly for the 'Holiday' (Christmas) version.
+   
+   
+   OCT 8
+   On QA and in Prod the widget does not work...xml not loading. Still works fine in Branch. I shall try, alternatively, placing a new copy of the xml AND the swf into the /Flash/ folder in fwr, then referencing that in the LIE block. If it does not work, then we return to the non-working thing there currently. My thought is that at least they'll be local to each other in the Flash folder, and I won't be overwriting anything that currently works in branch. Blah blah.
+   
+   Commed out the RECIPE_XML, a legacy of Starbucks.
+   
+   Oct 18
+   Tracy wants recipe to open in same browser window...I think this is in RecipeSelectionContainer.as, the navigateToURL. I am making the line 46:
+   		navigateToURL(new URLRequest(evt.target.url), "_self");
+   		
+   		seems to be okay
+   		
+   		

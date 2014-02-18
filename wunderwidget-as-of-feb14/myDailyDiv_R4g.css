@@ -1,0 +1,81 @@
+
+/* Removes the outline from inputs and textareas when you focus them
+ */
+:focus {
+outline: none;
+}
+
+/* Same stuff as prev, but for mozilla firefox; works on ff8, not w/ 3.6.3 */
+::-moz-focus-inner {
+border: 0;
+}
+
+/* You know when you highlight text it usually has that blue fill, well with this you can change its color
+*/
+::selection {
+background: #cdebef;
+color: #000;
+}
+
+/* once again, same stuff as above, but for mozilla firefox */
+::-moz-selection {
+background: #cdebef;
+color: #000;
+}
+
+
+
+
+#winewrap {position:relative; top:20px; left:20px; width:1200px; height:900px; }
+
+
+#drinkthisnow { position:absolute; top:10px; left:100px; height:800px;width:800px;}
+#drinkthisnow h3 {font: 1px arial, sans-serif; color:#fff;}	
+
+#wine-caddy {position:relative; top:0px; left:0px;width:800px; height:800px;  background: url(portwinecaddy-bg.jpg) no-repeat;}
+
+
+#wine-caddy .toptext {position:relative; top:60px; left:50px; width: 700px; height:80px; text-align:center; padding:0; margin-bottom:2px; }
+#wine-caddy .toptext p {font:12px georgia, serif !important; line-height:16px !important; color: #555;  letter-spacing:0px; margin:0 24px 0 24px;}
+
+#wine-caddy .daily-wine { position:absolute; top:100px; left:100px; width: 600px; height:500px; margin:0; padding:0; font:9px normal arial, sans-serif; color:#ddd; text-align:center; }
+#wine-caddy .daily-wine .winetext {position:relative; top:28px; left:2px; height:600px; width:600px; font-family:verdana, sans-serif; font-size:10px;}
+
+#wine-caddy .daily-wine .winetext .winename {font-family:verdana, sans-serif; font-size:11px;  font-style:italic; line-height: 16px;text-align:right; color:#bbb; margin-top:6px; padding-top:18px;  border-top: thin solid #ddd;}
+#wine-caddy .daily-wine .winetext img {height:500px; width:600px; margin:0; padding:0;}
+
+#wine-caddy .daily-wine .winetext h5 {width: 600px;font:15px georgia, serif !important; font-weight:bold !important; line-height:17px; color: #cf141b; margin-bottom:4px; text-align:center; margin-left:2px;}
+#wine-caddy .daily-wine .winetext p {width: 600px; font:11px georgia, serif; line-height:13px !important;color: #222; margin:0; text-align:center;  padding-bottom:12px; margin-left:2px;}	
+
+
+#goEarlier a:link{position:absolute; top:320px; left:21px;  height:36px; width:31px; padding:0; z-index:99;background:url(prev-up.gif) no-repeat;}
+#goEarlier a:visited{position:absolute; top:320px; left:21px;   height:36px; width:31px; padding:0; z-index:99;background:url(prev-up.gif) no-repeat;}
+#goEarlier a:hover{position:absolute; top:320px; left:21px;   height:36px; width:31px; padding:0; z-index:99; background:url(prev-down.gif) no-repeat;}
+
+#goLater a:link {position:absolute; top:320px; left:750px;  height:36px; width:31px; padding:0; z-index:99;background:url(next-up.jpg) no-repeat;}
+#goLater a:visited {position:absolute; top:320px; left:750px;  height:36px; width:31px; padding:0; z-index:99;background:url(next-up.jpg) no-repeat;}
+#goLater a:hover {position:absolute; top:320px; left:750px; height:36px; width:31px; padding:0; z-index:99; background:url(next-down.jpg) no-repeat;}
+
+#toDiv{width:600px; height:500px; margin-top:0px; padding:0px; font-family:verdana, sans-serif; font-size:8px; color:#333; border:none;text-align:center;}
+
+#prevdiv{width:600px; height:500px; margin-top:10px; margin-left:2px; padding:0px;  font-family:verdana, sans-serif; font-size:8px; color:#333; border:1px solid #ddd;text-align:center;}
+
+#nextdiv{width:600px; height:500px; margin-top:10px; margin-left:2px;padding:0px;  font-family:verdana, sans-serif; font-size:8px; color:#333; border:1px solid #ddd;text-align:center;}
+
+#dummydiv{width:600px; height:500px; margin-top:10px; margin-left:2px; padding:0px; font-family:verdana, sans-serif; font-size:8px; color:#333; border:1px solid #fff;text-align:center;}
+
+#todaysMessage{font:9px normal arial, sans-serif!important; color:#aaa !important; letter-spacing:1px; text-align:center!important;; line-height:9px;margin:0; padding:0 8px;}
+#prevDayMessage{font:9px normal arial, sans-serif!important; color:#aaa !important; letter-spacing:1px; text-align:center!important;; line-height:9px;margin:0; padding:0 8px;}
+#nextDayMessage{font:9px normal arial, sans-serif!important; color:#aaa !important; letter-spacing:1px; text-align:center!important;; line-height:9px;margin:0; padding:0 8px;}
+#dummyMessage{font:9px normal arial, sans-serif!important; color:#aaa !important; letter-spacing:1px; text-align:center!important;; line-height:9px;margin:0; padding:0 8px;}
+
+
+#faq-bar {position:absolute; top:260px; left:960px; width:200px; height:auto; }
+#faq-bar h1 {color:#bc350b; font-family:serif; font-size:30px; }
+#faq-bar h1 a{color:#bc350b; font-family:serif; font-size:30px; }
+#faq-bar p {color:#555; font-family:sans-serif; font-size:11px; }
+
+#subwinewrap {width:600px; height:1000px; margin:100px; padding:20px; background-color:#eee; color:#666;}
+#subwinewrap h3 {font-size:18px; font-family:"century gothic", sans-serif; color:#222;}
+#subwinewrap p {font-size:13px; font-family:"century gothic", sans-serif;}
+#subwinewrap a {font-size:13px; font-family:"century gothic", sans-serif; color:#999;}

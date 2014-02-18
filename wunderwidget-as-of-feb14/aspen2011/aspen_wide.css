@@ -1,0 +1,110 @@
+#sponsorMsg:after, #aspenPromo_speaker:after {
+	content: ".";
+   	display: block;
+   	height: 0;
+   	clear: both;
+   	visibility: hidden;
+}
+
+#sponsorMsg a {
+   	display:block;
+	text-indent:-9999px;
+	font-size:1px;
+	line-height:0;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	border:0;
+	background-color: #fff;
+	margin: 0; padding: 0;
+}
+
+#aspenMain {
+	width:660px;
+}
+
+#aspenNav {
+	float:left;
+	width:970px;
+	margin-bottom:12px;
+}
+
+#cta_tickets {
+	float: left;
+	width:270px;
+	height:33px;
+	margin:5px 0 11px 200px;
+	padding-top:14px;
+	background:url(images/bg_cta_tickets_wide.gif) no-repeat 0 0;
+	line-height:1.0em;
+}
+
+#aspenPromo {
+	float:left;
+	width:140px;
+	margin-bottom:5px;
+}
+
+#aspenBod {
+	float:right;
+	width:810px;
+	height:auto;
+	padding:190px 0 0;
+	text-align:center;
+}
+
+#aspenBod p {
+	font-size:12px;
+	padding: 7px 10px 0;
+}
+
+#aspenBod a {
+	font-family:georgia,serif;
+	font-size:18px;
+	color:#333;
+}
+
+#sponsorMsg {
+	clear:left;
+	padding:5px 10px 10px 0;
+}
+
+#sponsorMsg a {
+	float:right;
+   width:143px;
+	height:54px;
+}
+
+#aspenFtr {
+	margin: 5px 0 0 0;
+	background:url(/promo/classic-in-aspen/images/2011/bg_ftr_wide.gif) no-repeat 0 0;
+}
+
+#aspenFtr .first {
+	margin-left:25px;
+}
+
+#aspenPromo_speaker {
+	float: right;
+	width: 160px;
+	margin:0;
+}
+
+#kitchen-aid-adSC {
+	float: right;
+	width:143px;
+	padding: 10px 30px 20px 0;
+}
+
+#kitchen-aid-adSC img {
+	float:left;
+   width:143px;
+   padding: 1px 0 0 0;
+}
+
+#kitchen-aid-adSC p {
+	float:left;
+   width:143px;
+   font: bold 11px arial,sans-serif;
+   color: #666;
+   text-align: center;
+}

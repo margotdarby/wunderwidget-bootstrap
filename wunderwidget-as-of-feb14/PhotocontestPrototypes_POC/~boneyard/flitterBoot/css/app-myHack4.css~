@@ -1,0 +1,11 @@
+body{width:1000px; margin: 10px auto; padding:20px;}
+.container{overflow:hidden; width:auto; min-height:1400px; padding:20px; position:relative; top:0; left:0;}
+p{font-size:15px;line-height:1.5;}
+
+
+
+
+#keywords-and-gallery{position:relative;top:10px; left:0px;}
+#keywords-and-gallery span{position:absolute;top:5px;left:550px;font-style:bold; font-family: century gothic, news gothic, gill sans, sans-serif; font-size:12px; letter-spacing:1px; #B7C8B6}
+
+

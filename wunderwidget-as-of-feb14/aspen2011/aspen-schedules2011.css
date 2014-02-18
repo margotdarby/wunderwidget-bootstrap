@@ -1,0 +1,348 @@
+/* aspen-schedules2011.css AS OF dec 16 */
+/* updated for no-conflict in cfm/f+w on nov 29-Dec 6 */
+/* tab colors changed Dec 10 */
+/* tab images for main sched put in Dec 15-16 */
+/* cookingbtns cookingparty winebtns wineparty added Dec 15-16 */
+/* reservebtns reserveparty  added Jan 3 */
+/* speakerbtns speakerparty  added Feb 2 */
+
+
+/*============================================================*/
+/*--- OVERWRITE STYLESHEETS: aspen.css and aspen_wide.css ---*/
+
+#aspenMain { 
+	width:970px !important;
+}
+
+#aspenBod {
+	width:970px !important;
+	height:1200px !important;
+	text-align:left;
+}
+
+#aspenBod p {
+	text-transform:none;
+	font-size:.9em;
+}
+
+#aspenBod ul {
+	float:left;
+	width:720px;
+
+}
+
+#aspenBod ul li {
+	list-style-type:none;
+}
+
+/*--- no rightrail: overwrite secondary in screen.css ---*/
+#secondary {
+	position:absolute;
+	left:-9999px;
+}
+
+
+/*============================================================*/
+/*--- MAIN CONTAINERS ----------------------------------------*/
+
+#Schedule { width:900px; height:900px !important; overflow:hidden; margin-left:20px; padding:0; }
+#Speakers { position:relative; top:0px; left:0px; width:900px; height:900px !important; overflow:hidden; margin:0; padding:0; }	
+#aspen-schedule-module { position:relative; top:0px; left:0px; background-color:#fbfbfb; width:900px; padding:0px; text-align:left; }
+
+/*--for main schedules--*/
+#tabbed_box { margin: 0px auto 0px auto; width:890px; height:700px; }
+
+/*--for speakers--*/
+#tabbed_box-speaker_schedule { float:right; margin:0; padding:0; width:700px; height:800px; overflow:auto;}
+
+/*--for all--*/
+.tabbed_area { float:left; top:10px; left:10px; border:1px solid #aaa; background-color:#ccc; min-height:800px; padding: 0; }
+.content {background-color:#fff; font-family: Arial, sans-serif; border:1px solid #ccc; height:800px;}
+#content_2, #content_3, #content_4, #content_5 { display:none; }
+
+/*--anchor IDs to keep the panes from jumping around!--*/
+#anchor_viewport {float: left; width:1px; height:1px;}
+
+
+
+/*---speaker namelinks---*/
+#speaker_schedule-linked_column ul { position:absolute; top:1px; left:10px; width: 150px;  text-align:right; font: normal 10px  Arial, sans-serif !important; line-height:12px;}
+
+
+/*=====================================================================*/
+/*--- CLICKABLE TABS AND LISTS ----------------------------------------*/
+
+/*--speaker names--*/
+ul.namelinks{margin 0; padding 0; }
+ul.namelinks li {display:list-item; padding: 0 18px 0 0; background-image:url(images/toque.gif); background-repeat:no-repeat; background-position: bottom right; font: normal 10px  Arial, sans-serif !important; line-height: 15px !important; color: #aaa !important;}
+
+ul.namelinks li a:link {text-decoration:none; font: normal 10px Arial, sans-serif !important; line-height: 15px !important; color: #aaa !important; }
+ul.namelinks li a:visited { text-decoration:none; font: normal 10px  Arial, sans-serif !important; line-height: 15px !important;color:#aaa;}
+ul.namelinks li a:hover { text-decoration:none !important; font: normal 10px  Arial, sans-serif !important; line-height: 15px !important;color:#090 !important;}
+ul.namelinks li a:active {text-decoration:none; font: normal 10px  Arial, sans-serif !important; line-height: 15px !important;color:#090 !important;}
+
+
+ul.namelinks-strong li a:link {text-decoration:none; font: normal 11px Arial, sans-serif !important; line-height: 15px !important; color: #333; }
+ul.namelinks-strong li a:visited { text-decoration:none; font: normal 11px  Arial, sans-serif !important; line-height: 15px !important;color:#333;}
+ul.namelinks-strong li a:hover { text-decoration:none; font: normal 11px  Arial, sans-serif !important; line-height: 15px !important;color:#090;}
+ul.namelinks-strong li a:active {text-decoration:none; font: normal 11px  Arial, sans-serif !important; line-height: 15px !important;color:#090;}
+
+ul.namelinks-dim li a:link {text-decoration:none; font: normal 10px Arial, sans-serif !important; line-height: 15px !important; color: #ddd; }
+ul.namelinks-dim li a:visited { text-decoration:none; font: normal 10px  Arial, sans-serif !important; line-height: 15px !important;color:#ddd;}
+ul.namelinks-dim li a:hover { text-decoration:none; font: normal 10px  Arial, sans-serif !important; line-height: 15px !important;color:#ccc;}
+ul.namelinks-dim li a:active {text-decoration:none; font: normal 10px  Arial, sans-serif !important; line-height: 15px !important;color:#ccc;}
+
+#schednav ul { float:left; width:896px; height:40px; background-color:#eee; border-top:4px solid #eee; margin:0; padding: 0; }
+#speaknav ul { float:left; width:860px; margin: 0; padding: 0; }
+
+ul.tabus { float:left; width:180px; height:40px; margin: 1px 0 0 2px ; padding: 0; z-index:999; }
+
+ul.tabus li { list-style:none; display:inline; }
+
+ul.tabus li a:link { background-image:url(images/tab-light.gif); background-repeat: no-repeat; background-position:right bottom; z-index:999; color:#000; margin:3px 0 0 0 ; padding:10px 20px 10px 20px; text-decoration:none !important; font-size:15px !important; font-family:Georgia, "Times New Roman", serif !important; font-weight:normal; line-height:30px; text-align:left !important; text-transform:lowercase; border:none; }
+
+ul.tabus li a:visited { background-image:url(images/tab-light.gif); background-repeat: no-repeat; background-position:right bottom; z-index:999; color:#000; margin:3px 0 0 0 ; padding:10px 20px 10px 20px; text-decoration:none !important; font-size:15px !important; font-family:Georgia, "Times New Roman", serif !important; font-weight:normal; line-height:30px; text-align:left !important; text-transform:lowercase; border:none; }
+
+ul.tabus li a:hover { background-image:url(images/tab-light.gif); background-repeat: no-repeat; background-position:right bottom; z-index:999; color:#36c !important; margin:3px 0 0 0 ; padding:10px 20px 10px 20px; text-decoration:none !important; font-size:15px !important; font-family:Georgia, "Times New Roman", serif !important; font-weight:normal; line-height:30px; text-align:left !important; text-transform:lowercase; border:none; }
+
+ul.tabus li a:active { background-image:url(images/tab-dark.gif); background-repeat: no-repeat; background-position:right bottom; z-index:999; color:#fff !important; margin:3px 0 0 0 ; padding:10px 20px 10px 20px; text-decoration:none !important; font-size:15px !important; font-family:Georgia, "Times New Roman", serif !important; font-weight:normal; line-height:30px; text-align:left !important; text-transform:lowercase; border:none; }
+
+
+
+
+
+/*====================HEADER and PANE styles=========================*/
+
+#headerama { background-color:#fff; width:auto; height:40px; margin-bottom: 10px; padding: 0px 0 0 0; font-family: Arial, sans-serif; font-size:1.1em;
+line-height:1.25; font-weight:bold; text-transform:uppercase; color:#333; }
+
+#headerama .add { float:left; width: 12.5em; font-size:.9em; text-align:center; margin:20px 0 0 0; }
+#headerama .time { float:left; width: 12em; margin:30px 0 0 20px; }
+#headerama .title { float:left; width: 15em; margin:30px 0 0 20px; }
+#headerama .speakers { float:left; width: 15em; margin:30px 0 0 10px; }
+#headerama .description { float:left; width: 9em; margin:30px 0 0 0; } 
+#headerama .type { float:left; width: 3em; margin:30px 0 0 0; }
+
+
+/*---pane containers: for main schedule panes---*/
+#mainpane { width:880px; height:630px; margin:0 4px 0 4px; padding:1px; border:1px solid #ccc; overflow:auto; }
+#secondarypane { width:880px; height:630px; margin:0 4px 0 4px; padding:1px; border:1px solid #ccc; overflow:auto; }
+#tertiarypane { width:880px; height:630px; margin:0 4px 0 4px; padding:1px; border:1px solid #ccc; overflow:auto; }
+#quaternarypane { width:880px; height:630px; margin:0 4px 0 4px; padding:1px; border:1px solid #ccc; overflow:auto; }
+#quinarypane { width:880px; height:720px; margin:0 4px 0 4px; padding:0 0 10px 0px; border:1px solid #ccc; overflow:auto; }
+
+/*--pane containers: for the speakers--*/
+#speakerpane { float:left; width:690px; height:auto; border:1px solid #ccc; background-color:#cfc; }
+#itinerary-speakers { width:678px; height:700px; margin:0 9px 0 1px; padding:0; border:1px solid #ccc; overflow:auto; }
+
+
+/*====================SPEAKER layout=========================*/
+
+/*----biopic wraps speaker img, bio, and sessions----*/
+.biopic { width:670px; min-height:500px; margin: 20px 0px 20px 0px; padding: 0; }
+
+.biopic .daybar { float:left; background-color:#36c; width:690px; height:20px; margin: 0; border-bottom:solid 2px #99c; font-family: "Century Gothic",
+"Trade Gothic", Arial, sans-serif; font-weight: bold; font-size: 1.2em; line-height: 1.6em; text-transform:uppercase; text-align: center; color: #fff; }
+.biopic img { float:left; width:217px; height:190px; border: 1px solid #9c6; margin: 30px 10px 50px 20px;} 
+.bio { float:left; width:400px; margin: 10px 0 50px 10px; padding: 0;}
+.bio h3 {font: normal 14px Helvetica, Arial, sans-serif !important; line-height:28px !important; color: #666 !important; text-transform: none !important; text-indent:6px;}
+.bio p {font: normal 12px Helvetica, Arial, sans-serif !important; line-height:16px !important; color: #666 !important; text-align:justify !important; }
+
+/*----SPEAKERPANE seminar layout----*/
+#speakerpane .speakerparty { float:left; width:682px; min-height:46px; margin: 0; padding:20px 6px 12px 2px; font-family: Helvetica, Arial, sans-serif; font-size:
+1em; color: #333; background-color:#fff; border-bottom: 2px dotted #9c9; }
+
+#speakerpane .speakerparty img { border:1px solid #fff; margin: 0; padding:0; }
+
+#speakerpane .speakerparty .daybar {
+	float:left;
+	background-color:#36c;
+	width:690px;
+	height:20px;
+	margin: -35px 0 0 0;
+	
+	border-bottom:solid 2px #eee;
+	font-family: "Century Gothic", "Trade Gothic", Arial, sans-serif;
+	font-weight: bold;
+	font-size: 1em; line-height: 1.5em;
+	text-transform:uppercase;
+	text-align: center;
+	color: #fff;
+	}
+
+/*---time---*/
+#speakerpane .speakerparty .dist{float:left;width:126px;margin: 10px 10px 0 2px;color: #333;}
+/*---party session number---*/
+#speakerpane .speakerparty .item {float:left;width:30px;margin: 10px 4px 0 2px ;font-weight:bold;color:#888;}
+/*---title---*/
+#speakerpane .speakerparty .titl {float:left;width: 210px;margin: 10px 4px 0 0;font-weight:bold;color:#000;}
+/*---speaker name (does not appear)---*/
+#speakerpane .speakerparty .spea {display:none;}
+/*---optional description---*/
+#speakerpane .speakerparty .desc {float:left;width: 100px;margin: 0;font-size: .7em;line-height: 1.25;color: #333;}
+/*---'type' icon---*/
+#speakerpane .speakerparty .icon img
+{float:left; width: 30px; height:30px;}
+
+
+/*-- SPEAKER ITINERARY party elements --*/
+#itinerary-speakers .speakerparty { display:block; width:698px; min-height:46px; margin: 0; padding:20px 6px 12px 2px; font-family: Helvetica, Arial, sans-serif;
+font-size: 1.1em; color: #333; background-color:none; border-bottom: 2px dotted #9c9; }
+#itinerary-speakers .speakerparty img { border:1px solid #fff; margin: 0; padding:0; }
+#itinerary-speakers .speakerparty .daybar { display:block; background-color:#36c; width:698px; height:20px; margin: 0; border-bottom:solid 2px #eee; font-family:
+"Century Gothic", "Trade Gothic", Arial, sans-serif; font-weight: bold; font-size: 1em; line-height: 1.5em; text-transform:uppercase; text-align: center;
+color: #fff; }
+	
+/*---time---*/
+#itinerary-speakers .speakerparty .dist{float:left;width:135px;margin: 10px 10px 0 2px;color: #333;}
+/*---party session number---*/
+#itinerary-speakers .speakerparty .item {float:left;width:30px;margin: 10px 0 0 2px ;font-weight:bold;color:#888;}
+/*---title---*/
+#itinerary-speakers .speakerparty .titl {float:left;width: 125px;margin: 10px 8px 0 0;font-weight:bold;color:#000;}
+/*---speaker name ---*/
+#itinerary-speakers .speakerparty .spea {float:left;width: 98px;margin: 10px 0px 0 2px;font-weight:normal;color:#000;}
+/*---optional description---*/
+#itinerary-speakers .speakerparty .desc {float:left;width: 83px;margin: 10px 0 0 4px;font-size: .7em;line-height: 1.25;color: #333;}
+/*---'type' icon---*/
+#itinerary-speakers .speakerparty .icon
+{float:left; width: 30px; height:30px;margin: 0;}
+
+
+/*=========================SCHEDULES====================================*/
+
+/*---session data-holder for the main schedule--*/
+.party { display:block; width:850px; min-height:66px; margin: 0 10px 0 10px; padding:10px 4px 0 4px; font-family: Arial, sans-serif; font-size: 1.1em;
+color: #333; border-bottom: 2px dotted #9c9; clear:both; }
+.party img {width:30px; height:30px;}
+
+/*---fields for the main, cooking, wine, and reserve schedules---*/
+/*---time---*/
+.dist{ float:left;width:12em;margin: 8px 6px 0 6px;color: #333;}
+/*---party session number---*/
+.item {float:left;width:2.2em;margin: 8px 0 0 4px ;font-weight:bold;color:#888;}
+/*---title---*/
+.titl {float:left;width: 15em; margin:8px 0 0 4px;font-weight:bold;color:#000;}
+/*---speakers---*/
+.spea{float:left;margin: 8px 4px 0 8px;width: 14em;color: #333;}
+/*---optional description---*/
+.desc {float:left; width: 11em; margin: 8px 0; font-size: .8em;line-height: 1.25;color: #333;}
+/*---'type of event' icon---*/
+.icon
+{float:left;width: 30px;height:30px;margin: 0 2px 0 10px;}
+
+
+/*--data holder for the cooking schedule--*/
+.cookingparty { display:block; width:850px; min-height:66px; margin: 0 10px 0 10px; padding:10px 4px 0 4px; font-family: Arial, sans-serif; font-size:
+1.1em; color: #333; border-bottom: 2px dotted #9c9; }
+.cookingparty img {width:30px; height:30px;}
+
+/*--data holder for the wine schedule--*/
+.wineparty { display:block; width:850px; min-height:66px; margin: 0 10px 0 10px; padding:10px 4px 0 4px; font-family: Arial, sans-serif; font-size: 1.1em;
+color: #333; border-bottom: 2px dotted #9c9; }
+.wineparty img {width:30px; height:30px;}
+
+/*--data holder for the reserve schedule--*/
+.reserveparty { display:block; width:850px; min-height:66px; margin: 0 10px 0 10px; padding:10px 4px 0 4px; font-family: Arial, sans-serif; font-size:
+1.1em; color: #333; border-bottom: 2px dotted #9c9; }
+.reserveparty img {width:30px; height:30px;}
+
+/*----'day' divider-------------------------------------------*/
+.daybar { display:block; background-color:#36c; width:auto; height:20px; border-bottom:solid 2px #eee; font-family: "Century Gothic", Arial, sans-serif;
+font-weight: normal; font-size: 1.2em; line-height: 1.6em; text-transform:uppercase; text-align: center; color: #fff; }
+
+
+
+/*=======================================================================*/
+/*---ITINERARY ELEMENTS AND FUNCTIONALITY BITS---------------------------*/
+
+/*---itinerary wrapper---*/
+#journeysend { position: relative; display:block; height: 100%; width: auto; overflow:auto; margin: 10px 0 10px 0; background-color:#fff; }
+
+#journeysend h2 {float:left; margin: 10px; font: 24px bold, Georgia, "Times New Roman", serif; text-transform:none; color: black;}
+
+#itinlogo img {float:right;  margin: 20px 20px 20px 40px; }
+
+#journeysendInstructions {display:block; width: 320px; margin:0 0 0 20px; font: 11px normal, Arial, sans-serif; line-height:14px; color: #333;}
+
+
+
+/*-- containers hold the elements atop the speakers itinerary page --*/
+#logocontainer {width:auto; height: 100px; margin:0; padding:0;}
+#graphicbuttons {position: relative; top:2px; left:50px; width:auto; height: 100px; margin:0; padding:0;}
+
+#conflictCheck a img { border:none; float:left; margin: 0 0 0 260px;}
+#conflictCheck-speakers a img { float:left; border:none; position:absolute; top:1px; left:360px;}
+
+/*-- timeblocks are the buckets that sort the itinerary divs --*/
+#Atimeblock {margin:0; padding:0;border-bottom: 1px dotted #eee;}
+#Btimeblock {margin:0; padding:0;border-bottom: 1px dotted #eee;}
+#Ctimeblock {margin:0; padding:0;border-bottom: 1px dotted #eee;}
+#C1timeblock {margin:0; padding:0;border-bottom: 1px dotted #eee;}
+#Dtimeblock {margin:0; padding:0;border-bottom: 1px dotted #eee;}
+#Etimeblock {margin:0; padding:0;border-bottom: 1px dotted #eee;}
+#Ftimeblock {margin:0; padding:0;border-bottom: 1px dotted #eee;}
+#F1timeblock {margin:0; padding:0;border-bottom: 1px dotted #eee;}
+#GT1timeblock {margin:0; padding:0;border-bottom: 1px dotted #eee;}
+
+/*-- timeblocks are placed within these divs --*/
+.fri {margin:0;padding:0;width:auto; min-height:20px;}
+.sat {margin:0;padding:0;width:auto; min-height:20px;}
+.sun {margin:0;padding:0;width:auto; min-height:20px;}
+
+
+
+/*---addto button: these use 'buttons' <span> class below with toggle---*/
+.addto { float:left; width:100px; height:44px; margin:0 0 0 10px; background-image:url(images/addtobutton.gif); background-repeat:no-repeat; }
+.addto .link { float:left; width:100px; height:44px; margin:0; background-image:url(images/addtobutton.gif); background-repeat:no-repeat; }
+.addto .visited { float:left; width:100px; height:44px; margin:0; background-image:url(images/addtobutton.gif); background-repeat:no-repeat; }
+.addto .hover { float:left; width:100px; height:44px; margin:0; background-image:url(images/removebutton.gif); background-repeat:no-repeat; }
+
+
+/*---TOGGLE BUTTONS <span> class: for main schedule ---*/ 
+.buttons { float:left; width:100px; height:44px; margin:0; background-image:url(images/addtobutton.gif); background-repeat:no-repeat; }
+.buttons .link { float:left; width:100px; height:44px; margin:0; background-image:url(images/addtobutton.gif); background-repeat:no-repeat; }
+.buttons .visited { float:left; width:100px; height:44px; margin:0; background-image:url(images/addtobutton.gif); background-repeat:no-repeat; }
+.buttons .hover { float:left; width:100px; height:44px; margin: 0; background-image:url(images/removebutton.gif); background-repeat:no-repeat; }
+
+/*---cooking buttons <span> class---*/
+.cookingbtns { float:left; width:100px; height:44px; margin:0; background-image:url(images/addtobutton-light.gif); background-repeat:no-repeat; }
+.cookingbtns .link { float:left; width:100px; height:44px; background-image:url(images/addtobutton-light.gif); background-repeat:no-repeat; }
+.cookingbtns .visited { float:left; width:100px; height:44px; background-image:url(images/addtobutton-light.gif); background-repeat:no-repeat; }
+.cookingbtns .hover { float:left; width:100px; height:44px; margin: 0; background-image:url(images/removebutton.gif); background-repeat:no-repeat; }
+
+/*---wine buttons <span> class---*/ 
+.winebtns { float:left; width:100px; height:44px; background-image:url(images/addtobutton-light.gif); background-repeat:no-repeat; }
+.winebtns .link { float:left; width:100px; height:44px; background-image:url(images/addtobutton-light.gif); background-repeat:no-repeat; }
+.winebtns .visited { float:left; width:100px; height:44px; background-image:url(images/addtobutton-light.gif); background-repeat:no-repeat; }
+.winebtns .hover { float:left; width:100px; height:44px; margin: 0; background-image:url(images/removebutton.gif); background-repeat:no-repeat; }
+
+
+/*---reserve buttons <span> class---*/ 
+.reservebtns { float:left; width:100px; height:44px; background-image:url(images/addtobutton-light.gif); background-repeat:no-repeat; } 
+.reservebtns .link
+{ float:left; width:100px; height:44px; background-image:url(images/addtobutton-light.gif); background-repeat:no-repeat; } 
+.reservebtns .visited {
+float:left; width:100px; height:44px; background-image:url(images/addtobutton-light.gif); background-repeat:no-repeat; } 
+.reservebtns .hover { float:left;
+width:100px; height:44px; margin: 0; background-image:url(images/removebutton.gif); background-repeat:no-repeat; }
+
+
+/*---SPEAKER buttons <span> class---*/ 
+.speakerbtns { float:left; width:100px; height:44px; background-image:url(images/addtobutton.gif); background-repeat:no-repeat; } 
+.speakerbtns .link
+{ float:left; width:100px; height:44px; background-image:url(images/addtobutton.gif); background-repeat:no-repeat; } 
+.speakerbtns .visited {
+float:left; width:100px; height:44px; background-image:url(images/addtobutton.gif); background-repeat:no-repeat; } 
+.speakerbtns .hover { float:left;
+width:100px; height:44px; margin: 0; background-image:url(images/removebutton.gif); background-repeat:no-repeat; }
+
+
+/*---FOOTER legends------*/
+
+.footerbar { width:auto; height:40px; margin: 2px 0 0 0; padding 0; background-color:#ccc; border: none; }
+
+.footerbar img {float:left; margin:0; padding:0;}
+
+.printfooterbar {display:none; width:auto; margin: 0; padding: 0;}
+
+.footerbar-speaker { width:auto; min-height:40px;   background-color:#ccc;  }

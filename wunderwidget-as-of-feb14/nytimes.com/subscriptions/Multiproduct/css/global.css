@@ -1,0 +1,465 @@
+/*
+$Id: global.css 104962 2012-07-31 13:45:09Z danii.oliver $
+(c)2011 The New York Times Company  
+*/
+/*CSS*/
+
+
+
+
+/**********RESETS************/
+
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+body {line-height: 1;}
+ol, ul {list-style-type: none;}
+ul li {background: none;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after,
+q:before, q:after {content: ''; content: none;}
+table {border-collapse: collapse;border-spacing: 0;}
+
+
+/*clearfix*/
+
+.clearfix:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+.clearfix {display: inline-block;}
+html[xmlns] .clearfix {display: block;}
+* html .clearfix {height: 1%;}
+
+
+
+/***********BASE***********/
+
+body {font: 12px georgia, times new roman, serif; line-height: 150%; color: #595959; text-align: left; }
+/*Updated 03-10*/
+a {color: #005da1; text-decoration: underline; cursor: pointer; }
+/*End Update*/
+a:visited {color: #005da1;}
+a:hover {}
+
+
+a.topLink {font: 10px arial, helvetica, sans-serif; display: block; margin-top: 25px;}
+
+
+h1 {font: 28px georgia, times new roman, serif; margin: 0; color: #333; font-weight:normal;}
+h1._28 {font-size: 28px;}
+h1.blu {font: 26px georgia, times new roman, serif; margin: 0; color: #1663A5; font-weight:normal; }
+h1.blu strong{font-weight:bold;}
+h1.offer{font-family:arial, helvetica, sans-serif; font-weight:normal; text-transform: uppercase;}
+h1.offer strong{font-weight:bold;}
+h2 {font: 22px georgia, times new roman, serif; margin: 0; color: #333;}
+h2.blk {font: 18px georgia, times new roman, serif; margin: 0; color: #000; font-weight:normal;}
+h2.blu {font: 18px georgia, times new roman, serif; margin: 0; color: #1663A5; font-weight:normal;}
+h2.new {font: 22px georgia, times new roman, serif; margin: 0; color: #333; font-weight: normal; }
+h2.blu strong, h2.blk strong, h3.orange strong {font-weight: bold;}
+h3.orange.new {font-weight: bold;}
+h3 {font: 14px georgia, times new roman, serif; margin: 0; color: #261903; }
+h3 strong {font-weight: bold;}
+
+/*NEW*/
+h3.lg {font-size: 18px; color: #333; margin-top: 5px;}
+h3.lg.marg {font-weight: normal; margin-top: 25px;}
+h3.md {font-size: 16px; color: #333; }
+h3.sm {font-size: 15px; color: #333; }
+span.lgBold {text-transform: uppercase; font: bold 16px arial, helvetica, sans-serif;}
+a.serifLG {font: 14px times new roman, verdana, serif;}
+.supertitle {box-sizing:border-box;  
+	text-transform: uppercase; 
+	font:bold 12px arial, helvetica, sans-serif; 
+	text-align: right; margin-bottom: 3px; color: #333;display: block;
+	padding-right:35px; 
+}
+.supertitle.special {margin-top: -17px; font-size: 10px;}
+.sm {font-size: 11px; font-weight: normal; text-transform: none;}
+.bold {font-weight: bold;}
+.center {text-align: center !important;}
+.eleven {font-size: 11px !important;}
+.arial {font-family: arial, helvetica, sans-serif;}
+.nounderline {text-decoration: none;}
+._400 {width: 400px;}
+span.sup {font-size: 8px !important; vertical-align: super; line-height: 0;}
+
+
+/*End NEW*/
+/*override masthead.css*/
+#branding{margin: 10px 0 0 12px;}
+
+h3.orange {font:18px arial, helvetica, sans-serif; color: #df6919; margin: 10px 0 20px 0; font-weight: normal;}
+h4 {font: bold 12px arial, helvetica, sans-serif; margin: 0; color: #261903; text-transform: uppercase;}
+h4._10 {font-size: 10px; text-transform: none;}
+h4.offer {padding: 18px 0; font: 18px arial, helvetica, sans-serif; font-weight:normal; color: #1a64a6;}
+h4.offer strong{font-weight:bold;}
+h4.blu {color: #1a64a6;}
+h4.orange {color: #cb6620;}
+h5 {}
+.clear {clear: both;}
+.transform {text-transform: uppercase;}
+
+p {line-height: 150%; margin-bottom: 15px; margin-left: 0; margin-right: 0; margin-top: 15px;}
+p.ten {font: 10px arial, helvetica, sans-serif; margin: 0; color: #261903;}
+.ten {font: 10px arial, helvetica, sans-serif; color: #000;}
+p.twelve {font: 12px arial, helvetica, sans-serif; margin: 0; color: #261903;}
+.margL {margin: 0 0 0 10px; text-align: left;}
+/*New/Updated*/
+p.ten.margL.lt {text-align: left;}
+p.ten.margL.gray {color: #666; padding: 0 .5em;}
+p.content{font: 12px georgia, times new roman, serif; line-height: 150%; margin-bottom: 15px; margin-left: 0; margin-right: 0; margin-top: 15px;}
+/*End New/Updated*/
+/*.intro p {width: 550px;}*/
+p.hd {font: 14px georgia, times new roman, serif; margin: 20px auto 0; width: 250px;}
+p.marg5 {margin: 5px 0;}
+
+span.title {font: bold 11px arial, helvetica, sans-serif; display: block; color: #000; }
+.botLink {font: 12px arial, helvetica, sans-serif; display: block; padding-top:15px;}
+
+img.pad {padding: 20px 0;}
+img.padv1{padding: 2px 0;}
+img.padBot {padding-bottom: 40px; /*margin-left: 48px;*/}
+
+.margtop {margin-top: 12px;}
+.margbot10 {margin-bottom: 10px;}
+.margbot5 {margin-bottom: 5px;}
+.nomarg {margin: 0;}
+
+.inline {display: inline;}
+
+/**********SITE***********/
+
+/*structure*/
+#head {text-align: center; padding: 0 0 15px; border-bottom: 1px solid #ccc;}
+
+/*Updated 04-29*/
+#container {height: 472px; padding: 23px; position: relative;/*font: 12px arial, helvetica, sans-serif;background: url(../img/container_bg.gif) repeat-x  0 11px; position: relative; z-index: 1;*/border-bottom: 1px solid #ccc; }
+#container.dual {background: none;}
+#container.dual.nobdr {border: none;}
+.section {padding: 0 0 25px 0; margin-bottom: 25px;}
+.section.md { border-bottom: 1px solid rgb(204,204,204);}
+.section.last {border: none; margin-bottom: 0;}
+.sectionInfo {padding: 25px 0 0 0; margin: 0 20px;}
+.section.first {padding-top: 25px; height: 320px;}
+.section.bottom {padding: 0 20px;}
+.section .leftTop {float: left; width: 372px; overflow: visible; left:0; margin-left: -23px; padding-top: 8px; z-index: 1;}
+.section .dual {width: 400px; padding-right: 20px; margin-left: 0; padding-top: 0; }
+.dual div.valueprop {float: left; width: 200px; margin-right: 10px;}
+.dual img.nytusers {display: block; float: left; width: 188px; padding-bottom: 30px;}
+.leftTop.dual div.row {clear: both; background: #d7e0e7; padding: 5px;}
+.leftTop.dual div.row p {float: left; width: 310px; padding-right: 5px;}
+.leftTop.dual div.row input.zip {width: 60px; display: block; float: left; }
+.leftTop.dual div.row input.txt:focus {background: #efefef;}
+.leftTop.dual input.alldig {background: url('../img/btn-alldig.gif') no-repeat 0 0; display: block; width: 183px; height: 33px; cursor: pointer; border: none; margin: 30px auto 0 auto; clear: both;}
+.section .rightTop {float: right; width: 464px; text-align: right; padding: 0; z-index: 1000;}
+.section .rightTop.dual {float: left; width: 400px; padding-left: 20px; padding-right: 0; text-align: left; border: none; border-left: 1px solid #ccc;}
+.section .rightTop h3{float:left; font-size:12px; font-weight:bold;}
+
+/*End Updated 04-29*/
+.botLeftTxt {font: 10px arial, helvetica, sans-serif; text-align:center; width:365px; float:left; display:inline;}
+.botRiteTxt {font: 11px arial, helvetica, sans-serif; text-align:center; width:484px; float:right; display:inline;}	
+/*NEW & UPDATED*/
+.rowCont {xpadding-top: 10px; clear: both; border-top: 1px solid #DDDDDD; background: url('../img/col_bg_new.gif') repeat-y 396px 0;}
+/*NEW UPDATE TO SHOW ONLY FOR LP3826 AND LP5558*/
+.rowContnew {xpadding-top: 10px; clear: both; border-top: 1px solid #DDDDDD; background: url('../img/col_bg.gif') repeat-y 396px 0;}
+/*NEW UPDATE TO SHOW ONLY FOR LP1999 AND LP2004*/
+.rowContnew1 {xpadding-top: 10px; clear: both; border-top: 1px solid #DDDDDD; background: url('../img/col_bg_v2.gif') repeat-y 340px 0;}
+
+.rightTop {/*text-align: left; margin-top: 30px;*/ display: block; }
+.rightTop .row {display: block; padding: 0.5em 0 .5em .5em; xmargin-bottom: .3em; border-bottom: 1px solid #ddd; }
+.row.last {border: 0;}
+x.rightTop .row:hover {background: #d7e0e7; }
+.rightTop .row.selected {background: #d7e0e7;}
+
+/*NEW UPDATE TO SHOW ONLY FOR LP3826 AND LP5558- HOVER ON RADIO BTN*/
+x.rightTop .row:hover {background: none; }
+.rightTop .row.selectednew {background: none;}
+
+
+.rightTop .row .radiobutton {display: block; margin-right: 10px; width: 25px; float: left;}
+.rightTop .row .description {width: 225px; float: left; text-align: left; padding-bottom: 5px; }
+.priceR {width: 69px; float: right; text-align: center;  }
+.priceL {width: 95px; float: right; text-align: center;  }
+.priceR h4, .priceL h4{font-size:19px; font-weight:normal; color:#ff6600;}
+.priceL h4{color:#666; text-decoration: line-through;}
+.priceR.subhead h4, .priceL.subhead h4{font-size:10px; font-weight:bold; text-transform: uppercase; text-decoration: none; color:#ff6600; margin-bottom: 5px;}
+.priceL.subhead h4{color:#666;}
+.perWeek{font-size:10px; font-family:arial,helvetica,sans-serif; font-weight:bold; color:#888; text-decoration:none;}
+/*End NEW*/
+/*NEW UPDATE TO SHOW ONLY FOR LP1999 AND LP2004*/
+.priceR.no1 h4 {font-size:17px; font-weight:bold; color:#ff6600; margin-top: 23px; margin-left:-45px; text-align: center;}
+/*END*/
+.rightTop div.btn-hold {margin: 25px auto 0; display: block;}
+.rightTop input#subscribe, .rightTop button#subscribe {float: right; width: 182px; height: 25px; border: none; cursor: pointer; background: url('../img/button-bg.jpg') no-repeat; background-color:#002e60; background:linear-gradient(bottom, rgb(0, 46, 96) 26%, rgb(0, 68, 124) 75%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00447c', endColorstr='#002e60'); xpadding: .4em .6em; text-transform: uppercase; color: #fff; font: bold 11px arial, helvetica, sans-serif;}
+.rightTop img.nytlogo {display: block; margin: 30px auto 0;}
+/*Updated*/
+.intro {padding:25px 0 0 0; /*border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; /*width: 530px;*/margin: 0 20px;}
+.intro.topbdr {border-top: 1px solid #ccc;}
+/*End Updated*/
+img.mid {padding: 15px 0;}
+.colLeft {width: 400px; margin-right: 50px; float: left;}
+
+.colRight {width: 398px; float: left;}
+
+/* 3/25/13 - per other Subscription type buttons */ 
+#smallIcons img {
+	cursor: pointer;
+}
+
+/* 	alternate price grid layout styles - QS 8/7/13
+	to activate, add class "alternate" to div.rightTop */
+
+.rightTop.alternate .priceL h4 {
+    color: #ff6600;
+    text-decoration: none;
+}
+
+.rightTop.alternate .priceR h4 {
+    color: #666;
+}
+
+.alternate .rowContnew {
+    background: none;        
+}
+
+/* end alternate price grid layout styles */
+
+/*NEW*/
+.picCont {background: url('../img/bg-diag.png') no-repeat 00; height: 330px;}
+.picCont.nobg {background: none;}
+.picCont img.four {display:block; margin: 0 auto; }
+.picCont .leftBox img {padding-top: 40px;}
+.leftBox {float: left; width: 390px; margin-right: 20px;}
+.leftBox p {margin-left: 15px;}
+.rightBox {float: left; width: 420px; padding-left: 20px; padding-top: 20px;}
+
+/*NEW GIFT SECTION 11152011*/
+.picContGift {background: url('../img/bg-diag1.png') no-repeat 00; height: 294px;}
+.tBold {font: 12px georgia, times new roman, serif; line-height: 150%; font-weight:bold;}
+.rightBoxGift {float: right; width: 420px; padding-left: 10px; padding-top: 10px; margin-right:-18px;}
+.rightBoxNytLogo { float: right; width: 290px; margin-right: -404px; margin-top:231px;}
+.buyGiftBtn {float: right; width: 200px; margin-right: 230px; margin-top:0px;}
+.leftBoxGift {float: left; width: 431px; margin-right: 0px;}
+.leftBoxGift p {margin-left: 0px; width: 430px;}
+
+
+/*ul*/
+
+#memberTools {font-size:10px;}
+
+ul.billboard {float: left; margin-bottom: .1em; text-align: center; font-family: arial, helvetica, sans-serif;}
+ul.billboard li {font-size: 14px; background: #ffcc33; padding: .2em .3em; border: 1px solid #000;}
+
+/*Updated CSS for Tabs - NR - 03-09*/
+#memberTools {font-size:10px;}
+
+ul.billboard {float: left; margin-bottom: .1em; text-align: center; font-family: arial, helvetica, sans-serif;}
+ul.billboard li {font-size: 14px; background: #ffcc33; padding: .2em .3em; border: 1px solid #000;}
+
+ul.nav-dig {width: 826px; height: 37px; text-transform: uppercase; background: url('../img/nav-bg-sprite.gif') no-repeat 0 0; margin-top: 30px; padding-left: 5px;}
+ul.nav-dig li {float: left; display: block; height: 29px; background: none; padding: 6px 0 0 0; color: #fff;}
+
+ul.nav-dig li a {font-family: arial, helvetica, sans-serif; width: 158px; height: 22px; cursor: pointer; padding: 6px 0 0 15px; display: block; color: #666; font-size: 10px; text-decoration: none; text-shadow: 0 0 1px rgba(256, 256, 256, 0.4);}
+ul.nav-dig li a:hover {color: #fff; background: url(../img/tab-sprite.gif) no-repeat 0 0px; cursor: pointer;z-index: 500; position: relative; }
+ul.nav-dig li.active a, ul.nav-dig li.active a:hover {color: #fff; background: url('../img/tab-sprite.gif') no-repeat 0 0px; cursor: pointer; z-index: 1000; position: relative;} 
+ul.nav-dig li a.app {width: 156px;}
+ul.nav-dig li a.app:hover {background: url(../img/tab-sprite.gif) no-repeat 0 -29px; margin-left: -2px; padding: 6px 0 0 17px;  z-index: 500; position: relative;}
+ul.nav-dig li#tab-2.active a, ul.nav-dig li#tab-2.active a:hover {background: url('../img/tab-sprite.gif') no-repeat 0 -29px; margin-left: -2px; padding: 6px 0 0 17px; z-index: 1000; position: relative;}
+ul.nav-dig li a.faq {width: 158px;}
+ul.nav-dig li a.faq:hover {background: url(../img/tab-sprite.gif) no-repeat 0 -29px; margin-left: -2px; padding: 6px 0 0 17px; z-index: 500; position: relative;}
+ul.nav-dig li#tab-3.active a, ul.nav-dig li#tab-3.active a:hover {background: url('../img/tab-sprite.gif') no-repeat 0 -29px; margin-left: -2px; padding: 6px 0 0 17px; z-index: 1000; position: relative;}
+ul.nav-dig li a.home {}
+ul.nav-dig li a.home:hover {background: url(../img/tab-sprite.gif) no-repeat 0 -29px; margin-left: -3px; padding: 6px 0 0 17px; z-index: 500; position: relative;}
+ul.nav-dig li#tab-4.active a, ul.nav-dig li#tab-4.active a:hover {background: url('../img/tab-sprite.gif') no-repeat 0 -29px; margin-left: -3px; padding: 6px 0 0 17px; z-index: 1000; position: relative;}
+/*End Updated CSS for Tabs - NR - 03-09*/
+
+
+/*New Tabs Sections Layout - NR - 03-09*/
+#tabContainer {padding-bottom: 15px; xfont-family: arial, helvetica, sans-serif;}
+
+#holdNyt {padding-bottom: 20px;}
+#holdNyt .holdLeft {width:305px; float:left;}
+#holdNyt .holdRight {width:500px; float:left; padding-top:64px;}
+#holdNyt .holdRight p {margin-top: 5px; }
+#holdNyt .holdRight .tabSub p {width: 350px;}
+#holdNyt .holdRight h3 {}
+#holdNyt .tabSub {width: 475px; padding-bottom: 15px;}
+#holdNyt .tabSub.first {padding:20px 0 15px 0;}
+#holdNyt .tabSub img {float:left;}
+#holdNyt .tabSub p {margin:0 0 10px 65px;}
+#holdNyt .tabSub h3 {margin-left:65px;}
+
+#holdApps {padding-bottom: 20px;}
+#holdApps .holdLeft {width:206px; float:left;}
+#holdApps .holdRight {width:480px; float:left; padding-top:64px;}
+#holdApps .holdRight p {font-family: georgia, verdana, serif; margin-top: 5px; width: 450px;}
+
+#holdHome {padding-bottom: 20px;}
+#holdHome .holdLeft {width:350px; float:left; margin-right: 30px;}
+#holdHome .holdRight {width:450px; float:left; padding-top:30px;}
+#holdHome .holdRight p {margin-top: 5px; font-family: georgia, verdana, serif; width: 420px;}
+
+#holdFaq {padding-bottom: 20px;}
+#holdFaq .holdLeft {width:350px; float:left; margin-right: 30px;}
+#holdFaq .holdRight {width:415px; float:left; padding-top:64px;}
+#holdFaq .holdRight p {margin-top: 5px; font-family: georgia, verdana, serif; width: 350px;}
+/*End New Tabs Sections Layout - NR - 03-09*/
+
+
+/*NEW Window Overlays*/
+.boxNYT {position: absolute; z-index: 1000; display: none; }
+.boxNYT .wrap1 {background: url('../img/wrap1.png') no-repeat right top;}
+.boxNYT .wrap2 {background: url('../img/wrap2.png') no-repeat left bottom; padding-top: 15px; padding-left: 15px;}
+.boxNYT .shadowwrap {background: url('../img/shadow-wrap.png') no-repeat right bottom;}
+.boxNYT.smart {top: 230px; left: 230px; padding: 14px; }
+.boxNYT.tab {top: 242px; left: 230px; padding: 15px 15px 15px 14px;}
+.boxNYT.tab.ipad {left: 170px;}
+.boxNYT.all {top: 115px; left: 275px; padding: 15px; }
+.boxNYT.all.ipad {left:200px;}
+.boxNYT div.hold {border: 1px solid #000; background: #fff; padding: 15px; position: relative; top: -15px; left: -15px;}
+.boxNYT .hold img {float: left; display: block;}
+.boxNYT .hold ul {float: left; width: 300px; margin-left: 10px; color: #333; list-style-position: outside; padding-left: 20px;}
+.boxNYT .hold ul li {list-style-type: square !important;  padding: 0;}
+.boxNYT .hold a.close {position: absolute; display: block; line-height: 100%; top: 3px; right: 3px; xwidth: 5px; xheight: 15px; cursor: pointer; background: white; color: #333; font: bold 12px arial, helvetica, sans-serif; text-decoration: none; }
+
+/* LP0512 */
+.smlt {width: 285px !important;}
+.smrt {width: 435px !important;}
+.smrtpic {width: 400px !important;}
+p.clear {clear:both; margin-top: 20px;}
+.supertitle.rtal {text-align: right !important;}
+/* END OF LP0512 */ 
+
+
+.boxNYT.all ul {float: left; width: 225px; margin-left: 25px; color: #333;}
+
+a.close img {}
+
+#container a.close.all {top: 17px; right: 20px;}
+
+/* MultiProduct Icon Section MD */
+#faq{margin:15px 0;}
+.moreSub{text-align: center;margin: 15px;}
+#container4Boxes {
+	height: 410px; padding: 23px; 
+	/*font: 12px arial, helvetica, sans-serif;background: url(../img/container_bg.gif) repeat-x  0 11px; position: relative; z-index: 1;*/ 
+}
+
+/* show appropriate home delivery link on desk vs mobile - added 4/24/13 QS */
+a#homedelivery-mobile {
+	display: none;
+}
+
+/* hide subscriber login link by default - added 5/23/13 QS */
+li#link_login {
+	display: none;
+}
+
+.thin-underline {
+	padding-bottom:15px;
+	margin-bottom:15px;
+	border-bottom:1px solid #ccc;
+}
+.mobile-spacing {
+	position:relative;
+	margin-top:7px;
+}
+.top-padding {
+	padding-top:20px;
+}
+.side-padding {
+	padding-left:15px;
+	padding-right:25px;
+}
+.left {
+	float:left;
+}
+.right {
+	float:right;
+}
+.ten-percent {
+	width:10%;
+}
+.fifteen-percent {
+	width:15%;
+}
+.twenty-percent {
+	width:20%;
+}
+.thirty-percent {
+	width:30%;
+}
+.fourty-percent {
+	width:40%;
+}
+.fourty-five-percent {
+	width:45%;
+}
+.fifty-percent {
+	width:50%;
+}
+.fifty-five-percent {
+	width:55%;
+}
+.sixty-percent {
+	width:60%;
+}
+.sixty-five-percent {
+	width:65%;
+}
+.seventy-percent {
+	width:70%;
+}
+.eighty-percent {
+	width:80%;
+}
+.ninety-percent {
+	width:90%;
+}
+.ninety-five-percent {
+	position:relative; 
+	width:95%;
+	left:2%;
+}
+.hundred-percent {
+	width:100%;
+}
+.overflow {
+	overflow:hidden;
+}
+
+@media screen and (max-width: 600px) {
+
+.desktop-show {
+	display:none;
+}
+.left-text {
+	text-align:left;
+}
+.left, .right {
+	float:none;
+}
+.ten-percent {
+	width:10%;
+}
+.eighty-percent {
+	width:80%;
+}
+.twenty-percent, .thirty-percent, .fourty-percent, .fourty-five-percent, .fifty-percent, .sixty-percent, .sixty-five-percent, .seventy-percent, .ninety-percent, .hundred-percent, .card-block {
+	width:100%;
+}
+.top-padding {
+	padding-top:0;
+}
+.mobile-move-up {
+	position:relative;
+	margin-top:-15px;
+}
+	
+}
+
+p.mobile-text {
+	color:#000;
+	margin-left:20px;
+	margin-top:4px;
+	margin-bottom:4px;
+	width:70%;
+}

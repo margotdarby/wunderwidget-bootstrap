@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>
+this lil page
+</title>
+
+
+<link href="myDailyDiv_R4j-rwd.css"  rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>Frequently Asked and Idle Questions</h1>
+
+<div id = "subwinewrap">
+<h3>Does this thing have any earthly use?</h3>
+
+<p>Yes, it fills a serious need. I thought the need was obvious until I found that some people just didn't "get it" at all. So here is the simple explanation:
+</p>
+<p>It allows you to have NEW CONTENT appear EACH DAY, automatically. There are many reasons why you might want this. You might be building a news page. Or perhaps you have a module called "This Day In History" or "Whose Birthday Is it Today?" or "Planetary Aspects for Today." 
+</p>
+<p>For this kind of daily-update project, there are two must-haves:
+</p>
+<p>1) <em>Since your content is usually different each day, you must have each day's new content "go live" automatically when that day starts (midnight). </em>
+</p>
+<p>2) <em>You want people to be able to look at yesterday's news, and last week's news, but not tomorrow's! You want to be able to keep editing tomorrow's content up to the last minute. </em>
+</p>
+<p>And most likely this is also important:
+<br/>
+3) <em>The solution has to be lightweight and easy to use. </em></p>
+<p>There are content-management systems and blogging platforms that allow you to "publish" an article at some point in the future (e.g., WordPress, Drupal), but these are self-contained environments, not add-ons to your existing site.
+</p>
+<p><strong>Wunderwidget</strong> has two main pieces: the javascript itself, which you never have to open up or adjust; and the HTML wrapper that goes around your news page or module. To set up the widget in your own site, you need to provide your own content divs, and set a couple of basic parameters: <em>How many days back do you want to be able to scroll in this calendar year?</em> and <em>If you can scroll back to the previous calendar year, how far back do you wish to scroll in that one?</em> There is also a stylesheet, and some jQuery to enable simple transitions as you scroll from one day to another. 
+</p>
+
+<h3>Why Isn't This Thing Just a Slideshow?</h3>
+
+<p>Because a simple javascript/css slideshow will not give you date-specific content, or today's news, every day. 
+</p>
+<p>If you don't need to provide date-specific content every day, a simple slideshow may be all you need. Personally I am very fond of Mike Alsup's <em>cycle.js</em>, a jQuery plugin that is lightweight and flexible, and has been implemented a thousand different ways around the inter-webs. (<a href="http://www.malsup.com/jquery/">Get it here,</a> along with other useful and fun projects.)</p>
+
+
+<h3>Why couldn't you build it in jQuery?</h3>
+
+<p>There is no jQuery plugin or function that returns the current date and day of year, and can count backwards (or forwards) from that point. The purpose of jQuery is to simplify the long, stringy, cumbersome parts of Javascript. The date methods of Javascript are already as basic as you can get, and cannot be reduced further.
+</p>
+<p>For a similar reason, the Wunderwidget cannot be refashioned as a jQuery plugin without losing most of its utility. The closest approximation would be a jQuery plugin that would have you pick a date, whereupon it would return some content for that date. But this would be little different from a basic slideshow. It would not be able to count backwards and forwards from the date you initially select, nor would it "know" when it reached today's date and could no longer scroll ahead. 
+</p>
+
+
+<h3>Does it use backbone.js?</h3>
+
+<p>This question was intended as a joke, but it brings up a good point. If you created a complex date-driven website that needed to keep track of many days' relationship to each other (a scheduling program, perhaps), then backbone.js might well be the way to go. But Backbone here would be overkill (as indeed it is in most implementations we see these days).</p>
+
+<h3>Ditto Angular.js?</h3>
+
+<p>It will, Oscar, it will.</p>
+
+
+<h3>Is this site "responsive"?</h3>
+
+<p>Up to a point, Lord Copper. It wasn&rsquo;t, now it is.</p>
+
+
+
+<br/>
+<h3>For further information, contact </h3><p>Liz Houston at Wunderwidget Sales & Breeding: elizabeth.houston@wunderwidget.com</p>
+
+
+</div>  <!-- /subwinewrap -->
+
+<div id="bigarrowbox">
+<a href="#winewrap"><img src="nice-arrow.png"></a>
+</div>
+
+</body>
+</html>

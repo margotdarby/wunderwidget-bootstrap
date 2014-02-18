@@ -1,0 +1,209 @@
+<cfinclude template="/foodandwine/application.cfm">
+<cfset request.bShowSideBar="false">
+<cf_amexpagewrap datasource="#request.aep.config.datasource#" 
+                title="Food & Wine Classic in Aspen 2010"
+				metaDescription="Food & Wine Classic in Aspen 2010: Buy your tickets now!"
+                metaKeywords="Food & Wine Magazines, food and wine events, chef demos, chef recipes, wine, wine demos"
+                stylesheet="">
+<cfoutput>
+<!---
+<cfparam name="url.type" default="">
+<cfparam name="url.displaySideRail" default="false">
+<cf_aeplie type="classic_future_dates"> 
+--->
+	
+<!-- CONTENT START -->
+
+<!-- the basic faw stylesheets, for purposes of testing -->
+<link rel="stylesheet" href="screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="printer.css" type="text/css" media="print" />
+
+<link rel="stylesheet" type="text/css" href="aspen.css">
+<link rel="stylesheet" type="text/css" href="aspen_wide.css">
+<link rel="stylesheet" type="text/css" href="aspen_speaker.css">
+<link rel="stylesheet" type="text/css" href="aspen_sponsors.css">
+
+<link rel="stylesheet" href="aspen-trade2011.css" type="text/css" media="screen" /> 
+<link rel="stylesheet" href="aspen-schedules2011-print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="aspen-schedules2011-emailme.css" type="text/css" media="screen" /> 
+
+<script type="text/javascript" src="scripts/jquery.min.js"></script>
+<script>
+  jQuery.noConflict();
+  //use this for 'ready' statement in jQ scripts:
+  //jQuery(document).ready(function($) {
+</script>
+<script type="text/javascript" src="scripts/foodandwine_new.js"></script>
+<script type="text/javascript" src="scripts/tabu_loader.js"></script>
+
+
+<div id="aspen-content">
+	<div id="aspenMain">
+		<div id="aspenNav">
+		<ul>
+			<li><a href="schedule.cfm"><img src="/promo/classic-in-aspen/images/2011/schedule-current.gif"></a></li>
+			<li><a href="speakers.cfm"><img src="/promo/classic-in-aspen/images/2011/speakers.gif"></a></li>
+			<li><a href="trade-program.cfm"><img src="/promo/classic-in-aspen/images/2011/restaurant-trade.gif"></a></li>
+			<li><a href="green-pass.cfm"><img src="/promo/classic-in-aspen/images/2011/grow-for-good.gif"></a></li>
+			<li><a href="sponsors.cfm"><img src="/promo/classic-in-aspen/images/2011/sponsors.gif"></a></li>
+			<li style="float:left;"><a href="https://www.stayaspensnowmass.com/foodandwine/register"><img src="/promo/classic-in-aspen/images/2011/buy_tickets_wide.gif"></a></li>
+		</ul>
+		</div>
+		<div id="aspenBod">
+			<div align="left" style="padding-top:28px;padding-bottom:5px;padding-left:27px;"><h2>2011 Trade Schedule Template</h2></div>
+                          <div id="Schedule">
+           
+           <div id="aspen-schedule-module">
+  
+             <!--  -->
+             <div id="tabbed_box_1" class="tabbed_box">
+         	    
+
+               <div class="tabbed_area">
+               
+<div id="schednav">
+
+                 <ul class="tabus">
+                     <li><a href="##" title="content_1" class="tabu active">&nbsp;&nbsp;full trade schedule&nbsp;&nbsp;</a></li>
+
+                     <li><a href="##" title="content_2" class="tabu" style="display:none;">&nbsp;&nbsp;Cooking Demos&nbsp;&nbsp;</a></li>
+                     <li><a href="##" title="content_3" class="tabu" style="display:none;">&nbsp;&nbsp;Wine Seminars&nbsp;&nbsp;</a></li>
+
+                     <li><a href="##" title="content_4" class="tabu" style="display:none;">Reserve Wine Tastings&nbsp;&nbsp;</a></li>
+                     <li><a href="##" title="content_5" class="tabu" style="display:none;">&nbsp;&nbsp;My Itinerary&nbsp;&nbsp;</a></li>
+
+                 </ul>
+
+        </div>   <!-- end schednav tab selectors -->
+
+<div class="clear"></div>   
+
+
+                 <div id="content_1" class="content">
+                    <div id="headerama">
+                       
+                       <div class="time">Time</div>
+                       <div class ="title">Title</div>
+                       <div class ="speakers">Speakers</div>
+                       <div class ="description">Description</div>
+                       
+                    </div>
+                    
+<div class="clear"></div>  <!-- clear after header -->
+
+                 <div id="mainpane">   <!--FULL TRADE SCHEDULE-->
+                   
+                   <div class="daybar">FRIDAY, JUNE 17, 2011</div>
+                    <div id = "t0" class="party">
+                     <div class="dist">FRI 10:00am &ndash; 10:45am</div>
+                     <div class="item">T101</div>
+                     <div class="titl">Great Family Cooking</div>
+                     <div class="spea">Bob the Baker</div>
+                     <div class="desc">Haec cum superba uerterit uices dextra et aestuantis more fertur Euripi, dudum tremendos saeua proterit reges humilemque uicti subleuat fallax uultum. Non illa miseros audit aut curat fletus ultroque gemitus, dura quos fecit, ridet. Sic illa ludit, sic suas probat uires magnumque su<ae u>is monstrat ostentum, si quis uisatur una stratus ac felix hora.</div>                    
+                   </div> 
+                   
+      				      <div id = "t1" div class="party">     
+      						 <div class="dist">SAT 10:00am &ndash; 10:45am</div>
+      						 <div class="item">T401</div>
+      						 <div class="titl">The New New Chef</div>
+      						 <div class="spea">John Cook</div>                    
+      						 <div class="desc">Haec cum superba uerterit uices dextra et aestuantis more fertur Euripi, dudum tremendos saeua proterit reges humilemque uicti subleuat fallax uultum. Non illa miseros audit aut curat fletus ultroque gemitus, dura quos fecit, ridet. Sic illa ludit, sic suas probat uires magnumque su<ae u>is monstrat ostentum, si quis uisatur una stratus ac felix hora.</div>						 
+      					   </div>
+ 
+           <div class="daybar">SATURDAY, JUNE 18, 2011</div>                                      
+
+				      <div id = "t2" div class="party">     
+						 <div class="dist">SAT 10:00am &ndash; 10:45am</div>
+						 <div class="item">T401</div>
+						 <div class="titl">The New New Chef</div>
+						 <div class="spea">John Cook</div>                    
+						 <div class="desc">Haec cum superba uerterit uices dextra et aestuantis more fertur Euripi, dudum tremendos saeua proterit reges humilemque uicti subleuat fallax uultum. Non illa miseros audit aut curat fletus ultroque gemitus, dura quos fecit, ridet. Sic illa ludit, sic suas probat uires magnumque su<ae u>is monstrat ostentum, si quis uisatur una stratus ac felix hora.</div>						 
+					   </div> 
+
+             <div class="daybar">SUNDAY, JUNE 18, 2011</div> 
+
+					      <div id = "t3" div class="party">     								
+								<div class="dist">SUN 10:30am &ndash;12:00pm</div>
+								<div class="item">T701</div>
+								<div class="titl">CLASSIC TRADE QUICKFIRE!</div>
+								<div class="spea">Sissy Diner</div>                    
+								<div class="desc">Haec cum superba uerterit uices dextra et aestuantis more fertur Euripi, dudum tremendos saeua proterit reges humilemque uicti subleuat fallax uultum. Non illa miseros audit aut curat fletus ultroque gemitus, dura quos fecit, ridet. Sic illa ludit, sic suas probat uires magnumque su<ae u>is monstrat ostentum, si quis uisatur una stratus ac felix hora.</div>								
+							  </div> 
+
+					     <div id = "t4" div class="party" >     
+							   <div class="dist">SUN 10:30am &ndash; 11:15am</div>
+							   <div class="item">T702</div>
+							   <div class="titl">Spicy Italian Chef</div>
+							   <div class="spea">Michael Restaurateur</div>                    
+							   <div class="desc">Haec cum superba uerterit uices dextra et aestuantis more fertur Euripi, dudum tremendos saeua proterit reges humilemque uicti subleuat fallax uultum. Non illa miseros audit aut curat fletus ultroque gemitus, dura quos fecit, ridet. Sic illa ludit, sic suas probat uires magnumque su<ae u>is monstrat ostentum, si quis uisatur una stratus ac felix hora.</div>
+							 </div> 
+							 
+					     <div id = "t5" div class="party" >     
+							   <div class="dist">SUN 10:30am &ndash; 11:15am</div>
+							   <div class="item">T802</div>
+							   <div class="titl">Spicy Hot Chef</div>
+							   <div class="spea">Ducky Doo</div>                    
+							   <div class="desc">Haec cum superba uerterit uices dextra et aestuantis more fertur Euripi, dudum tremendos saeua proterit reges humilemque uicti subleuat fallax uultum. Non illa miseros audit aut curat fletus ultroque gemitus, dura quos fecit, ridet. Sic illa ludit, sic suas probat uires magnumque su<ae u>is monstrat ostentum, si quis uisatur una stratus ac felix hora.</div>
+							   
+							 </div>
+                   
+
+                     </div> <!-- end of main -->
+             
+                 </div><!-- end content_1 -->
+
+   
+  
+  
+              
+              
+          </div> <!-- end of tabbed box-->
+         </div> <!--end of aspen schedule module--> 
+                         
+                      
+                           
+                        </div><!--end Schedule? -->
+                    </div>
+                </div>
+            
+            <!-- -->
+            
+            
+	<!-- <p>Download seminar schedule here </p> -->
+	<p>Please check back shortly for more information or call 877.900.WINE.</p>
+            
+		</div>
+		<div class="clear"></div>
+
+		<div id="aspenPromo_speaker">
+			<!-- <div id="kitchen-aid-adSC">
+				<p>brought to you by</p>
+			    <a href="http://www.kitchenaid.com" target="_blank"><img src="images/KA-logoFTWIM01_Blk.gif"></a>
+			</div> -->
+		</div>
+	</div><!-- /aspenMain -->
+        <div class="clear"></div>
+	<div id="aspenFtr">
+		<ul>
+			<li class="first"><a href="/promo/classic-in-aspen">Home</a></li>
+			<li><a href="exhibitors.cfm">Exhibitors</a></li>
+			<li><a href="press-room.cfm">Press Room</a></li>
+			<!--<li><a href="http://stayaspensnowmass.com/additional-food-wine-events" target="external">Weekend Events</a></li>-->
+			<li><a href="future-dates.cfm">Future Dates</a></li>
+			<li><a href="contact-us.cfm">Contact Us</a></li>
+		</ul>
+	</div>
+	
+
+</div><!-- /content -->
+
+
+	
+
+	
+
+
+		<!-- end ##content -->
+
+</cfoutput>
+</cf_amexpagewrap>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bibendum - MOD 5A</title>
+   
+
+    <!-- HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="lib/bootstrap.css" rel="stylesheet">
+    <link href="lib/spinner.css" rel="stylesheet">
+    <link href="Bib.css" rel="stylesheet">
+
+    <script src="lib/jquery-1.7.1.js"></script>
+    <script src="lib/underscore.js"></script>
+    <script src="lib/backbone.js"></script>
+    <script src="lib/bootstrap-twipsy.js"></script>
+    <script src="lib/bootstrap-popover.js"></script>
+    <script src="lib/bootstrap-modal.js"></script>
+    <script src="lib/bootstrap-tabs.js"></script>
+    <script src="lib/bootstrap-dropdown.js"></script>
+    <script src="bibendum-mod5.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  </head>
+
+  <body id="backbone-Bib-app">
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="#">Flickr Bib Mod 5a</a>
+          <ul class="nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about" data-controls-modal="about-modal">About</a></li>
+          </ul>
+          <ul class="nav secondary-nav">
+            <li class="dropdown">
+              <a href="#" id="sort-order-menu-title" class="dropdown-toggle">Date Added</a>
+              <ul class="dropdown-menu">
+                <li><a class="sort-order-menu-item" data-sort-order="date" href="#sort/date/desc">Date Added</a></li>
+                <li><a class="sort-order-menu-item" data-sort-order="alpha" href="#sort/alpha/asc">Alphabetic</a></li>
+                <li class="divider"></li>
+                <li><a id="sort-order-menu-order-item" href="#sort/date/asc">Reverse Order</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="hero-unit">
+        <h1>Nunc Est Bibendum (Mod 5)</h1>
+        <p id="hero-text">Photos, tags, modals generated through Backbone.js and Twitter Bootstrap. Images retrieved from "http://api.flickr.com/services/rest/?" and a photoset. Built Sept. 2012, re-edited Sept. 2013.</p>
+      </div>
+
+      <div id="gateway-content" style="width:840px; margin-left:100px;">
+
+        <ul id="gateway-photos" class="media-grid">
+          <div id="page-loading-container">
+            <div class="spinner" style="width: 44px; height: 44px">
+              <div class="bar1"></div>
+              <div class="bar2"></div>
+              <div class="bar3"></div>
+              <div class="bar4"></div>
+              <div class="bar5"></div>
+              <div class="bar6"></div>
+              <div class="bar7"></div>
+              <div class="bar8"></div>
+              <div class="bar9"></div>
+              <div class="bar10"></div>
+              <div class="bar11"></div>
+              <div class="bar12"></div>
+            </div>
+          </div>
+        </ul>
+      </div>
+
+      <footer>
+      <p>&copy; <a href="mailto:margot@wafirst.com">send a note to me</a> © 2012-2013</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    <div id="show-photo-modal" class="modal hide fade">
+      <div class="modal-header">
+        <a href="#" class="close">&times;</a>
+        <h3>Modal Heading</h3>
+        <h5>ID Number</h5>
+      </div>
+      <div class="modal-body">
+        <p>Loading ...</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" id="show-photo-modal-f-button" class="btn primary">Flickr</a>
+      </div>
+    </div>
+
+    <div id="about-modal" class="modal hide fade">
+      <div class="modal-header">
+        <a href="#" class="close">&times;</a>
+        <h3>About</h3>
+      </div>
+      <div class="modal-body">
+        <h4>The Purpose of This Is</h4>
+        <p>to have a  code example wherein backbone.js templates are placed within the html markup instead of a "main.js" script. In this case it populates the page with images from a flickr photoset and creates a pop-up and modal for each image. (These cute elements are straight from the Twitter Bootstrap package.) The advantage to this method is that it's simpler to edit. I think it also more closely reflects the real-world usage. </p>
+      
+        <h4>Contact</h4>
+        <p>Feel free to <a href="mailto:margot@wafirst.com">email me</a></p>
+      </div>
+      <div class="modal-footer">
+        <a href="http://margotsheehan.com" class="btn primary">many other samples</a>
+        
+      </div>
+    </div>
+
+    <!-- Templates -->
+
+    <script type="text/template" id="photo-gateway-template">
+        <li>
+          <div class="gateway-photo-container">
+            <a href="http://api.flickr.com/services/feeds/photos_public.gne?lang=en-us&format=json&nojsoncallback=1&page=6/<%= photo.get('id') %>" 
+            
+              title="<%- photo.get('title') %>" 
+              rel="photoPopover"
+              data-photo-id="<%= photo.id %>"
+              data-placement="<%= (index + 1) % 4 ? 'right' : 'left' %>">
+              <img class="thumbnail" width="180" src="<%= photo.get('url_s') %>" alt="<%- photo.get('title') %>"/>
+            
+            <div class="infobox">
+              
+              
+              <% if (photo.get('title')) { %>
+               <p>
+                 <strong>Title:</strong>  <%= photo.get('title') %>
+               </p>
+              <% } %>
+              
+              <% if (photo.get('id')) { %>
+               <p>
+                 <strong>ID:</strong>  <%= photo.get('id') %>
+               </p>
+              <% } %>
+      
+            </div>
+            
+            </a>
+            
+          </div>
+        </li>
+    </script>
+
+    <script type="text/template" id="photo-popover-content">
+      <% if (photo.get('source')) { %>
+        <p>
+          <strong>Source:</strong>  <%= photo.get('source') %>
+        </p>
+      <% } %>
+      <% if (photo.get('bib_type')) { %>
+        <p>
+          <strong>Type:</strong>  <%= photo.get('bib_type') %>
+        </p>
+      <% } %>
+      <p>
+        <strong>Description:</strong> <%= photo.get('description') ? photo.get('description') : '-' %>
+      </p>
+      <p>
+        <strong>Added:</strong>  <%- photo.get('taken').toLocaleTimeString() %>, <%- photo.get('taken').toLocaleDateString() %>
+      </p>
+      <% if (photo.get('location')) { %>
+        <p>
+          <strong>Location:</strong>  <%= photo.get('location') %>
+        </p>
+      <% } %>
+    </script>
+
+    <script type="text/template" id="spinner-template">
+      <div class="centre-spinner" id="<%= spinnerId %>">
+        <div class="spinner" style="width: 34px; height: 34px">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+          <div class="bar4"></div>
+          <div class="bar5"></div>
+          <div class="bar6"></div>
+          <div class="bar7"></div>
+          <div class="bar8"></div>
+          <div class="bar9"></div>
+          <div class="bar10"></div>
+          <div class="bar11"></div>
+          <div class="bar12"></div>
+        </div>
+      </div>
+    </script>
+    
+    <script type="text/template" id="no-spinner-template">
+      <div class="centre-spinner" id="<%= spinnerId %>">
+        <div class="spinner" style="width: 34px; height: 34px">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+          <div class="bar4"></div>
+          <div class="bar5"></div>
+          <div class="bar6"></div>
+          <div class="bar7"></div>
+          <div class="bar8"></div>
+          <div class="bar9"></div>
+          <div class="bar10"></div>
+          <div class="bar11"></div>
+          <div class="bar12"></div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="show-photo-modal-body-template">
+
+      <ul class="tabs">
+        <li class="active"><a href="#photo-tab">Photo</a></li>
+        <li><a href="#details-tab">Detail</a></li>
+        <% if (photo.get('latitude')) { %>
+          <li id="tab-map-link"><a href="#map-tab">Map</a></li>
+        <% } %>
+      </ul>
+
+      <div class="pill-content">
+        <div class="active" id="photo-tab">
+          <div id="modal-photo-container">
+            <img alt="<%- photo.get('title') %>" src="<%- photo.get('url_m') %>"/>
+          </div>
+        </div>
+        <div id="details-tab">
+          <%= (new PhotoPopoverView(photo)).render() %>
+        </div>
+        <% if (photo.get('latitude')) { %>
+          <div id="map-tab">
+              <div id="<%= photo.get('id') %>-map-container" style="width:510px;height:350px;"></div>
+          </div>
+        <% } %>
+      </div>
+
+    </script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  </body>
+</html>

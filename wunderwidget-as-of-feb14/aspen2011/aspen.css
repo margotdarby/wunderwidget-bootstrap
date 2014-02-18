@@ -1,0 +1,381 @@
+#content:after, #aspenNav ul:after, #aspenFtr ul:after {
+	content: ".";
+   display: block;
+   height: 0;
+   clear: both;
+   visibility: hidden;
+}
+
+#aspenMain div, fieldset, ul, dl {zoom:1;}
+
+#cta_social a, #credit_growForGood h3 {
+	display:block;
+	text-indent:-9999px;
+	font-size:1px;
+	line-height:0;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	border:0;
+}
+
+#aspen-content {
+	width:970px;
+	padding:0;
+	margin: 0;
+}
+
+#aspenMain {
+	float:left;
+	width:660px;
+	color:#000000;
+}
+
+#aspenMain .imgBlock {
+	float:left;
+	padding:0 15px 0 18px;
+}
+
+#aspenMainPress {
+	float:left;
+	width:660px;
+	color:#000000;
+}
+
+#aspenMainPress .imgBlock {
+	float:left;
+	padding:0 15px 0 18px;
+}
+
+#aspenNav {
+	
+}
+
+#aspenNav li {
+	float:left;
+	height:41px;
+}
+
+#aspenNav .first {
+	margin:0;
+}
+
+#aspenNav li.first-curr {
+	margin:0;
+	color: #f9f5b2;
+}
+
+#aspenNav li a {
+	color:#ffffff;
+}
+
+#aspenNav .curr a {
+	color:#f9f5b2;
+}
+
+#aspenBod {
+	
+	margin-bottom:5px;
+	padding:0;
+	font-size:11px;
+}
+
+#aspenBod-contact {
+	margin-top:10px;
+	margin-bottom:5px;
+	padding:0;
+	font-size:11px;
+	background: url(/promo/classic-in-aspen/images/2011/contact-us-photo.jpg) top left no-repeat;
+	height:511px;
+}
+
+#aspenBod-contact h2 {
+	margin-bottom:5px;
+	text-transform:lowercase;
+	font-family:georgia,times new roman,serif;
+	font-size:25px;
+	font-weight:400;
+	color:#fff;
+	padding:15px 0 0 17px;
+}
+
+#aspenBod-contact p {
+	margin:0 0 1.1em 0;
+	padding:0 10px 0 18px;
+	color:#fff;
+}
+
+#aspenBod-contact p.contact-header {
+	margin:0 0 1.1em 0;
+	padding:0 10px 0 18px;
+	font-size: 16px;
+	font-family:georgia,times new roman,serif;
+}
+
+#aspenBod-contact p a {
+	color:yellow;
+	font-weight:normal;
+}
+
+#aspenBod h2 {
+	margin-bottom:5px;
+	text-transform:lowercase;
+	font-family:georgia,times new roman,serif;
+	font-size:25px;
+	font-weight:400;
+	color:#000000;
+	padding:15px 0 0 17px;
+}
+
+#aspenBod p {
+	margin:0 0 1.1em 0;
+	padding:0 10px 0 18px;
+	font-size: 12px;
+}
+
+#aspenBod p.contact-header {
+	margin:0 0 1.1em 0;
+	padding:0 10px 0 18px;
+	font-size: 16px;
+	font-family:georgia,times new roman,serif;
+}
+
+#aspenBod p a {
+	color:#5e8f28;
+}
+
+#aspenBod ul {
+	float:left;
+	width:360px;
+	padding-left:30px;
+}
+
+#aspenBod ul li {
+	list-style-type:disc;
+}
+
+#aspenBod .creditBlock {
+	float:left;
+	width:300px;
+	padding:53px 0 0 0;
+	margin: 0 0 0 35px;
+	text-align:center;
+}
+
+#aspenBod .cb_contact {
+	padding-top:130px;
+}
+
+#aspenBod .creditBlock h3 {
+	margin-bottom:1.1em;
+	text-transform:uppercase;
+	font-family:arial,sans-serif;
+	font-weight:400;
+}
+
+#credit_amEx {
+   background:url(images/logo_amEx.gif) no-repeat top center;
+}
+
+#credit_growForGood h3 {
+	width:299px;
+	height:106px;
+	margin:0 auto;
+   background-image:url(/promo/classic-in-aspen/images/2011/grow_for_good.gif);
+}
+
+#pressInfo img {
+	padding:0 0 0 10px;
+}
+
+#pressInfo p {
+	padding:10px 0 0 10px;
+	text-transform:uppercase;
+	width: 600px;
+}
+
+#pressLnks ul {
+	margin-left:10px;
+	padding:0;
+}
+
+#pressLnks ul li {
+	list-style-type:none;
+	margin-bottom:10px;
+}
+
+#pressLnks li a {
+	display:block;
+	width:269px;
+	height:24px;
+	padding:11px 0 0 15px;
+	background:url(images/bg_btn.gif) no-repeat 0 0;
+	text-transform:uppercase;
+	line-height:1.0em;
+	font-size:14px;
+	color:#ffffff;
+}
+
+#pressInfo a {
+	font-size:11px;
+	color:#8dc63f;
+}
+
+#aspenFtr {
+	padding:2px 0;
+	background:url(/promo/classic-in-aspen/images/2011/bg_ftr.gif) no-repeat 0 0;
+	text-transform:uppercase;
+	margin: 5px 0 0 10px;
+}
+
+#aspenFtr li {
+	float:left;
+	padding-left:45px;
+	line-height:1.0em;
+	padding-top:1px;
+}
+
+#aspenFtr li.current a {
+	float:left;
+	color:#8dc63f;
+}
+
+#aspenFtr .first {
+	margin-left:35px;
+}
+
+* html #aspenFtr .first {
+	margin-left:17px;
+}
+
+#aspenFtr a {
+	color:#ffffff;
+	font: normal 11px arial,sans-serif;
+}
+
+#aspenFtr .curr a {
+	color:#f9f5b2;
+}
+
+#aspenPromo {
+	float: left;
+	width: 300px;
+	margin: 0 0 0 8px;
+}
+
+#cta_tickets {
+	width:300px;
+	height:48px;
+	margin-bottom:10px;
+	padding-top:20px;
+	text-align:center;
+	background:url(images/bg_cta_tickets.gif) no-repeat 0 0;
+	text-transform:lowercase;
+	font-family:georgia,serif;
+	font-size:16px;
+}
+
+#cta_tickets a {
+	color:#ffffff;
+}
+
+#ad_island {
+	margin-bottom:6px;
+}
+
+#cta_social {
+	margin:8px 0 8px 0;
+}
+
+#cta_social a {
+	width:299px;
+	height:74px;
+	background-image:url(images/btn_followUs.gif);
+}
+
+#classic-ad-tag {
+	float: right;
+	width: 175px;
+	margin: 0 0 5px 0;
+}
+
+#classic-ad-tag p {
+	float: left;
+	font: bold 11px arial,sans-serif;
+	color: #666;
+	padding: 5px 5px 0 0;
+}
+
+#cta_tickets2 {
+	width:300px;
+	height:68px;
+	margin-bottom:10px;
+	padding-top:0px;
+	text-align:center;
+	background:url(images/buy.gif) no-repeat 0 0;
+	text-transform:lowercase;
+	font-family:georgia,serif;
+	font-size:16px;
+}
+
+#cta_tickets2 a {
+	color:#ffffff;
+}
+
+#ad_skyscraper {
+	float: left;
+	width: 153px;
+	padding:0 0 0 20px;
+}
+
+#ad_skyscraper img {
+	width: 153px;
+}
+
+#schedule-text {
+	float: left;
+	padding: 200px 0 0 200px;
+	width: 350px;
+}
+
+#exhibitors-photo {
+	float:left;
+	padding:0 0 0 15px;
+}
+
+#CLASSIC-2011-press-links {
+	padding: 20px 0 15px 10px;
+}
+
+#CLASSIC-2011-press-links .ARROW-LINKS {
+	
+}
+
+#CLASSIC-2011-press-links .ARROW-LINKS IMG {
+	FLOAT:LEFT;
+}
+
+#CLASSIC-2011-press-links .ARROW-LINKS P {
+	FLOAT:LEFT;
+	font-size: 14px;
+	padding: 5px 0 0;
+}
+
+#classic-slideshows {
+	padding: 10px 0 0 15px;
+	float:left;
+}
+
+#classic-slideshows img {
+	padding: 0 29px 10px 0;
+	float:left;
+}
+
+
+
+.schedule-tastings { width:auto; border: 0px red dotted;}
+.schedule-date {  } 
+	.schedule-date p { font-weight:bold;} 
+.schedule-time { float:left; width: 150px; border: 0px green dotted;} 
+.schedule-event { float:left; width: 200px; border: 0px blue dotted;}
+.schedule-admission {float: left; width: 270px; border: 0px orange dashed;}
+

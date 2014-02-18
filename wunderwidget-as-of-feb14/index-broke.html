@@ -1,0 +1,621 @@
+<html>
+<head>
+
+<title> WUNDERWIDGET-for-Portfolio 1.1</title>
+<link href="myDailyDiv_R4i.css" media="screen" rel="stylesheet" type="text/css" />
+
+<script src="jquery-1.7.min.js" type="text/javascript"></script>
+<script src="doylyDiv5-min.js" type="text/javascript"></script>
+
+<!-- MOST OF THE OPTIONS CAN BE SET BELOW. THERE SHOULD BE NO NEED TO LOOK AT THE JAVASCRIPT ITSELF, WHICH HAS PROBABLY BEEN MINIFIED AND UGLIFIED! -->
+
+<script type="text/javascript">
+
+
+//earliest Day Of Year with viewable content 
+//(any number from 1 [January 1] .... to 365 or 366 [December 31] 
+
+//var beginwithDOY = 1; 
+var beginwithDOY = 10; 
+
+
+//How far back into the previous calendar year can you look? 
+//This must be a number > beginwithDOY . 
+//This parameter is mainly useful when it's the beginning of the year and you //wish to be able scroll back to the high-number Days of the Year in December... 
+
+var previousyearstartday = 366;
+
+
+//set fade-in time of initial div (in milliseconds!)
+
+var openingFadeIn = 500;   
+
+
+
+//Alert and text messages. Alert messages can be rewritten or removed. Text messages can be hidden through css (add display:none; to the appropriate style).
+
+var comebacktomorrowalert
+var noselectionalert
+var noselectionalert_next
+
+//alert message for when one tries to see past today
+comebacktomorrowalert = "Come back tomorrow!" 
+
+//alert message for when one goes back to a day with no content
+noselectionalert = "I can't show you that day." 
+
+//alert message for for when one goes back to a day with no content, keeps clicking backward, then moves forward again in the no-content zone!
+noselectionalert_next = "I can't show you that either! Keep going."
+
+
+//Define optional opening message:
+//There are several ways to do this. 
+//Use one of the examples below.
+
+var todaysmessage
+
+//Example 1: "Day of Year is 328" 
+//todaysmessage = "<p id='todaysMessage'>Day of Year is "+ DOY + "</p>"  
+
+//Example 2: "Day 328 of 2011"
+//todaysmessage = "<p id='todaysMessage'>Day "+ DOY + " of " + fy +"</p>"  
+
+//Example 3: "Today is Thursday, 24 November 2011. Day of Year is 328."
+
+todaysmessage = "<p id='todaysMessage'>Today is "+ wd + ", "+ da + " " + mo + " " + fy + ". Day of Year is "+ DOY + ".</p>"  
+
+//Example 4: "Thursday, November 24, 2011"
+//todaysmessage = "<p id='todaysMessage'>"+ wd + ",<br/>"+ mo + " " + da + ", " + fy + "</p>"  
+
+//Example 5: (blank!)
+//todaysmessage = "<p id='todaysMessage'></p>"  
+
+
+
+</script>    
+    
+</head>
+
+<body>
+
+<div id="winewrap">
+<img src="magicpixel.gif" onload="InitTimer()" />
+
+<div id="mySecretVineyard" style="display:none;">
+
+
+<div class="winetext" id="day1" name="item">
+<div class="winename">Departures</div>
+<img src="departures1.jpg" />
+<h5>Why?</h5>
+<p>Departures, 2012 homepage revamp.</p>
+</div>
+
+<div class="winetext" id="day2" name="item">
+<div class="winename">Departures</div>
+<img src="departures2.jpg" />
+<h5>Why?</h5>
+<p>Departures, 2012 inside search.</p>
+</div>
+
+<div class="winetext" id="day3" name="Isle of Scylla">
+<div class="winename">T+L</div>
+<img src="travelandleisure1.jpg" />
+<h5>Why?</h5>
+<p>Travel + Leisure homepage redo 2012.</p>
+</div>
+
+
+<div class="winetext" id="day4" name="Isle of Scylla">
+<div class="winename">Daily</div>
+<img src="thedaily1.jpg" />
+<h5>Why?</h5>
+<p>The Daily, email newsleter, 2011 redesign.</p>
+</div>
+
+<div class="winetext" id="day5" name="Isle of Scylla">
+<div class="winename">item</div>
+<img src="foodandwine1.jpg" />
+<h5>Why?</h5>
+<p>Food and Wine, 2012 revamp.</p>
+</div>
+
+<div class="winetext" id="day6" name="Isle of Scylla">
+<div class="winename">old portfolio landing page</div>
+<a href="http://www.podsnap.net"><img src="explosive1.jpg" /></a>
+<h5>Why?</h5>
+<p>An old 2009 portfolio, AS3 + JS.</p>
+</div>
+
+<div class="winetext" id="day7" name="Isle of Scylla">
+<div class="winename">F&W</div>
+<img src="foodandwine2.jpg" />
+<h5>Why?</h5>
+<p>2012 Food and Wine revamp.</p>
+</div>
+
+<div class="winetext" id="day8" name="Isle of Scylla">
+<div class="winename">Departures</div>
+<img src="departures2.jpg" />
+<h5>Why?</h5>
+<p>2012 Departures homepage revamp.</p>
+</div>
+
+<div class="winetext" id="day9" name="Isle of Scylla">
+<div class="winename">Departures</div>
+<img src="departures3.jpg" />
+<h5>Why?</h5>
+<p>2012 Departures inside redesign, Shopping category.</p>
+</div>
+
+<div class="winetext" id="day10" name="item">
+<div class="winename">T+L</div>
+<img src="travelandleisure1.jpg" />
+<h5>What and Why?</h5>
+<p>Travel + Leisure</p>
+</div>
+
+<div class="winetext" id="day11" name="aug09">
+<div class="winename">Matching Game</div>
+<a href="http://www.podsnap.net/cdm/AugustCDMBanner.html" target="_blank"><img src="augcdmbanner.jpg" /></a>
+<h5>Why banner?</h5>
+<p>Landing page banner, pharma ad firm 2009.</p>
+</div>
+
+<div class="winetext" id="day12" name="sep09">
+<div class="winename">Matching Game</div>
+<a href="http://www.podsnap.net/cdm/SeptemberCDMBanner.html" target="_blank"><img src="sepcdmbanner.jpg" /></a>
+<h5>Why another banner?</h5>
+<p>Landing page banner, pharma ad firm 2009.</p>
+</div>
+
+<div class="winetext" id="day13" name="Recipe Widget">
+<div class="winename">2011 Recipe Widget</div>
+<a href="recipe_finder_widget/deploy/swf/recipe_finder_widget2.swf" target="_blank"><img src="recipe_widget.jpg" /></a>
+<h5>Why a Widget?</h5>
+<p>Very extensive XML and AS3 files make up this deceptively simple-looking F&amp;W recipe selector. I made versions for Thanksgiving and Christmas.</p>
+</div>
+
+<div class="winetext" id="day14" name="Wakefulness">
+<div class="winename">Matching Game</div>
+<a href="http://www.pbolly.com/pharmaworld/jetlagremedy/index.html" target="_blank"><img src="nuvigil.jpg" /></a>
+<h5>Why a Game?</h5>
+<p>Part of a campaign pitch to a pharma company, 2010.</p>
+</div>
+
+<div class="winetext" id="day15" name="Stiff Me">
+<div class="winename">2009</div>
+<a href="http://www.yl.nbnm.net/" target="_blank"><img src="ylhomepage.jpg" /></a>
+<h5>Why Yoga?</h5>
+<p>Freelance project 2009, one of three for which I got stiffed in that blighted year. <a href="http://www.yogalocal.com" target="_blank">YL site.</a></p>
+</div>
+
+<div class="winetext" id="day16" name="Stiff Me Again">
+<div class="winename">2009</div>
+<a href="http://www.iyoga.nbnm.net/"><img src="ylblog.jpg" /></a>
+<h5>Once Again, Why Yoga?</h5>
+<p>Freelance project 2009, the WordPress blog link to <a href="http://www.yogalocal.com">YL site.</a></p>
+</div>
+
+<div class="winetext" id="day17" name="Worst Job Ever">
+<div class="winename">Caduet by Pfizer!</div>
+<a href="http://www.pbolly.com/pharmaworld/noggypie.swf" target="_blank"><img src="noggiepie.jpg" /></a>
+<h5>What you lookin at?</h5>
+<p>Noggiepie for Pfizer 2009</p>
+</div>
+
+<div class="winetext" id="day18" name="Isle of Scylla">
+<div class="winename">Shop</div>
+<a href="http://www.foodandwine.com/shop" target="_blank"><img src="fwshop1.jpg" /></a>
+<h5>What??</h5>
+<p>Promotion page for FW books and wine, 2010-2012.</p>
+</div>
+
+<div class="winetext" id="day19" name="Isle of Scylla">
+<div class="winename">iPad and mobile promo</div>
+<a href="http://www.foodandwine.com/articles/ipad-faq" target="_blank"><img src="ipadad1.jpg" /></a>
+<h5>What?</h5>
+<p>Static ad from original FW iPad launch.</p>
+</div>
+
+
+<div class="winetext" id="day20" name="Isle of Scylla">
+<div class="winename">Classic in Aspen</div>
+<a href="aspen2011/speakers2.html" target="_blank"><img src="speakers2011_4.jpg" /></a><h5>What?</h5>
+<p>Speakers&rsquo; schedule and Itinerary-Builder module for 2011 Classic-in-Aspen site.</p>
+</div>
+
+<div class="winetext" id="day21" name="Isle of Scylla">
+<div class="winename">Departures</div>
+<img src="departures3.jpg" />
+<h5>Why?</h5>
+<p>2012 Departures inside redesign, Shopping category.</p>
+</div>
+
+<div class="winetext" id="day22" name="Isle of Scylla">
+<div class="winename">Demo</div>
+<a href="BOOT/index-Oct3_BOOT_Test.html"><img src="boot-oct3.jpg" /></a>
+<h5>Why?</h5>
+<p>Prototype for photo-contest design, built on Twitter Bootstrap with some jQuery; using public Flicker feed. </p>
+</div>
+
+<div class="winetext" id="day23" name="Isle of Scylla">
+<div class="winename">FW</div>
+<a href="http://www.foodandwine.com/the-peoples-pastry"><img src="pbnc1.jpg" /></a>
+<h5>What and Who?</h5>
+<p>People&rsquo;s Best New Pastry Chef, winner 2012.</p>
+</div>
+
+<div class="winetext" id="day24" name="Isle of Scylla">
+<div class="winename">Classic in Aspen</div>
+<a href="aspen2011/speakers2.html"><img src="speakers2011_3.jpg" /></a><h5>What?</h5>
+<p>Speakers&rsquo; schedule and Itinerary-Builder module for 2011 Classic-in-Aspen site.</p>
+</div>
+
+
+<div class="winetext" id="day25" name="Isle of Scylla">
+<div class="winename">Demo</div>
+<a href="BIB5/index-mod5.html"><img src="BIB5.jpg" /></a>
+<h5>Why?</h5>
+<p>Prototype for photo-contest design, built on Twitter Bootstrap with some Backbone; calling a specific photoset with Flicker API. </p>
+</div>
+
+
+<div class="winetext" id="day26" name="Isle of Scylla">
+<div class="winename">T+L</div>
+<a href="http://www.travelandleisure.com"><img src="travelandleisure2.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Travel + Leisure homepage redo 2012.</p>
+</div>
+
+
+
+
+<div class="winetext" id="day27" name="Isle of Scylla">
+<div class="winename">Nautica Sweeps</div>
+<a href="http://contests.about.com/od/vacationsweepstakes/p/110430travel-leisure-nautica-coastal-life-sweepstakes.htm"><img src="nautica1.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Nautica Coastal Life Sweepstakes</p>
+</div>
+
+<div class="winetext" id="day28" name="Isle of Scylla">
+<div class="winename">F&W Daily</div>
+<img src="thedaily2.jpg" />
+<h5>Why?</h5>
+<p>The Daily e-mail newsletter, 2011 redesign.</p>
+</div>
+
+<div class="winetext" id="day29" name="Isle of Scylla">
+<div class="winename">Zimmern!</div>
+<a href="http://www.foodandwine.com/andrew-zimmern"><img src="fwzimmern1.jpg" /></a>
+<h5>What you show, Joe?</h5>
+<p>Andrew Zimmern page, 2011-2012.</p>
+</div>
+
+<div class="winetext" id="day30" name="Isle of Scylla">
+<div class="winename">Shop</div>
+<a href="http://www.foodandwine.com/shop"><img src="fwshop1.jpg" /></a>
+<h5>What is this fairy form I see before me?</h5>
+<p>Promotion page for FW books and wine, 2010-2012.</p>
+</div>
+
+<div class="winetext" id="day31" name="Isle of Scylla">
+<div class="winename">Nautica Sweeps</div>
+<a href="http://contests.about.com/od/vacationsweepstakes/p/110430travel-leisure-nautica-coastal-life-sweepstakes.htm"><img src="nautica1.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Nautica Coastal Life Sweepstakes</p>
+</div>
+
+
+
+<div class="winetext" id="day32" name="Isle of Scylla">
+<div class="winename">T+L</div>
+<a href="http://www.travelandleisure.com"><img src="travelandleisure2.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Travel + Leisure homepage redo 2012.</p>
+</div>
+
+<div class="winetext" id="day33" name="Isle of Scylla">
+<div class="winename">Shop</div>
+<a href="http://www.foodandwine.com/shop"><img src="fwshop1.jpg" /></a>
+<h5>What is this fairy form I see before me?</h5>
+<p>Promotion page for FW books and wine, 2010-2012.</p>
+</div>
+
+
+<div class="winetext" id="day34" name="Isle of Scylla">
+<div class="winename">old portfolio landing page</div>
+<a href="http://www.podsnap.net" target="_blank"><img src="explosive1.jpg" /></a>
+<h5>Why?</h5>
+<p>An old 2009 portfolio, AS3 + JS.</p>
+</div>
+
+<div class="winetext" id="day35" name="Isle of Scylla">
+<div class="winename">Nautica Sweeps</div>
+<a href="http://contests.about.com/od/vacationsweepstakes/p/110430travel-leisure-nautica-coastal-life-sweepstakes.htm" target="_blank"><img src="nautica1.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Nautica Coastal Life Sweepstakes</p>
+</div>
+
+<div class="winetext" id="day36" name="Isle of Scylla">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com" target="_blank"><img src="departures3.jpg" /></a>
+<h5>Why?</h5>
+<p>2012 Departures inside redesign, Shopping category.</p>
+</div>
+
+<div class="winetext" id="day37" name="Isle of Scylla">
+<div class="winename">Demo</div>
+<a href="BOOT/index-Oct3_BOOT_Test.html" target="_blank"><img src="boot-oct3.jpg" /></a>
+<h5>Why?</h5>
+<p>Prototype for photo-contest design, built on Twitter Bootstrap with some jQuery; using public Flicker feed. </p>
+</div>
+
+<div class="winetext" id="day38" name="item">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com" target="_blank"><img src="departures1.jpg" /></a>
+<h5>Why?</h5>
+<p>Departures, 2012 homepage revamp.</p>
+</div>
+
+<div class="winetext" id="day39" name="item">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com/shopping" target="_blank"><img src="departures3.jpg" /></a>
+<h5>Why?</h5>
+<p>Departures, 2012 inside search.</p>
+</div>
+
+<div class="winetext" id="day40" name="Isle of Scylla">
+<div class="winename">Nautica Sweeps</div>
+<a href="http://contests.about.com/od/vacationsweepstakes/p/110430travel-leisure-nautica-coastal-life-sweepstakes.htm" target="_blank"><img src="nautica1.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Nautica Coastal Life Sweepstakes</p>
+</div>
+
+<div class="winetext" id="day41" name="item">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com" target="_blank"><img src="departures2.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Departures, 2012 homepage.</p>
+</div>
+
+<div class="winetext" id="day42" name="item">
+<div class="winename">F&W</div>
+<a href="http://www.travelandleisure.com" target="_blank"><img src="travelandleisure2.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Travel + Leisure, 2012-13. </p>
+</div>
+
+<div class="winetext" id="day43" name="Isle of Scylla">
+<div class="winename">Demo</div>
+<a href="BOOT/index-Oct3_BOOT_Test.html" target="_blank"><img src="boot-oct3.jpg" /></a>
+<h5>Why?</h5>
+<p>Prototype for photo-contest design, built on Twitter Bootstrap with some jQuery; using public Flicker feed. </p>
+</div>
+
+<div class="winetext" id="day44" name="Isle of Scylla">
+<div class="winename">F&W</div>
+<a href="http://www.foodandwine.com" target="_blank"><img src="foodandwine1.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Food and Wine, 2012-13.</p>
+</div>
+
+<div class="winetext" id="day45" name="Isle of Scylla">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com" target="_blank"><img src="departures3.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Departures revamp 2012, inside page.</p>
+</div>
+
+<div class="winetext" id="day46" name="aug09">
+<div class="winename">Matching Game</div>
+<a href="http://www.podsnap.net/cdm/AugustCDMBanner.html" target="_blank"><img src="augcdmbanner.jpg" /></a>
+<h5>Why banner?</h5>
+<p>Landing page banner, pharma ad firm 2009.</p>
+</div>
+
+<div class="winetext" id="day47" name="sep09">
+<div class="winename">Matching Game</div>
+<a href="http://www.podsnap.net/cdm/SeptemberCDMBanner.html" target="_blank"><img src="sepcdmbanner.jpg" /></a>
+<h5>Why another banner?</h5>
+<p>Landing page banner, pharma ad firm 2009.</p>
+</div>
+
+<div class="winetext" id="day48" name="Recipe Widget">
+<div class="winename">2011 Recipe Widget</div>
+<a href="recipe_finder_widget/deploy/swf/recipe_finder_widget2.swf" target="_blank"><img src="recipe_widget.jpg" /></a>
+<h5>Why a Widget?</h5>
+<p>Very extensive XML and AS3 files make up this deceptively simple-looking F&amp;W recipe selector. I made versions for Thanksgiving and Christmas.</p>
+</div>
+
+<div class="winetext" id="day49" name="Wakefulness">
+<div class="winename">Matching Game</div>
+<a href="http://www.pbolly.com/pharmaworld/jetlagremedy/index.html" target="_blank"><img src="nuvigil.jpg" /></a>
+<h5>Why a Game?</h5>
+<p>Part of a campaign pitch to a pharma company, 2010.</p>
+</div>
+
+<div class="winetext" id="day50" name="Stiff Me">
+<div class="winename">2009</div>
+<a href="http://www.yl.nbnm.net/" target="_blank"><img src="ylhomepage.jpg" /></a>
+<h5>Why Yoga?</h5>
+<p>Freelance project 2009, one of three for which I got stiffed in that blighted year. <a href="http://www.yogalocal.com" target="_blank">YL site.</a></p>
+</div>
+
+<div class="winetext" id="day51" name="Stiff Me Again">
+<div class="winename">2009</div>
+<a href="http://www.iyoga.nbnm.net/"><img src="ylblog.jpg" /></a>
+<h5>Once Again, Why Yoga?</h5>
+<p>Freelance project 2009, the WordPress blog link to <a href="http://www.yogalocal.com">YL site.</a></p>
+</div>
+
+<div class="winetext" id="day52" name="Worst Job Ever">
+<div class="winename">Caduet by Pfizer!</div>
+<a href="http://www.pbolly.com/pharmaworld/noggypie.swf" target="_blank"><img src="noggiepie.jpg" /></a>
+<h5>What you lookin at?</h5>
+<p>Noggiepie for Pfizer 2009</p>
+</div>
+
+<div class="winetext" id="day53" name="Isle of Scylla">
+<div class="winename">Shop</div>
+<a href="http://www.foodandwine.com/shop" target="_blank"><img src="fwshop1.jpg" /></a>
+<h5>What??</h5>
+<p>Promotion page for FW books and wine, 2010-2012.</p>
+
+<div class="winetext" id="day352" name="Isle of Scylla">
+<div class="winename">Try the Wine</div>
+<img src="day332.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day353" name="Isle of Scylla">
+<div class="winename">Who Yo Daddy</div>
+<img src="day333.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day354" name="Isle of Scylla">
+<div class="winename">Try the Wine</div>
+<img src="day334.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day355" name="Isle of Scylla">
+<div class="winename">Sideways Table Red</div>
+<img src="day311.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day356" name="Isle of Scylla">
+<div class="winename">Try the Wine</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day357" name="Isle of Scylla">
+<div class="winename">Red Red Claret on Tap</div>
+<img src="day313.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day358" name="Isle of Scylla">
+<div class="winename">Sideways Table Red</div>
+<img src="day314.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day359" name="Isle of Scylla">
+<div class="winename">Try the Wine</div>
+<img src="day315.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+
+
+
+<div class="winetext" id="day360" name="Isle of Scylla">
+<div class="winename">The Most Happy Fella Pinot Noir</div>
+<img src="day330.jpg" />
+<h5>Why?</h5>
+<p>They knew what they wanted.</p>
+</div>
+
+<div class="winetext" id="day361" name="Isle of Scylla">
+<div class="winename">Who Yo Daddy</div>
+<img src="day331.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day362" name="Isle of Scylla">
+<div class="winename">Try the Wine</div>
+<img src="day332.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day363" name="Isle of Scylla">
+<div class="winename">Who Yo Daddy</div>
+<img src="day323.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day364" name="Isle of Scylla">
+<div class="winename">Try the Wine</div>
+<img src="day314.jpg" />
+<h5>Why?</h5>
+<p>An epic wine from the wine-dark sea.</p>
+</div>
+
+<div class="winetext" id="day365" name="item">
+<div class="winename">item</div>
+<img src="departures2.jpg" />
+<h5>Why?</h5>
+<p>Departures, inside search page.</p>
+</div>
+
+<div class="winetext" id="day366" name="item">
+<div class="winename">item</div>
+<img src="departures1.jpg" />
+<h5>Why?</h5>
+<p>Departures, homepage revamp 2012.</p>
+</div>
+
+
+
+
+<div class="winetext" id="dummyWine" name="no-item" >
+<div class="winename">no item</div>
+<img src="day000.jpg" />
+<h5>Why Not?</h5>
+<p>Either you&rsquo;ve gone too far into the past...or there's just no content for this date!</p>
+</div>
+
+</div>
+
+<div id="drinkthisnow">
+
+<div id="wine-caddy">
+<h1>Drink This Now.</h1>
+
+<div id="goEarlier" name="arrow"  class="arrows" onClick="ShowPreviousDayWine()">
+<a href="#"></a></div>
+
+<div id="goLater" name="arrow"  class="arrows" onClick="ShowNextDayWine()"><a href="#"></a></div>
+
+<div class="toptext">
+<p>This is a toy I originally built (<em>mostly in raw javascript</em>) as a daily-wine caddy for <em>F&amp;W</em>&rsquo;s executive bottle editor, Gunnar Poetaster (not his real name). You can scroll <strong>backwards</strong> or <strong>forwards</strong> within a selected range of days (&#8804; 366) . . . but you <strong>can&rsquo;t see tomorrow</strong> till tomorrow comes! </p>
+</div>
+
+<div class="daily-wine" id="daily-wine">
+</div>
+
+</div> <!-- /wine-caddy -->
+</div> <!-- /drinkthisnow-->
+<div id="faq-bar">
+<h1>FAQ</h1>
+<p>Does this thing have any earthly use?</p>
+<p>Why isn't this just a slideshow?</p>
+<p>Why couldn't you build it in jQuery?</p>
+<p>Does it use backbone.js?</p>
+<p>Is it animal?</p>
+<p>Can you eat it?</p>
+<br/>
+<p>Serious questions will be cheerfully addressed in the fullness of time.</p>
+
+<img src="Richmond_1865.jpg" alt="richmond65" />
+</div><!-- /faq-bar -->
+</div> <!-- /winewrap -->
+
+
+</body>
+</html>

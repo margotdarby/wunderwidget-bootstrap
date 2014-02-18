@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Our New Bootstrap Portfolio page 1.3</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    
+    <!-- working css for ww section -->
+    <link href="myDailyDiv_R4k-rwd.css" media="all" rel="stylesheet" />
+    
+    
+    
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    
+    
+    
+    <!-- load ww js with jq for trnstns -->
+    <script src="jquery-1.7.min.js" type="text/javascript"></script>
+    <!-- JS that has to be in head of markup for WW -->
+	<script src="doylyDiv6.js" type="text/javascript"></script>
+	<!-- JS other -->
+
+	<script src="http://jwpsrv.com/library/cgzhRpJkEeONgCIACi0I_Q.js"></script>
+	
+	
+	
+	<!-- *********************************************************************
+
+OPTIONS CAN BE SET IN THE SECTIONS BELOW. THERE SHOULD BE NO NEED TO OPEN THE EXTERNAL JAVASCRIPT ITSELF, WHICH HAS PROBABLY BEEN MINIFIED AND UGLIFIED. 
+
+********************************************************************* -->
+
+
+<script type="text/javascript">
+
+//BUG TESTING: do we want UTC date or local Date? These overwrite the default var in the js file.
+var da = day.getDate();
+//var da = day.getUTCDate();
+
+
+//earliest Day Of Year with content (any number from 1 [January 1] .... to 365 or 366 [December 31]
+//var beginwithDOY = 298; 
+var beginwithDOY = 27; 
+
+
+//How far back into the previous calendar year can you look? (Must be a number greater than beginwithDOY.) 
+var previousyearstartday = 366;
+
+//set fade-in time of initial div (in milliseconds!)
+var openingFadeIn = 1000;   //fade-in speed of initial div, in milliseconds
+
+
+//Alert and text messages. Alert messages can be rewritten or removed. Text messages can be hidden through css (add display:none; to the appropriate style).
+
+var comebacktomorrowalert
+var noselectionalert
+var noselectionalert_next
+
+
+//alert message for when one tries to see past today
+comebacktomorrowalert = "Nobody can see tomorrow!" 
+//comebacktomorrowalert = "That's too bad, come back tomorrow!" 
+
+//alert message for when one goes back to a day with no content
+noselectionalert = "I can't show you that day." 
+
+//alert message for for when one goes back to a day with no content, keeps clicking backward, then moves forward again in the no-content zone!
+noselectionalert_next = "I can't show you that either! Keep going."
+
+
+/*define optional opening message*/
+
+var todaysmessage
+
+//Example 1: "Day of Year is 328" 
+//todaysmessage = "<p id='todaysMessage'>Day of Year is "+ DOY + "</p>"  
+
+//Example 2: "Day 328 of 2011"
+//todaysmessage = "<p id='todaysMessage'>Day "+ DOY + " of " + fy +"</p>"  
+
+//Example 3: "Today is Thursday. It is now 24 November 2011 (GMT)."
+todaysmessage = "<p id='todaysMessage'>Today is "+ wd + ". It is now "+ da + " " + mo + " " + fy + ".</p>"  
+
+//Example 4: "Today is Thursday. Day of Year is 328." 
+//todaysmessage = "<p id='todaysMessage'>Today is "+ wd + ". Day of Year is "+ DOY + ".</p>" 
+
+//Example 5: "Thursday, November 24, 2011"
+//todaysmessage = "<p id='todaysMessage'>"+ wd + ",<br/>"+ mo + " " + da + ", " + fy + "</p>"  
+
+//Example 6: (blank!)
+//todaysmessage = "<p id='todaysMessage'></p>"  
+
+
+
+</script>    
+    
+
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="assets/ico/favicon.png">
+
+   
+  </head>
+
+  <body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+    <!-- Navbar
+    ================================================== -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="./index.html">Wunderwidget</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active">
+                <a href="#wwTop">Home</a>
+              </li>
+              <li class="">
+                <a href="http://www.margotdarby.com" style="color:#fff;">Devblog</a>
+              </li>
+              <li class="">
+                <a href="#faiq">FAIQ</a>
+              </li>
+              
+              <li class="">
+                <a href="#muette">Architecture</a>
+              </li>
+              <li class="">
+                <a href="#noddy">Noddy</a>
+              </li>
+              
+              <li class="">
+                <a href="index-pre-bootstrap.html">Old Version</a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- ***************** HIDE THIS ****************************** -->
+<div class="jumbotron masthead" style="display:none;">
+  <div class="container">
+    <h1>Bootstrap</h1>
+    <p>Sleek, intuitive, and powerful front-end framework for faster and easier web development.</p>
+    <p>
+      <a href="assets/bootstrap.zip" class="btn btn-primary btn-large" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Download', 'Download 2.3.2']);">Download Bootstrap</a>
+    </p>
+    <ul class="masthead-links">
+      <li>
+        <a href="http://github.com/twitter/bootstrap" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'GitHub project']);">GitHub project</a>
+      </li>
+      <li>
+        <a href="./getting-started.html#examples" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Examples']);">Examples</a>
+      </li>
+      <li>
+        <a href="./extend.html" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Extend']);">Extend</a>
+      </li>
+      <li>
+        Version 2.3.2
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- ******************************************** -->
+
+
+<!-- ***************** HIDE THIS ****************************** -->
+<div class="bs-docs-social" style="display:none;">
+  <div class="container">
+    <ul class="bs-docs-social-buttons">
+      <li>
+        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=twitter&repo=bootstrap&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+      </li>
+      <li>
+        <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=twitter&repo=bootstrap&type=fork&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="102px" height="20px"></iframe>
+      </li>
+      <li class="follow-btn">
+        <a href="https://twitter.com/twbootstrap" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @twbootstrap</a>
+      </li>
+      <li class="tweet-btn">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://twitter.github.com/bootstrap/" data-count="horizontal" data-via="twbootstrap" data-related="mdo:Creator of Twitter Bootstrap">Tweet</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- ******************************************** -->
+
+<div class="container" id="wwTop">
+
+  <div class="marketing" >
+
+    <h1 id="hed-no-mobile" style="padding-top:6px;">Portfolio on Bootstrap.</h1>
+    <p class="marketing-byline" id="subhed-no-mobile">Here is the current iteration of my portfolio, built inside Twitter Bootstrap and my own <em>Wunderwidget</em> package of Javascript routines, including a little jQuery for transitions. <strong>Scroll backward. Scroll forward. Just don't scroll into tomorrow!</strong></p>
+
+    <div class="row-fluid" >
+    
+    <!-- ******************************************** -->
+      <div class="span4" style="display:none;">
+        <img class="marketing-img" src="assets/img/bs-docs-twitter-github.png">
+        <h2>By nerds, for nerds.</h2>
+        <p>Built at Twitter by <a href="http://twitter.com/mdo">@mdo</a> and <a href="http://twitter.com/fat">@fat</a>, Bootstrap utilizes <a href="http://lesscss.org">LESS CSS</a>, is compiled via <a href="http://nodejs.org">Node</a>, and is managed through <a href="http://github.com">GitHub</a> to help nerds do awesome stuff on the web.</p>
+      </div>
+      <!-- ******************************************** -->
+      
+      <div class="span9" style="border:3px solid #d2deb1; margin:0 auto; float:none; min-height:6em;">
+      <!--
+        <img class="marketing-img" src="assets/img/bs-docs-responsive-illustrations.png">
+        <h2>Made for everyone.</h2>
+        <p>Bootstrap was made to not only look and behave great in the latest desktop browsers (as well as IE7!), but in tablet and smartphone browsers via <a href="./scaffolding.html#responsive">responsive CSS</a> as well.</p>
+        -->
+        
+         <!-- *********PUT TEST WW CODE IN HERE ******************* -->
+        
+        <div id="winewrap" style=" margin:0 auto; width:100%;">
+        <!-- put magicpixel.gif at bottom of winewrap -->
+
+
+<div id="mySecretVineyard" style="display:none;">
+
+<div class="winetext" id="day1" name="bespoke">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com" target="_blank"><img src="departures6.jpg" /></a>
+<h5>Why Bespoke?</h5>
+<p>Current Departures feature.</p>
+</div>
+
+<div class="winetext" id="day2" name="Travelandleisure">
+<div class="winename">T+L</div>
+<a href="http://www.travelandleisure.com" target="_blank" ><img src="travelandleisure5.jpg" /></a>
+<h5>T+L: A Moving Target</h5>
+<p>Travel + Leisure homepage redo 2012.</p>
+</div>
+
+
+
+<div class="winetext" id="day3" name="Recipe Widget">
+<div class="winename">2011 Recipe Widget</div>
+<a href="recipe_finder_widget/deploy/swf/recipe_finder_widget2.swf" target="_blank"><img src="recipe_widget.jpg" /></a>
+<h5>Why a Widget?</h5>
+<p>Very extensive XML and AS3 files make up this deceptively simple-looking F&amp;W recipe selector. I made versions for Thanksgiving and Christmas.</p>
+</div>
+
+<div class="winetext" id="day4" name="Isle of Scylla">
+<div class="winename">Shop</div>
+<a href="http://www.amexpub.net/shop-rebuild/shop.html" target="_blank"><img src="fwshop1.jpg" /></a>
+<h5>What is this fairy form I see before me?</h5>
+<p>Promotion page for FW books and wine, 2010-2012.</p>
+</div>
+
+
+<div class="winetext" id="day5" name="Wakefulness">
+<div class="winename">Matching Game</div>
+<a href="http://www.pbolly.com/pharmaworld/jetlagremedy/index.html" target="_blank"><img src="nuvigil.jpg" /></a>
+<h5>Why a Game?</h5>
+<p>Part of a campaign pitch to a pharma company, 2010.</p>
+</div>
+
+
+
+<div class="winetext" id="day6" name="Isle of Scylla">
+<div class="winename">NYT Subscriptions</div>
+<a href="http://www.nytimes.com/subscriptions/Multiproduct/lp3353.html" target="_blank"><img src="nyt_lp3004.jpg" /></a>
+<h5>Revised . . . but is it live?</h5>
+<p>One of many NYT subscription landing pages revised 2013.</p>
+</div>
+
+
+<div class="winetext" id="day7" name="Isle of Scylla">
+<div class="winename">Shop</div>
+<a href="http://www.amexpub.net/shop-rebuild/shop.html" target="_blank"><img src="fwshop1.jpg" /></a>
+<h5>Food &amp; Wine Shop Page, 2010-2012</h5>
+<p>Promotion page for FW books and wine, 2010-2012.</p>
+</div>
+
+
+<div class="winetext" id="day8" name="Isle of Sissy">
+<div class="winename">Kitchen Insider</div>
+<a href="http://www.amexpub.net/shop-rebuild/kitchen-insider.html" target="_blank"><img src="kitchen-insider.jpg" />
+<h5>Kitchen Insider with Javascript dropdown calendar.</h5>
+<p>Kitchen Insider 2011-2012, Rebuilt 2013.</p>
+</div>
+
+
+<div class="winetext" id="day9" name="Isle of Scylla">
+<div class="winename">Multi-video Player 2009</div>
+<a href="http://www.podsnap.org/margotproject" target="_blank"><img src="margotproject1.jpg" /></a>
+<h5>What Would You Like to Watch?</h5>
+<p>Video-player-template project, 2009, in AS3. All your favorites at once: Kim Philby, Shirley Temple, the Hindenburg, and Froggy the Gremlin!</p>
+</div>
+
+
+<div class="winetext" id="day10" name="Recipe Widget">
+<div class="winename">2011 Recipe Widget</div>
+<a href="recipe_finder_widget/deploy/swf/recipe_finder_widget2.swf" target="_blank"><img src="recipe_widget.jpg" /></a>
+<h5>Why a Widget?</h5>
+<p>Very extensive XML and AS3 files make up this deceptively simple-looking F&amp;W recipe selector. I made versions for Thanksgiving and Christmas.</p>
+</div>
+
+<div class="winetext" id="day11" name="Wakefulness">
+<div class="winename">Matching Game</div>
+<a href="http://www.pbolly.com/pharmaworld/jetlagremedy/index.html" target="_blank"><img src="nuvigil.jpg" /></a>
+<h5>Why a Game?</h5>
+<p>Part of a campaign pitch to a pharma company, 2010.</p>
+</div>
+
+<div class="winetext" id="day12" name="Spot the difference">
+<div class="winename">FW Senses Game</div>
+<a href="http://pbolly.com/amexpub/spot_the_difference.swf" target="_blank"><img src="spotthedifference.jpg" /></a>
+<h5>Why Play?</h5>
+<p>Flash game on Food &amp; Wine 2010; original version created by interactive vendor, modifications to .as classes and XML by me. </p>
+</div>
+
+<div class="winetext" id="day13" name="Isle of Scylla">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com/articles/mark-cross-makes-a-comeback" target="_blank"><img src="departures18.jpg" /></a>
+<h5>Mark Cross Makes a Comeback?</h5>
+<p>Departures facelift 2012.</p>
+</div>
+
+
+<div class="winetext" id="day14" name="Isle of Scylla">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com" target="_blank"><img src="departures11.jpg" /></a>
+<h5>What and Who?</h5>
+<p>Departures facelift 2012.</p>
+</div>
+
+<div class="winetext" id="day15" name="Isle of Scylla">
+<div class="winename">NYT Subscriptions</div>
+<a href="nytimes.com/subscriptions/Multiproduct/lp39UU8.html" target="_blank"><img src="nytimes39UU8.jpg" /></a>
+<h5>Revised . . . but is it live?</h5>
+<p>Subscription landing page, one of dozens revised April-May 2013. Curiously, the "live" version in the NYT server is not currently live!</p>
+</div>
+
+
+<div class="winetext" id="day16" name="Isle of Scylla">
+<div class="winename">FW</div>
+<a href="http://www.foodandwine.com/peoples-best-new-chef" target="_blank"><img src="pbnc2.jpg" /></a>
+<h5>What and Why?</h5>
+<p>FW Popular Best New Chef 2011-13</p>
+</div>
+
+<div class="winetext" id="day17" name="item">
+<div class="winename">Flickr Bootstrap Backbone</div>
+<a href="PhotocontestPrototypes_POC/flitterBoot4A/flitterBoot4A.html" target="_blank"><img src="bootstrapflickr1.jpg" /></a>
+<h5>Which Flickr images?</h5>
+<p>Flickr photo retriever, using Twitter Bootstrap and Backbone.js. This reveals the most recently posted public photos for some arbitrary keyword I chose.</p>
+</div>
+
+<div class="winetext" id="day18" name="Isle of Scylla">
+<div class="winename">T+L</div>
+<a href="http://www.travelandleisure.com" target="_blank" ><img src="travelandleisure4.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Travel + Leisure homepage redo 2012.</p>
+</div>
+
+
+
+<div class="winetext" id="day19" name="Isle of Scylla">
+<div class="winename">Zimmern!</div>
+<a href="http://www.foodandwine.com/andrew-zimmern" target="_blank"><img src="fwzimmern1.jpg" /></a>
+<h5>What you show, Joe?</h5>
+<p>Andrew Zimmern page, 2011-2012. Current version in production is now very static, stripped of all my pretty interactive elements.</p>
+</div>
+
+
+
+<div class="winetext" id="day20" name="Isle of Scylla">
+<div class="winename">Shop</div>
+<a href="http://www.amexpub.net/shop-rebuild/shop.html" target="_blank"><img src="fwshop1.jpg" /></a>
+<h5>What is this fairy form I see before me?</h5>
+<p>Promotion page for FW books and wine, 2010-2012.</p>
+</div>
+
+<div class="winetext" id="day21" name="Isle of Scylla">
+<div class="winename">NYT Subscriptions</div>
+<a href= "http://www.nytimes.com/subscriptions/Multiproduct/lp5558.html?campaignId=3F3FU" target="_blank"><img src="nytimes39UU8.jpg" /></a>
+<h5>As seen in Facebook!</h5>
+<p>Some months I revised the coding of several dozen ads like this for the New York Times. Later someone else messed with them. This one still works properly.</p>
+</div>
+
+
+<!-- copied to here 1jan2014; to jan 21 -->
+
+
+<div class="winetext" id="day22" name="Isle of Scylla">
+<div class="winename">Barclaycard</div>
+<a href="http://bcus-virgin.cosgrovenystaging.com/virgin/premium-travel" target="_blank"><img src="barclaycard.jpg" /></a>
+<h5>Barclaycard Virgin</h5>
+<p>One of seven microsites and six mobile sites for the Barclaycard Arrival card.</p>
+</div>
+
+<div class="winetext" id="day23" name="Next New World">
+<div class="winename">Friedman Forum</div>
+<a href="http://podsnap.net/friedman3/" target="_blank"><img src="nytfriedmanforum.jpg" /></a>
+<h5>New York Times Global Forum: The Next New World</h5>
+<p>June 20, 2013 gala conference in San Francisco. A standalone site.</a></p>
+</div>
+
+
+<div class="winetext" id="day24" name="Isle of Scylla">
+<div class="winename">Zimmern!</div>
+<a href="http://www.foodandwine.com/andrew-zimmern" target="_blank"><img src="fwzimmern1.jpg" /></a>
+<h5>What you show, Joe?</h5>
+<p>Andrew Zimmern page, 2011-2012. Current version in production is now very static, stripped of all my pretty interactive elements.</p>
+</div>
+
+
+<div class="winetext" id="day25" name="bespoke">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com" target="_blank"><img src="departures6.jpg" /></a>
+<h5>Why Bespoke?</h5>
+<p>Current Departures feature.</p>
+</div>
+
+<div class="winetext" id="day26" name="Travelandleisure">
+<div class="winename">T+L</div>
+<a href="http://www.travelandleisure.com" target="_blank" ><img src="travelandleisure5.jpg" /></a>
+<h5>T+L: A Moving Target</h5>
+<p>Travel + Leisure homepage redo 2012.</p>
+</div>
+
+
+
+<div class="winetext" id="day27" name="Recipe Widget">
+<div class="winename">2011 Recipe Widget</div>
+<a href="recipe_finder_widget/deploy/swf/recipe_finder_widget2.swf" target="_blank"><img src="recipe_widget.jpg" /></a>
+<h5>Why a Widget?</h5>
+<p>Very extensive XML and AS3 files make up this deceptively simple-looking F&amp;W recipe selector. I made versions for Thanksgiving and Christmas.</p>
+</div>
+
+<div class="winetext" id="day28" name="Isle of Scylla">
+<div class="winename">Shop</div>
+<a href="http://www.amexpub.net/shop-rebuild/shop.html" target="_blank"><img src="fwshop1.jpg" /></a>
+<h5>What is this fairy form I see before me?</h5>
+<p>Promotion page for FW books and wine, 2010-2012.</p>
+</div>
+
+
+<!-- copied to here 21jan2014; to jan 28 -->
+
+<div class="winetext" id="day29" name="Isle of Scylla">
+<div class="winename">Multi-video Player 2009</div>
+<a href="http://www.podsnap.org/margotproject" target="_blank"><img src="margotproject1.jpg" /></a>
+<h5>What Would You Like to Watch?</h5>
+<p>Video-player-template project, 2009, in AS3. All your favorites at once: Kim Philby, Shirley Temple, the Hindenburg, and Froggy the Gremlin!</p>
+</div>
+
+
+<div class="winetext" id="day30" name="Recipe Widget">
+<div class="winename">2011 Recipe Widget</div>
+<a href="recipe_finder_widget/deploy/swf/recipe_finder_widget2.swf" target="_blank"><img src="recipe_widget.jpg" /></a>
+<h5>Why a Widget?</h5>
+<p>Very extensive XML and AS3 files make up this deceptively simple-looking F&amp;W recipe selector. I made versions for Thanksgiving and Christmas.</p>
+</div>
+
+<div class="winetext" id="day31" name="Wakefulness">
+<div class="winename">Matching Game</div>
+<a href="http://www.pbolly.com/pharmaworld/jetlagremedy/index.html" target="_blank"><img src="nuvigil.jpg" /></a>
+<h5>Why a Game?</h5>
+<p>Part of a campaign pitch to a pharma company, 2010.</p>
+</div>
+
+<div class="winetext" id="day32" name="Spot the difference">
+<div class="winename">FW Senses Game</div>
+<a href="http://pbolly.com/amexpub/spot_the_difference.swf" target="_blank"><img src="spotthedifference.jpg" /></a>
+<h5>Why Play?</h5>
+<p>Flash game on Food &amp; Wine 2010; original version created by interactive vendor, modifications to .as classes and XML by me. </p>
+</div>
+
+<div class="winetext" id="day33" name="Isle of Scylla">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com/articles/mark-cross-makes-a-comeback" target="_blank"><img src="departures18.jpg" /></a>
+<h5>Mark Cross Makes a Comeback?</h5>
+<p>Departures facelift 2012.</p>
+</div>
+<!-- copied to here 29jan2014; to feb 2  -->
+
+
+<div class="winetext" id="day34" name="Isle of Scylla">
+<div class="winename">NYT Subscriptions</div>
+<a href= "http://www.nytimes.com/subscriptions/Multiproduct/lp5558.html?campaignId=3F3FU" target="_blank"><img src="nytimes39UU8.jpg" /></a>
+<h5>As seen in Facebook!</h5>
+<p>Some months I revised the coding of several dozen ads like this for the New York Times. Later someone else messed with them. This one still works properly.</p>
+</div>
+
+<div class="winetext" id="day35" name="Isle of Scylla">
+<div class="winename">FW</div>
+<a href="http://www.foodandwine.com/peoples-best-new-chef" target="_blank"><img src="pbnc2.jpg" /></a>
+<h5>What and Why?</h5>
+<p>FW Popular Best New Chef 2011-13</p>
+</div>
+
+<div class="winetext" id="day36" name="Fixed Income">
+<div class="winename">Fixed Income</div>
+<a href="http://gallerynews.com/margotsheehan/tinyportfolio/" target="_blank"><img src="einstein.jpg" /></a>
+<h5>Fixed Income Book, Cartoon Cover</h5>
+<p>In the early 2000s I did a lot of financial illustrations for SSB and Citi.</p>
+</div>
+
+<div class="winetext" id="day37" name="Isle of Scylla">
+<div class="winename">Shop</div>
+<a href="http://www.amexpub.net/shop-rebuild/shop.html" target="_blank"><img src="fwshop1.jpg" /></a>
+<h5>Food &amp; Wine Shop Page, 2010-2012</h5>
+<p>Promotion page for FW books and wine, 2010-2012.</p>
+</div>
+
+
+<div class="winetext" id="day38" name="Isle of Sissy">
+<div class="winename">Kitchen Insider</div>
+<a href="http://www.amexpub.net/shop-rebuild/kitchen-insider.html" target="_blank"><img src="kitchen-insider.jpg" />
+<h5>Kitchen Insider with Javascript dropdown calendar.</h5>
+<p>Kitchen Insider 2011-2012, Rebuilt 2013.</p>
+</div>
+
+
+<div class="winetext" id="day39" name="Isle of Scylla">
+<div class="winename">Multi-video Player 2009</div>
+<a href="http://www.podsnap.org/margotproject" target="_blank"><img src="margotproject1.jpg" /></a>
+<h5>What Would You Like to Watch?</h5>
+<p>Video-player-template project, 2009, in AS3. All your favorites at once: Kim Philby, Shirley Temple, the Hindenburg, and Froggy the Gremlin!</p>
+</div>
+
+
+<div class="winetext" id="day40" name="Recipe Widget">
+<div class="winename">2011 Recipe Widget</div>
+<a href="recipe_finder_widget/deploy/swf/recipe_finder_widget2.swf" target="_blank"><img src="recipe_widget.jpg" /></a>
+<h5>Why a Widget?</h5>
+<p>Very extensive XML and AS3 files make up this deceptively simple-looking F&amp;W recipe selector. I made versions for Thanksgiving and Christmas.</p>
+</div>
+<!-- copied to here 6feb2014; to feb 9  -->
+
+<div class="winetext" id="day41" name="bespoke">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com" target="_blank"><img src="departures6.jpg" /></a>
+<h5>Why Bespoke?</h5>
+<p>Current Departures feature.</p>
+</div>
+
+
+<div class="winetext" id="day42" name="Next New World">
+<div class="winename">Friedman Forum</div>
+<a href="http://podsnap.net/friedman3/speakers.php" target="_blank"><img src="nytfriedmanforum.jpg" /></a>
+<h5>New York Times Global Forum: The Next New World</h5>
+<p>June 20, 2013 gala conference in San Francisco. A standalone site.</a></p>
+</div>
+
+
+<div class="winetext" id="day43" name="dep">
+<div class="winename">Summer Grilling</div>
+<a href="http://www.foodandwine.com/summer-grilling" target="_blank"><img src="foodandwine-summergrilling.jpg" /></a>
+<h5>Why do we grill?</h5>
+<p>FW Summer Grilling page 2011.</p>
+</div>
+
+<div class="winetext" id="day44" name="Isle of Scylla">
+<div class="winename">NYT Subscriptions</div>
+<a href="nytimes.com/subscriptions/Multiproduct/lp39UU8.html" target="_blank"><img src="nytimes39UU8.jpg" /></a>
+<h5>Revised . . . but is it live?</h5>
+<p>Subscription landing page, one of dozens revised April-May 2013. Curiously, the "live" version in the NYT server is not currently live!</p>
+</div>
+
+<!-- copied to here 10feb2014; to feb 14  -->
+
+<div class="winetext" id="day45" name="Isle of Scylla">
+<div class="winename">Barclaycard</div>
+<a href="http://bcus-virgin.cosgrovenystaging.com/virgin/premium-travel" target="_blank"><img src="barclaycard.jpg" /></a>
+<h5>Barclaycard Virgin</h5>
+<p>One of seven microsites and six mobile sites for the Barclaycard Arrival card.</p>
+</div>
+
+<div class="winetext" id="day46" name="Next New World">
+<div class="winename">Friedman Forum</div>
+<a href="http://podsnap.net/friedman3/" target="_blank"><img src="nytfriedmanforum_landing.jpg" /></a>
+<h5>New York Times Global Forum: The Next New World</h5>
+<p>June 20, 2013 gala conference in San Francisco. A standalone site.</a></p>
+</div>
+
+
+<div class="winetext" id="day47" name="Isle of Scylla">
+<div class="winename">Zimmern!</div>
+<a href="http://www.foodandwine.com/andrew-zimmern" target="_blank"><img src="fwzimmern1.jpg" /></a>
+<h5>What you show, Joe?</h5>
+<p>Andrew Zimmern page, 2011-2012. Current version in production is now very static, stripped of all my pretty interactive elements.</p>
+</div>
+
+
+<div class="winetext" id="day48" name="whatever">
+<div class="winename">Matching Game</div>
+<a href="http://www.pbolly.com/pharmaworld/jetlagremedy/index.html" target="_blank"><img src="nuvigil.jpg" /></a>
+<h5>Why a Game?</h5>
+<p>Part of a campaign pitch to a pharma company, 2010.</p>
+</div>
+
+<div class="winetext" id="day49" name="Spot the difference">
+<div class="winename">FW Senses Game</div>
+<a href="http://pbolly.com/amexpub/spot_the_difference.swf" target="_blank"><img src="spotthedifference.jpg" /></a>
+<h5>Why Play?</h5>
+<p>Flash game on Food &amp; Wine 2010; original version created by interactive vendor, modifications to .as classes and XML by me. </p>
+</div>
+
+<div class="winetext" id="day50" name="Isle of Scylla">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com/articles/mark-cross-makes-a-comeback" target="_blank"><img src="departures18.jpg" /></a>
+<h5>Mark Cross Makes a Comeback?</h5>
+<p>Departures facelift 2012.</p>
+</div>
+
+
+
+
+<div class="winetext" id="day51" name="bespoke">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com" target="_blank"><img src="departures6.jpg" /></a>
+<h5>Why Bespoke?</h5>
+<p>Current Departures feature.</p>
+</div>
+
+
+<div class="winetext" id="day52" name="dailymail">
+<div class="winename">FW Snooth</div>
+<a href="http://www.foodandwine.com" target="_blank"><img src="snooth1.jpg" /></a>
+<h5>Why the Snooth?</h5>
+<p>Snooth page 2010-2011</p>
+</div>
+
+
+<div class="winetext" id="day53" name="dep">
+<div class="winename">Summer Grilling</div>
+<a href="http://www.foodandwine.com/summer-grilling" target="_blank"><img src="foodandwine-summergrilling.jpg" /></a>
+<h5>Why do we grill?</h5>
+<p>FW Summer Grilling page 2011.</p>
+</div>
+
+<div class="winetext" id="day54" name="Isle of Scylla">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com" target="_blank"><img src="departures11.jpg" /></a>
+<h5>What and Who?</h5>
+<p>Departures facelift 2012.</p>
+</div>
+
+<div class="winetext" id="day55" name="Isle of Scylla">
+<div class="winename">NYT Subscriptions</div>
+<a href="nytimes.com/subscriptions/Multiproduct/lp39UU8.html" target="_blank"><img src="nytimes39UU8.jpg" /></a>
+<h5>Revised . . . but is it live?</h5>
+<p>Subscription landing page, one of dozens revised April-May 2013. Curiously, the "live" version in the NYT server is not currently live!</p>
+</div>
+
+<div class="winetext" id="day56" name="Isle of Scylla">
+<div class="winename">F&W</div>
+<a href="http://www.foodandwine.com" target="_blank"><img src="foodandwine1.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Food and Wine, 2012-13.</p>
+</div>
+<!-- copied to here 14feb2014; to feb 20?  -->
+
+<div class="winetext" id="day301" name="sep09">
+<div class="winename">CDM Banner</div>
+<a href="http://www.podsnap.net/portf2009/cdm/SeptemberCDMBanner.html" target="_blank"><img src="sepcdmbanner.jpg" /></a>
+<h5>Why another banner?</h5>
+<p>Landing page banner, pharma ad firm 2009.</p>
+</div>
+
+<div class="winetext" id="day302" name="Recipe Widget">
+<div class="winename">2011 Recipe Widget</div>
+<a href="recipe_finder_widget/deploy/swf/recipe_finder_widget2.swf" target="_blank"><img src="recipe_widget.jpg" /></a>
+<h5>Why a Widget?</h5>
+<p>Very extensive XML and AS3 files make up this deceptively simple-looking F&amp;W recipe selector. I made versions for Thanksgiving and Christmas.</p>
+</div>
+
+<div class="winetext" id="day303" name="Isle of Scylla">
+<div class="winename">Shop</div>
+<a href="http://www.amexpub.net/shop-rebuild/shop.html" target="_blank"><img src="fwshop1.jpg" /></a>
+<h5>What is this fairy form I see before me?</h5>
+<p>Promotion page for FW books and wine, 2010-2012.</p>
+</div>
+
+<div class="winetext" id="day304" name="Isle of Scylla">
+<div class="winename">NYT Subscriptions</div>
+<a href= "http://www.nytimes.com/subscriptions/Multiproduct/lp5558.html?campaignId=3F3FU" target="_blank"><img src="nytimes39UU8.jpg" /></a>
+<h5>As seen in Facebook!</h5>
+<p>Some months I revised the coding of several dozen ads like this for the New York Times. Later someone else messed with them. This one still works properly.</p>
+</div>
+
+<div class="winetext" id="day305" name="Isle of Scylla">
+<div class="winename">FW</div>
+<a href="http://www.foodandwine.com/peoples-best-new-chef" target="_blank"><img src="pbnc2.jpg" /></a>
+<h5>What and Why?</h5>
+<p>FW Popular Best New Chef 2011-13</p>
+</div>
+
+<div class="winetext" id="day306" name="item">
+<div class="winename">Flickr Bootstrap Backbone</div>
+<a href="PhotocontestPrototypes_POC/flitterBoot4/flitterBoot4m.html" target="_blank"><img src="bootstrapflickr1.jpg" /></a>
+<h5>Which Flickr images?</h5>
+<p>Flickr photo retriever, using Twitter Bootstrap and Backbone.js. This reveals the most recently posted public photos on Flickr.</p>
+</div>
+
+<div class="winetext" id="day307" name="Isle of Scylla">
+<div class="winename">Demo</div>
+<a href="BOOT/index-Oct3_BOOT_Test.html" target="_blank"><img src="boot-oct3.jpg" /></a>
+<h5>Why?</h5>
+<p>Prototype for photo-contest design, built on Twitter Bootstrap with some jQuery; using public Flicker feed. </p>
+</div>
+
+<div class="winetext" id="day308" name="Isle of Scylla">
+<div class="winename">Barclaycard</div>
+<a href="http://bcus-virgin.cosgrovenystaging.com/virgin/premium-travel" target="_blank"><img src="barclaycard.jpg" /></a>
+<h5>Barclaycard Virgin</h5>
+<p>One of seven microsites and six mobile sites for the Barclaycard Arrival card.</p>
+</div>
+
+<div class="winetext" id="day309" name="Next New World">
+<div class="winename">Friedman Forum</div>
+<a href="http://podsnap.net/friedman3/" target="_blank"><img src="nytfriedmanforum.jpg" /></a>
+<h5>New York Times Global Forum: The Next New World</h5>
+<p>June 20, 2013 gala conference in San Francisco. A standalone site.</a></p>
+</div>
+
+
+<div class="winetext" id="day310" name="Isle of Scylla">
+<div class="winename">Zimmern!</div>
+<a href="http://www.foodandwine.com/andrew-zimmern" target="_blank"><img src="fwzimmern1.jpg" /></a>
+<h5>What you show, Joe?</h5>
+<p>Andrew Zimmern page, 2011-2012. Current version in production is now very static, stripped of all my pretty interactive elements.</p>
+</div>
+
+
+<div class="winetext" id="day311" name="bespoke">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com" target="_blank"><img src="departures6.jpg" /></a>
+<h5>Why Bespoke?</h5>
+<p>Current Departures feature.</p>
+</div>
+
+<div class="winetext" id="day312" name="Travelandleisure">
+<div class="winename">T+L</div>
+<a href="http://www.travelandleisure.com" target="_blank" ><img src="travelandleisure5.jpg" /></a>
+<h5>T+L: A Moving Target</h5>
+<p>Travel + Leisure homepage redo 2012.</p>
+</div>
+
+
+
+<div class="winetext" id="day313" name="Recipe Widget">
+<div class="winename">2011 Recipe Widget</div>
+<a href="recipe_finder_widget/deploy/swf/recipe_finder_widget2.swf" target="_blank"><img src="recipe_widget.jpg" /></a>
+<h5>Why a Widget?</h5>
+<p>Very extensive XML and AS3 files make up this deceptively simple-looking F&amp;W recipe selector. I made versions for Thanksgiving and Christmas.</p>
+</div>
+
+<div class="winetext" id="day314" name="Isle of Scylla">
+<div class="winename">Shop</div>
+<a href="http://www.amexpub.net/shop-rebuild/shop.html" target="_blank"><img src="fwshop1.jpg" /></a>
+<h5>What is this fairy form I see before me?</h5>
+<p>Promotion page for FW books and wine, 2010-2012.</p>
+</div>
+
+
+<div class="winetext" id="day315" name="Wakefulness">
+<div class="winename">Matching Game</div>
+<a href="http://www.pbolly.com/pharmaworld/jetlagremedy/index.html" target="_blank"><img src="nuvigil.jpg" /></a>
+<h5>Why a Game?</h5>
+<p>Part of a campaign pitch to a pharma company, 2010.</p>
+</div>
+
+
+<!-- to here oct 30, takes us to about nov 8 -->
+
+
+<div class="winetext" id="day316" name="Isle of Scylla">
+<div class="winename">Individual</div>
+<a href="http://www.charlesschewe.com" ><img src="schewe1.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Charles Schewe PhD, public-speaking and book, 2010.</p>
+</div>
+
+
+<div class="winetext" id="day317" name="Isle of Scylla">
+<div class="winename">Shop</div>
+<a href="http://www.amexpub.net/shop-rebuild/shop.html" target="_blank"><img src="fwshop1.jpg" /></a>
+<h5>Food &amp; Wine Shop Page, 2010-2012</h5>
+<p>Promotion page for FW books and wine, 2010-2012.</p>
+</div>
+
+
+<div class="winetext" id="day318" name="Isle of Sissy">
+<div class="winename">Kitchen Insider</div>
+<a href="http://www.amexpub.net/shop-rebuild/kitchen-insider.html" target="_blank"><img src="kitchen-insider.jpg" />
+<h5>Kitchen Insider with Javascript dropdown calendar.</h5>
+<p>Kitchen Insider 2011-2012, Rebuilt 2013.</p>
+</div>
+
+
+<div class="winetext" id="day319" name="Isle of Scylla">
+<div class="winename">Multi-video Player 2009</div>
+<a href="http://www.podsnap.org/margotproject" target="_blank"><img src="margotproject1.jpg" /></a>
+<h5>What Would You Like to Watch?</h5>
+<p>Video-player-template project, 2009, in AS3. All your favorites at once: Kim Philby, Shirley Temple, the Hindenburg, and Froggy the Gremlin!</p>
+</div>
+
+
+<div class="winetext" id="day320" name="Recipe Widget">
+<div class="winename">2011 Recipe Widget</div>
+<a href="recipe_finder_widget/deploy/swf/recipe_finder_widget2.swf" target="_blank"><img src="recipe_widget.jpg" /></a>
+<h5>Why a Widget?</h5>
+<p>Very extensive XML and AS3 files make up this deceptively simple-looking F&amp;W recipe selector. I made versions for Thanksgiving and Christmas.</p>
+</div>
+
+<div class="winetext" id="day321" name="Wakefulness">
+<div class="winename">Matching Game</div>
+<a href="http://www.pbolly.com/pharmaworld/jetlagremedy/index.html" target="_blank"><img src="nuvigil.jpg" /></a>
+<h5>Why a Game?</h5>
+<p>Part of a campaign pitch to a pharma company, 2010.</p>
+</div>
+
+<div class="winetext" id="day322" name="Spot the difference">
+<div class="winename">FW Senses Game</div>
+<a href="http://pbolly.com/amexpub/spot_the_difference.swf" target="_blank"><img src="spotthedifference.jpg" /></a>
+<h5>Why Play?</h5>
+<p>Flash game on Food &amp; Wine 2010; original version created by interactive vendor, modifications to .as classes and XML by me. </p>
+</div>
+
+<div class="winetext" id="day323" name="Isle of Scylla">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com/articles/mark-cross-makes-a-comeback" target="_blank"><img src="departures18.jpg" /></a>
+<h5>Mark Cross Makes a Comeback?</h5>
+<p>Departures facelift 2012.</p>
+</div>
+
+
+<div class="winetext" id="day324" name="Isle of Scylla">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com" target="_blank"><img src="departures11.jpg" /></a>
+<h5>What and Who?</h5>
+<p>Departures facelift 2012.</p>
+</div>
+
+<div class="winetext" id="day325" name="Isle of Scylla">
+<div class="winename">NYT Subscriptions</div>
+<a href="nytimes.com/subscriptions/Multiproduct/lp39UU8.html" target="_blank"><img src="nytimes39UU8.jpg" /></a>
+<h5>Revised . . . but is it live?</h5>
+<p>Subscription landing page, one of dozens revised April-May 2013. Curiously, the "live" version in the NYT server is not currently live!</p>
+</div>
+
+
+<div class="winetext" id="day326" name="Isle of Scylla">
+<div class="winename">FW</div>
+<a href="http://www.foodandwine.com/peoples-best-new-chef" target="_blank"><img src="pbnc2.jpg" /></a>
+<h5>What and Why?</h5>
+<p>FW Popular Best New Chef 2011-13</p>
+</div>
+
+<div class="winetext" id="day327" name="item">
+<div class="winename">Flickr Bootstrap Backbone</div>
+<a href="PhotocontestPrototypes_POC/flitterBoot4A/flitterBoot4A.html" target="_blank"><img src="bootstrapflickr1.jpg" /></a>
+<h5>Which Flickr images?</h5>
+<p>Flickr photo retriever, using Twitter Bootstrap and Backbone.js. This reveals the most recently posted public photos for some arbitrary keyword I chose.</p>
+</div>
+
+<div class="winetext" id="day328" name="Isle of Scylla">
+<div class="winename">T+L</div>
+<a href="http://www.travelandleisure.com" target="_blank" ><img src="travelandleisure4.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Travel + Leisure homepage redo 2012.</p>
+</div>
+
+<!--to here Nov 4, takes us up to about Nov 22-->
+
+
+<div class="winetext" id="day329" name="Isle of Scylla">
+<div class="winename">Zimmern!</div>
+<a href="http://www.foodandwine.com/andrew-zimmern" target="_blank"><img src="fwzimmern1.jpg" /></a>
+<h5>What you show, Joe?</h5>
+<p>Andrew Zimmern page, 2011-2012. Current version in production is now very static, stripped of all my pretty interactive elements.</p>
+</div>
+
+
+
+<div class="winetext" id="day330" name="Isle of Scylla">
+<div class="winename">Shop</div>
+<a href="http://www.amexpub.net/shop-rebuild/shop.html" target="_blank"><img src="fwshop1.jpg" /></a>
+<h5>What is this fairy form I see before me?</h5>
+<p>Promotion page for FW books and wine, 2010-2012.</p>
+</div>
+
+<div class="winetext" id="day331" name="Isle of Scylla">
+<div class="winename">NYT Subscriptions</div>
+<a href= "http://www.nytimes.com/subscriptions/Multiproduct/lp5558.html?campaignId=3F3FU" target="_blank"><img src="nytimes39UU8.jpg" /></a>
+<h5>As seen in Facebook!</h5>
+<p>Some months I revised the coding of several dozen ads like this for the New York Times. Later someone else messed with them. This one still works properly.</p>
+</div>
+
+<div class="winetext" id="day332" name="Isle of Scylla">
+<div class="winename">FW</div>
+<a href="http://www.foodandwine.com/peoples-best-new-chef" target="_blank"><img src="pbnc2.jpg" /></a>
+<h5>What and Why?</h5>
+<p>FW Popular Best New Chef 2011-13</p>
+</div>
+
+<div class="winetext" id="day333" name="Isle of Scylla">
+<div class="winename">NYT Subscriptions</div>
+<a href="nytimes.com/subscriptions/Multiproduct/lp39UU8.html" target="_blank"><img src="nytimes39UU8.jpg" /></a>
+<h5>Revised . . . but is it live?</h5>
+<p>Subscription landing page, one of dozens revised April-May 2013. Curiously, the "live" version in the NYT server is not currently working.</p>
+</div>
+
+<div class="winetext" id="day334" name="Isle of Scylla">
+<div class="winename">Barclaycard</div>
+<a href="http://bcus-virgin.cosgrovenystaging.com/virgin/premium-travel" target="_blank"><img src="barclaycard.jpg" /></a>
+<h5>Barclaycard Virgin</h5>
+<p>One of seven microsites and six mobile sites for the Barclaycard Arrival card.</p>
+</div>
+
+<div class="winetext" id="day335" name="Next New World">
+<div class="winename">Friedman Forum</div>
+<a href="http://podsnap.net/friedman3/" target="_blank"><img src="nytfriedmanforum.jpg" /></a>
+<h5>New York Times Global Forum: The Next New World</h5>
+<p>June 20, 2013 gala conference in San Francisco. A standalone site.</a></p>
+</div>
+
+
+<div class="winetext" id="day336" name="Isle of Scylla">
+<div class="winename">Zimmern!</div>
+<a href="http://www.foodandwine.com/andrew-zimmern" target="_blank"><img src="fwzimmern1.jpg" /></a>
+<h5>What you show, Joe?</h5>
+<p>Andrew Zimmern page, 2011-2012. Current version in production is now very static, stripped of all my pretty interactive elements.</p>
+</div>
+
+
+<div class="winetext" id="day337" name="bespoke">
+<div class="winename">Departures</div>
+<a href="http://www.departures.com" target="_blank"><img src="departures6.jpg" /></a>
+<h5>Why Bespoke?</h5>
+<p>Current Departures feature.</p>
+</div>
+
+<div class="winetext" id="day338" name="Travelandleisure">
+<div class="winename">T+L</div>
+<a href="http://www.travelandleisure.com" target="_blank" ><img src="travelandleisure5.jpg" /></a>
+<h5>T+L: A Moving Target</h5>
+<p>Travel + Leisure homepage redo 2012.</p>
+</div>
+
+
+
+<div class="winetext" id="day339" name="Recipe Widget">
+<div class="winename">2011 Recipe Widget</div>
+<a href="recipe_finder_widget/deploy/swf/recipe_finder_widget2.swf" target="_blank"><img src="recipe_widget.jpg" /></a>
+<h5>Why a Widget?</h5>
+<p>Very extensive XML and AS3 files make up this deceptively simple-looking F&amp;W recipe selector. I made versions for Thanksgiving and Christmas.</p>
+</div>
+
+<div class="winetext" id="day340" name="Isle of Scylla">
+<div class="winename">Shop</div>
+<a href="http://www.amexpub.net/shop-rebuild/shop.html" target="_blank"><img src="fwshop1.jpg" /></a>
+<h5>What is this fairy form I see before me?</h5>
+<p>Promotion page for FW books and wine, 2010-2012.</p>
+</div>
+
+
+<div class="winetext" id="day341" name="Wakefulness">
+<div class="winename">Matching Game</div>
+<a href="http://www.pbolly.com/pharmaworld/jetlagremedy/index.html" target="_blank"><img src="nuvigil.jpg" /></a>
+<h5>Why a Game?</h5>
+<p>Part of a campaign pitch to a pharma company, 2010.</p>
+</div>
+
+<div class="winetext" id="day342" name="Isle of Scylla">
+<div class="winename">NYT Subscriptions</div>
+<a href="nytimes.com/subscriptions/Multiproduct/lp39UU8.html" target="_blank"><img src="nytimes39UU8.jpg" /></a>
+<h5>Revised . . . but is it live?</h5>
+<p>Subscription landing page, one of dozens revised April-May 2013. Curiously, the "live" version in the NYT server is not currently live!</p>
+</div>
+
+
+<div class="winetext" id="day343" name="cp5">
+<div class="winename">CP5</div>
+<a href="http://cityroom.blogs.nytimes.com/2013/04/17/watch-live-ken-burns-on-justice-and-the-central-park-five/" target="_blank"><img src="cp5.jpg" /></a>
+<h5>TimesTalk web ad</h5>
+<p>New York Times promo page.</p>
+</div>
+
+
+<div class="winetext" id="day344" name="Travelandleisure">
+<div class="winename">T+L</div>
+<a href="http://www.travelandleisure.com" target="_blank" ><img src="travelandleisure5.jpg" /></a>
+<h5>T+L: A Moving Target</h5>
+<p>Travel + Leisure homepage redo 2012.</p>
+</div>
+
+<div class="winetext" id="day345" name="Isle of Scylla">
+<div class="winename">old portfolio landing page</div>
+<a href="http://www.podsnap.net/portf2009" target="_blank"><img src="explosive1.jpg" /></a>
+<h5>Why?</h5>
+<p>An old 2009 portfolio, AS3 + JS.</p>
+</div>
+
+<div class="winetext" id="day346" name="Wakefulness">
+<div class="winename">Matching Game</div>
+<a href="http://www.pbolly.com/pharmaworld/jetlagremedy/index.html" target="_blank"><img src="nuvigil.jpg" /></a>
+<h5>Why a Game?</h5>
+<p>Part of a campaign pitch to a pharma company, 2010.</p>
+</div>
+
+<div class="winetext" id="day347" name="Farnco">
+<div class="winename">Farnco Player</div>
+<a href="http://gallerynews.com/margotsheehan/anewimprovedfarn.html" target="_blank"><img src="farnco.jpg" /></a>
+<h5>A New Improved Farnco</h5>
+<p>One of my retro video players, circa 2008.</p>
+</div>
+
+<div class="winetext" id="day348" name="Fixed Income">
+<div class="winename">Fixed Income</div>
+<a href="http://gallerynews.com/margotsheehan/tinyportfolio/" target="_blank"><img src="einstein.jpg" /></a>
+<h5>Fixed Income Book, Cartoon Cover</h5>
+<p>In the early 2000s I did a lot of financial illustrations for SSB and Citi.</p>
+</div>
+
+<div class="winetext" id="day349" name="Recipe Widget">
+<div class="winename">2011 Recipe Widget</div>
+<a href="recipe_finder_widget/deploy/swf/recipe_finder_widget2.swf" target="_blank"><img src="recipe_widget.jpg" /></a>
+<h5>Why a Widget?</h5>
+<p>Very extensive XML and AS3 files make up this deceptively simple-looking F&amp;W recipe selector. I made versions for Thanksgiving and Christmas.</p>
+</div>
+
+<div class="winetext" id="day350" name="Isle of Scylla">
+<div class="winename">NYT Subscriptions</div>
+<a href="nytimes.com/subscriptions/Multiproduct/lp39UU8.html" target="_blank"><img src="nytimes39UU8.jpg" /></a>
+<h5>Revised . . . but is it live?</h5>
+<p>Subscription landing page, one of dozens revised April-May 2013. Curiously, the "live" version in the NYT server is not currently live!</p>
+</div>
+
+
+<div class="winetext" id="day351" name="cp5">
+<div class="winename">CP5</div>
+<a href="http://cityroom.blogs.nytimes.com/2013/04/17/watch-live-ken-burns-on-justice-and-the-central-park-five/" target="_blank"><img src="cp5.jpg" /></a>
+<h5>TimesTalk web ad</h5>
+<p>New York Times promo page.</p>
+</div>
+
+
+<div class="winetext" id="day352" name="Travelandleisure">
+<div class="winename">T+L</div>
+<a href="http://www.travelandleisure.com" target="_blank" ><img src="travelandleisure5.jpg" /></a>
+<h5>T+L: A Moving Target</h5>
+<p>Travel + Leisure homepage redo 2012.</p>
+</div>
+
+<div class="winetext" id="day353" name="Isle of Scylla">
+<div class="winename">old portfolio landing page</div>
+<a href="http://www.podsnap.net/portf2009" target="_blank"><img src="explosive1.jpg" /></a>
+<h5>Why?</h5>
+<p>An old 2009 portfolio, AS3 + JS.</p>
+</div>
+
+
+<div class="winetext" id="day354" name="Isle of Scylla">
+<div class="winename">iPad and mobile promo</div>
+<a href="http://www.foodandwine.com/articles/ipad-faq" target="_blank"><img src="ipadad1.jpg" /></a>
+<h5>What?</h5>
+<p>Static ad from original FW iPad launch.</p>
+</div>
+
+
+<div class="winetext" id="day355" name="Isle of Scylla">
+<div class="winename">Classic in Aspen</div>
+<a href="aspen2011/speakers2.html" target="_blank"><img src="speakers2011_4.jpg" /></a><h5>What?</h5>
+<p>Speakers&rsquo; schedule and Itinerary-Builder module for 2011 Classic-in-Aspen site.</p>
+</div>
+
+<div class="winetext" id="day356" name="Isle of Scylla">
+<div class="winename">Departures</div>
+<img src="departures3.jpg" />
+<h5>Why?</h5>
+<p>2012 Departures inside redesign, Shopping category.</p>
+</div>
+
+<div class="winetext" id="day357" name="Isle of Scylla">
+<div class="winename">Demo</div>
+<a href="BOOT/index-Oct3_BOOT_Test.html" target="_blank"><img src="boot-oct3.jpg" /></a>
+<h5>Why?</h5>
+<p>Prototype for photo-contest design, built on Twitter Bootstrap with some jQuery; using public Flicker feed. </p>
+</div>
+
+<div class="winetext" id="day358" name="Isle of Scylla">
+<div class="winename">FW</div>
+<a href="http://www.foodandwine.com/the-peoples-pastry" target="_blank"><img src="pbnc1.jpg" /></a>
+<h5>What and Who?</h5>
+<p>People&rsquo;s Best New Pastry Chef, winner 2012.</p>
+</div>
+
+<div class="winetext" id="day359" name="Isle of Scylla">
+<div class="winename">Classic in Aspen</div>
+<a href="aspen2011/speakers2.html" target="_blank"><img src="speakers2011_3.jpg" /></a><h5>What?</h5>
+<p>Speakers&rsquo; schedule and Itinerary-Builder module for 2011 Classic-in-Aspen site.</p>
+</div>
+
+
+<div class="winetext" id="day360" name="Isle of Scylla">
+<div class="winename">Demo</div>
+<a href="BIB5/index-mod5.html" target="_blank"><img src="BIB5.jpg" /></a>
+<h5>Why?</h5>
+<p>Prototype for photo-contest design, built on Twitter Bootstrap with some Backbone; calling a specific photoset with Flicker API. </p>
+</div>
+
+
+<div class="winetext" id="day361" name="Isle of Scylla">
+<div class="winename">T+L</div>
+<a href="http://www.travelandleisure.com" target="_blank"><img src="travelandleisure2.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Travel + Leisure homepage redo 2012.</p>
+</div>
+
+
+
+<div class="winetext" id="day362" name="Isle of Scylla">
+<div class="winename">Nautica Sweeps</div>
+<a href="Nautica2c/nautica2.html" target="_blank"><img src="nautica1.jpg" /></a>
+<h5>What and Why?</h5>
+<p>Nautica Coastal Life Sweepstakes 2011</p>
+</div>
+
+<div class="winetext" id="day363" name="Isle of Scylla">
+<div class="winename">FW</div>
+<a href="http://www.foodandwine.com" target="_blank"><img src="snooth1.jpg" /></a>
+<h5>What is Snooth?</h5>
+<p>Snooth wine guide had a page 2010-2012.</p>
+</div>
+
+<div class="winetext" id="day364" name="Isle of Scylla">
+<div class="winename">FW</div>
+<a href="http://www.foodandwine.com/summer-grilling" target="_blank"><img src="foodandwine-summergrilling.jpg" /></a>
+<h5>What and Why?</h5>
+<p>FW Summer Grilling pages 2011-13</p>
+</div>
+
+<div class="winetext" id="day365" name="Isle of Scylla">
+<div class="winename">Shop</div>
+<a href="http://www.foodandwine.com/shop" target="_blank"><img src="fwshop1.jpg" /></a>
+<h5>What is this fairy form I see before me?</h5>
+<p>Promotion page for FW books and wine, 2010-2012.</p>
+</div>
+
+<div class="winetext" id="dummyWine" name="no-item" >
+<div class="winename">item</div>
+<img src="day000_plod.jpg" />
+<h5>Why Not?</h5>
+<p>Either you&rsquo;ve gone too far into the past...or there's just no content for this date!</p>
+</div>
+
+</div>
+
+<div id="drinkthisnow" >
+
+<div id="goEarlier" name="arrow"  class="arrows" onClick="ShowPreviousDayWine()">
+<a href="#"></a></div>
+
+<div id="goLater" name="arrow"  class="arrows" onClick="ShowNextDayWine()"><a href="#"></a></div>
+
+
+<div id="wine-caddy" style="position:relative; width:95%; margin: 0 auto;">
+<h1 id="scrollhed" style="font-size:36px; line-height:32px; ">Scroll backward.<br/>Then scroll forward.</h1>
+
+
+<div class="toptext" id="toptext-no-mobile" style="position:relative; width:80%; margin: 0 auto;">
+<p>This is <a href="#asterisk">not a slide-show or a carousel</a> . . . *</p>
+</div>
+
+<div class="daily-wine" id="daily-wine" style="position:relative; width:80%; margin: 0 auto;">
+</div>
+
+</div> <!-- /wine-caddy -->
+</div> <!-- /drinkthisnow-->
+
+
+
+<img src="magicpixel.gif" onload="InitTimer()" />
+</div> <!-- /winewrap -->
+        
+        
+        
+        
+        
+         <!-- *********PUT TEST WW CODE ABOVE ******************* -->
+      </div>
+      
+      <!-- ******************************************** -->
+      <div class="span4" style="display:none;">
+        <img class="marketing-img" src="assets/img/bs-docs-bootstrap-features.png">
+        <h2>Packed with features.</h2>
+        <p>A 12-column responsive <a href="./scaffolding.html#gridSystem">grid</a>, dozens of components, <a href="./javascript.html">JavaScript plugins</a>, typography, form controls, and even a <a href="./customize.html">web-based Customizer</a> to make Bootstrap your own.</p>
+      </div>
+      <!-- ******************************************** -->
+      
+    </div>
+
+    <hr class="soften">
+    
+    <h1 id="asterisk" style="color:#bc350b; font-family:baskerville, georgia, serif;  font-size:8em; height:60px;">*</h1>
+   
+    <p class="marketing-byline"><strong>Not a slideshow or a carousel but</strong><br/>a date-driven content module or widget originally built (<em>mostly in raw javascript</em> with a couple of jQuery transitions) as a daily-wine caddy for our executive bottle editor at F&W. You can look <strong>backwards</strong> for a little while . . . but you can&rsquo;t see <strong>tomorrow!</strong> Just like real life.<br/></p>
+    
+<div id="faiq"   style="padding-top:100px;">
+
+
+    <h1 id="faiqfont" style="color:#bc350b; font-family:baskerville, georgia, serif;  font-size:4em;  ">FAIQ</h1>
+    <h3>(Frequently Asked &amp; Idle Questions)</h3>
+    
+    <p class="marketing-byline">What does this do? Why use this instead of a CMS / blog / slideshow / carousel / trendy new &lsquo;framework&rsquo;? and other trifles <a href="#subwinewrap" >down in this corner >>>>></a></p>
+    <div class="row-fluid" style="display:none;">
+      <ul class="thumbnails example-sites">
+        <li class="span3">
+          <a class="thumbnail" href="http://soundready.fm/" target="_blank">
+            <img src="assets/img/example-sites/soundready.png" alt="SoundReady.fm">
+          </a>
+        </li>
+        <li class="span3">
+          <a class="thumbnail" href="http://kippt.com/" target="_blank">
+            <img src="assets/img/example-sites/kippt.png" alt="Kippt">
+          </a>
+        </li>
+        <li class="span3">
+          <a class="thumbnail" href="http://www.gathercontent.com/" target="_blank">
+            <img src="assets/img/example-sites/gathercontent.png" alt="Gather Content">
+          </a>
+        </li>
+        <li class="span3">
+          <a class="thumbnail" href="http://www.jshint.com/" target="_blank">
+            <img src="assets/img/example-sites/jshint.png" alt="JS Hint">
+          </a>
+        </li>
+      </ul>
+     </div>
+      </div>
+       <div class="whathospacer" style="position:relative; height:1px; width:400px; margin:100px auto;"></div>
+       
+       <div class="whathospacer" style="position:relative; height:1px; width:400px; margin:100px auto;"></div>
+       
+      <hr class="soften">
+      
+     <div class="row-fluid" id="noddy">
+      <div class="span 6">
+        <img class="noddy-img" src="noddyvictorious.jpg" style=" margin:100px auto; " />
+      </div>
+     </div>
+
+
+      <hr class="soften">
+      
+     <div class="row-fluid" id="muette">
+      <div class="span 6">
+        <img class="muette-img" src="muette.jpg" style=" margin:100px auto;" />
+      </div>
+     </div>
+     
+     <hr class="soften">
+     
+     <div class="whathospacer" style="position:relative; height:1px; width:400px; margin:100px auto;"></div>
+
+     
+     
+     
+     
+   
+
+<div id = "subwinewrap">
+  <h2>Frequently Asked and Idle Questions</h2>
+
+<h3>Does this thing have any earthly use?</h3>
+
+<p>Yes, it fills a serious need. I thought the need was obvious until I found that some people just didn't "get it" at all. So here is the simple explanation:
+</p>
+<p>It allows you to have NEW CONTENT appear EACH DAY, automatically. There are many reasons why you might want this. You might be building a news page. Or perhaps you have a module called "This Day In History" or "Whose Birthday Is it Today?" or "Planetary Aspects for Today." 
+</p>
+<p>For this kind of daily-update project, there are two must-haves:
+</p>
+<p>1) <em>Since your content is usually different each day, you must have each day's new content "go live" automatically when that day starts (midnight). </em>
+</p>
+<p>2) <em>You want people to be able to look at yesterday's news, and last week's news, but not tomorrow's! You want to be able to keep editing tomorrow's content up to the last minute. </em>
+</p>
+<p>And most likely this is also important:
+<br/>
+3) <em>The solution has to be lightweight and easy to use. </em></p>
+<p>There are content-management systems and blogging platforms that allow you to "publish" an article at some point in the future (e.g., WordPress, Drupal), but these are self-contained environments, not add-ons to your existing site.
+</p>
+<p><strong>Wunderwidget</strong> has two main pieces: the javascript itself, which you never have to open up or adjust; and the HTML wrapper that goes around your news page or module. To set up the widget in your own site, you need to provide your own content divs, and set a couple of basic parameters: <em>How many days back do you want to be able to scroll in this calendar year?</em> and <em>If you can scroll back to the previous calendar year, how far back do you wish to scroll in that one?</em> There is also a stylesheet, and some jQuery to enable simple transitions as you scroll from one day to another. 
+</p>
+<p>The ideal use of this is for short-term projects that will run for a fortnight or a month. Beyond that, you'd probably want a full-blown CMS with database, simply because you&rsquo;ll have so much content to store. But it can and does work with a full 365 (or 366) days of content.
+
+<h3>Why Isn't This Thing Just a Slideshow?</h3>
+
+<p>Because a simple javascript/css slideshow will not give you date-specific content, or today's news, every day. 
+</p>
+<p>If you don't need to provide date-specific content every day, a simple slideshow may be all you need. Personally I am very fond of Mike Alsup's <em>cycle.js</em>, a jQuery plugin that is lightweight and flexible, and has been implemented a thousand different ways around the inter-webs. (<a href="http://www.malsup.com/jquery/">Get it here,</a> along with other useful and fun projects.)</p>
+
+<h3>I scrolled backwards and forwards, but when I got back to <strong>today</strong> and tried to click ahead I got an alert message saying I couldn't see tomorrow. Why don't you want people to see tomorrow?</h3>
+
+<p>I don&rsquo;t want people to see tomorrow because that&rsquo;s the whole point of the module. It is supposed to stir up excitement, curiosity, and return visits to the website. If you could scroll ahead and see everything coming up in the next week, there wouldn't be much point in coming back tomorrow, would there? And in that case, why bother having dates at all? You might as well just have a plain old slideshow carousel.</p>
+
+<p>And finally, anyone who&rsquo;s <strong>that</strong> curious can just look at the source code and see if anything&rsquo;s in place for the upcoming DOY (day of year). I'm betting most people are too lazy to do that.  </p>
+
+
+<h3>Why couldn't you build it in jQuery?</h3>
+
+<p>There is no jQuery plugin or function that returns the current date and day of year, and can count backwards (or forwards) from that point. The purpose of jQuery is to simplify the long, stringy, cumbersome parts of Javascript. The date methods of Javascript are already as basic as you can get, and cannot be reduced further.
+</p>
+<p>For a similar reason, the Wunderwidget cannot be refashioned as a jQuery plugin without losing most of its utility. The closest approximation would be a jQuery plugin that would have you pick a date, whereupon it would return some content for that date. But this would be little different from a basic slideshow. It would not be able to count backwards and forwards from the date you initially select, nor would it "know" when it reached today's date and could no longer scroll ahead. 
+</p>
+
+
+<h3>Does it use backbone.js?</h3>
+
+<p>This question was intended as a joke, but it brings up a good point. If you created a complex date-driven website that needed to keep track of many days' relationship to each other (a scheduling program, perhaps), then backbone.js might well be the way to go. But Backbone here would be overkill (as indeed it is in most implementations we see these days).</p>
+
+
+<h3>Ditto Angular.js?</h3>
+
+<p>It will, Oscar, it will.</p>
+
+
+<h3>Is this site "responsive"?</h3>
+
+<p>Up to a point, Lord Copper. It wasn&rsquo;t, now it is.</p>
+
+
+<h3>What about closures? Does it use closures?</h3>
+
+<p>Oh boy does it ever. If you had 366 days of content, and you scrolled back and forth a million times, the whole universe would slowly grind to a halt. </p>
+
+
+<h3>Any other further enhancements coming?</h3>
+
+<p>Yes, I want to make up some crazy-simple algorithm to disguise the source code for each day&rsquo;s content. Right now each day&rsquo;s content is pretty obvious to anyone who looks at the source: day191, day192, day193, etc. Those identifiers are created by making a text string out of the word "day" and the numeric DOY (Day of Year). If we made it a little more complicated&mdash;say, multiplied the DOY by 3 and added 34, and attached the number to something other than &lsquo;day&rsquo;&mdash;instead of day191 we could have foo607. I'm not sure it's worth the bother.</p>
+
+
+<br/>
+<h3>For further information, contact </h3><p>Liz Houston at Wunderwidget Sales & Breeding: elizabeth.houston@wunderwidget.com</p>
+
+
+</div>  <!-- /subwinewrap -->
+
+<div id="bigarrowbox">
+<a href="#winewrap"><img src="nice-arrow.png"></a>
+</div>
+     
+<!--    
+<div id='playerrOeVIZHKfRUo'></div>
+<script type='text/javascript'>
+    jwplayer('playerrOeVIZHKfRUo').setup({
+        file: 'http://www.podsnap.org/39steps_engine.mov',
+        image: 'http://www.podsnap.org/39steps.png',
+        title: 'It\'s a Big Job',
+        width: '100%',
+        aspectratio: '4:3'
+    });
+</script>
+-->  
+  </div>
+
+</div>
+
+
+
+    <!-- Footer
+    ================================================== -->
+    <footer class="footer">
+      <div class="container">
+        <p>Thanks to our friends at <a href="http://twitter.com/mdo" target="_blank"> Bootstroppy </a>for letting us strip down their full-figured template.</p>
+        <p>Code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        
+      </div>
+    </footer>
+
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+    <script src="assets/js/bootstrap-affix.js"></script>
+
+    <script src="assets/js/holder/holder.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+
+    <script src="assets/js/application.js"></script>
+
+
+    <!-- Analytics
+    ================================================== -->
+    <!-- install your own ww ga code node in here! -->
+
+  </body>
+</html>

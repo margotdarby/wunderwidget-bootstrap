@@ -1,0 +1,67 @@
+body {
+  padding-top: 60px;
+}
+
+#gateway-photos {
+  margin-left: 40px;
+}
+
+
+
+.gateway-photo-container {
+  height: 360px;
+  width: 200px;
+  padding:2px;
+  float: left;
+}
+
+.gateway-photo-container p{
+  font: 11px normal arial, sans-serif; color:#888; line-height:11px;
+}
+
+
+.gateway-photo-container a .infobox{
+  width:180px; max-height:60px; overflow:hidden; position:relative; top: 2px; left:0; 
+  padding:4px; 
+}
+
+.gateway-photo-container a {
+  max-height: 330px;
+  overflow: hidden;
+  font: 11px normal arial, sans-serif; color:#666; line-height:11px;
+}
+
+
+
+
+.centre-spinner {
+  margin-left: 110px;
+}
+
+#show-photo-modal .modal-body {
+  max-height: 460px;
+  overflow:scroll;
+}
+
+#modal-photo-container {
+  text-align: center;
+}
+
+#modal-photo-container img {
+  padding: 4px;
+  border: 1px solid #DDD;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+#map-tab {
+  padding-left: 10px;
+}
+
+#page-loading-container {
+  padding-left: 400px;
+}
+
+#hero-text {
+  padding-top: 5px;
+}

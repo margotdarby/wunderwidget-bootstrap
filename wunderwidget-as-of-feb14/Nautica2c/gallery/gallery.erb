@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="nautica, coastal living, coastal life, sweepstakes, contest, trip to Hawaii, photo contest, ocean2ocean, ocean 2 ocean, gallery" />
+		<meta name="description" content="Help Nautica, Travel + Leisure and Food &amp; Wine celebrate the traditions and everyday adventures of the life well-lived by showing and describing your coastal experiences, and you might win an extraordinary 6 night, 7 day vacation to the beautiful Island of Hawaii and a Nautica prize package valued at $1,500." />
+		<title>Gallery - Nautica Coastal Life Contest</title>
+		<link href="stylesheets/gallery.css" rel="stylesheet" type="text/css" />
+		<link href="stylesheets/colorbox.css" media="screen" rel="stylesheet" type="text/css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+		<script src="scripts/jquery.colorbox-min.js" type="text/javascript"></script>
+
+		<script type = "text/javascript">
+			$(document).ready(function(){
+				$("a[rel='slideshow']").colorbox({ 
+					photo: "true",
+					maxHeight: "80%" 
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="header">
+				<img src="images/header_logo.gif" width="800" height="124" alt="Nautica"/>
+			</div>
+			<div id="gallery-wrapper">
+				<img id="title" src="images/nauticaBold.png" width="500px" height="41px" alt="Nautica Coastal Life Contest. Show. Share. Win." />
+				<% if is_eligible_to_submit? %>
+					<div class="action-button">
+						<a href="register"><img src="images/btn_upload.jpg" width="108" height="20" border="0"></a>
+					</div>
+				<% end %>
+				<div class="action-button">
+					<%= partial :_share %>
+				</div>
+				<div class="clear"></div>
+				<div id="content">
+					<div id="gallery-nav">
+						<% if @page > 1 %>
+							<a href="?p=<%=@page-1%>">&lt; BACK</a>
+						<% end %>
+							<%= @page %> of <%= @num_pages %> 
+						<% if @page < @num_pages %>
+							<a href="?p=<%=@page+1%>">NEXT &gt;</a>
+						<% end %>
+					</div>
+					<div id="gallery">
+						<% unless @entries.nil?
+							@entries.each do |entry| %>
+								<a class="gallery-thumb-link" href="<%= entry.full_size_img %>" title="<%= get_colorbox_text(entry) %>" rel="slideshow"><img class="gallery-thumb" src="<%= entry.thumb_img %>"/></a>
+							<% end
+					 	end %>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

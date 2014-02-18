@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>flitter4</title>
+    
+
+<!----- copied from older ---->
+    <link href="styles/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="scripts/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+    
+    <link rel="stylesheet" href="css/global.css">
+	<link rel="stylesheet" href="css/app-myHack2.css">
+	<link rel="stylesheet" href="css/flitter-myHack2.css">
+    
+      <style>
+      body {
+        padding-top: 60px;
+      }
+    </style>
+
+   
+  </head>
+  
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Flickr Search Results App</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+<div class="container">
+	<div class="row">
+		
+	</div>
+	<div class="row">
+		<div class="sixteen columns">
+			<div id="demo-splash">
+				<img src="kw:'travel'" width="600px" height="300px"> <span>travel</span>
+			</div>
+			
+			<div id="demo-body">
+				
+				
+								</div>
+		</div><!-- container -->
+		
+</div>
+
+
+   <script src="js/underscore.js"></script>
+<script src="js/backbone.js"></script>
+<script src="js/flitter-myHack2.js"></script>
+<script src="js/app-myHack2.js"></script>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+        <script type="text/javascript" src="assets/js/bootstrap-filestyle.js"></script>
+          <script type="text/javascript" src="scripts/jquery.1.6.2.js"></script>
+    <script type="text/javascript" src="scripts/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+	<script type="text/javascript" src="scripts/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	
+
+       
+
+        <script type="text/javascript">
+            $('#input01').filestyle()
+            
+			$('#input02').filestyle({
+				buttonText: 'My button'
+			});
+
+            $('#input03').filestyle({
+				buttonText: 'No text field',
+				textField: false
+			});
+            
+			$('#input04').filestyle({
+				buttonText: 'Custom',
+				textField: true,
+				classButton: 'btn-success',
+				classText: 'input-small'
+			});
+
+			$('#input05').filestyle({
+				buttonText: 'Open file',
+				classButton: 'btn-primary',
+				icon: true,
+				classIcon: 'icon-arrow-up icon-white'
+			});
+        </script>
+        
+        <div id="bottom-links" style="width:600px; height:400px; margin-top:800px;">
+<a name = "about"> <h5>This forces a stretch of white space above the bottom.</h5>
+<br/><br/>
+<a name = "contact"> <h5>Call MUrray Hill 7-7500 for Gimbels Shop-at-Home Upholstery and Slipcovers. That&rsquo;s MUrray Hill 7-7500. Out of town, call collect.</h5>
+
+</div>
+  </body>
+</html>

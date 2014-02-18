@@ -1,0 +1,130 @@
+/* aspen-schedules2011.css AS OF dec 16 */
+/* updated for no-conflict in cfm/f+w on nov 29-Dec 6 */
+/* tab colors changed Dec 10 */
+/* tab images for main sched put in Dec 15-16 */
+/* cookingbtns cookingparty winebtns wineparty added Dec 15-16 */
+/* reservebtns reserveparty  added Jan 3 */
+/* speakerbtns speakerparty  added Feb 2 */
+/* trade version  added Feb 9 */
+
+/*============================================================*/
+/*--- OVERWRITE STYLESHEETS: aspen.css and aspen_wide.css ---*/
+
+#aspenMain { 
+	width:970px !important;
+}
+
+#aspenBod {
+	width:970px !important;
+	height:1200px !important;
+	text-align:left;
+}
+
+#aspenBod p {
+	text-transform:none;
+	font-size:.9em;
+}
+
+#aspenBod ul {
+	float:left;
+	width:720px;
+
+}
+
+#aspenBod ul li {
+	list-style-type:none;
+}
+
+/*--- no rightrail: overwrite secondary in screen.css ---*/
+#secondary {
+	position:absolute;
+	left:-9999px;
+}
+
+
+/*============================================================*/
+/*--- MAIN CONTAINERS ----------------------------------------*/
+
+#Schedule { width:900px; height:900px !important; overflow:hidden; margin-left:20px; padding:0; }
+#Speakers { position:relative; top:0px; left:0px; width:900px; height:900px !important; overflow:hidden; margin:0; padding:0; }	
+#aspen-schedule-module { position:relative; top:0px; left:0px; background-color:#fbfbfb; width:900px; padding:0px; text-align:left; }
+
+/*--for main schedules--*/
+#tabbed_box { margin: 0px auto 0px auto; width:890px; height:700px; }
+
+/*--for speakers--*/
+#tabbed_box-speaker_schedule { float:right; margin:0; padding:0; width:700px; height:800px; overflow:auto;}
+
+/*--for all--*/
+.tabbed_area { float:left; top:10px; left:10px; border:1px solid #aaa; background-color:#eee; min-height:800px; padding: 0; }
+.content {background-color:#fff; font-family: Arial, sans-serif; border:none; }
+#content_2, #content_3, #content_4, #content_5 { display:none; }
+
+
+
+
+/*=====================================================================*/
+/*--- CLICKABLE TABS AND LISTS ----------------------------------------*/
+
+#schednav ul { float:left; width:896px; height:40px; background-color:#eee; border-top:4px solid #eee; margin:0; padding: 0; }
+
+ul.tabus { float:left; width:180px; height:40px; margin: 1px 0 0 2px ; padding: 0; z-index:999; }
+
+ul.tabus li { list-style:none; display:inline; }
+
+ul.tabus li a:link { background-image:url(images/tab-light-long.gif); background-repeat: no-repeat; background-position:right bottom; z-index:999; color:#000; margin:3px 0 0 0 ; padding:10px 20px 10px 20px; text-decoration:none !important; font-size:15px !important; font-family:Georgia, "Times New Roman", serif !important; font-weight:normal; line-height:30px; text-align:left !important; text-transform:lowercase; border:none; }
+
+ul.tabus li a:visited { background-image:url(images/tab-light-long.gif); background-repeat: no-repeat; background-position:right bottom; z-index:999; color:#000; margin:3px 0 0 0 ; padding:10px 20px 10px 20px; text-decoration:none !important; font-size:15px !important; font-family:Georgia, "Times New Roman", serif !important; font-weight:normal; line-height:30px; text-align:left !important; text-transform:lowercase; border:none; }
+
+ul.tabus li a:hover { background-image:url(images/tab-light-long.gif); background-repeat: no-repeat; background-position:right bottom; z-index:999; color:#36c !important; margin:3px 0 0 0 ; padding:10px 20px 10px 20px; text-decoration:none !important; font-size:15px !important; font-family:Georgia, "Times New Roman", serif !important; font-weight:normal; line-height:30px; text-align:left !important; text-transform:lowercase; border:none; }
+
+ul.tabus li a:active { background-image:url(images/tab-dark-long.gif); background-repeat: no-repeat; background-position:right bottom; z-index:999; color:#fff !important; margin:3px 0 0 0 ; padding:10px 20px 10px 20px; text-decoration:none !important; font-size:15px !important; font-family:Georgia, "Times New Roman", serif !important; font-weight:normal; line-height:30px; text-align:left !important; text-transform:lowercase; border:none; }
+
+
+
+
+
+/*====================HEADER and PANE styles=========================*/
+
+#headerama { background-color:#fff; width:auto; height:40px; margin-bottom: 0px; padding: 0px 0 0 0; font-family: Arial, sans-serif; font-size:1.2em;
+line-height:1.25; font-weight:bold; text-transform:uppercase; color:#333; }
+
+#headerama .time { float:left; width: 12em; margin:20px 0 0 40px; }
+#headerama .title { float:left; width: 9em; margin:20px 10px 0 10px; }
+#headerama .speakers { float:left; width: 11em; margin:20px 0 0 20px; }
+#headerama .description { float:left; width: 22em; margin:20px 0 0 0; }
+
+/*---pane containers: for main schedule (and trade) panes---*/
+#mainpane { width:880px; height:690px; margin:0 4px 0 4px; padding:1px; border:1px solid #ccc; overflow:auto; }
+#secondarypane { width:880px; height:630px; margin:0 4px 0 4px; padding:1px; border:1px solid #ccc; overflow:auto; }
+#tertiarypane { width:880px; height:630px; margin:0 4px 0 4px; padding:1px; border:1px solid #ccc; overflow:auto; }
+#quaternarypane { width:880px; height:630px; margin:0 4px 0 4px; padding:1px; border:1px solid #ccc; overflow:auto; }
+#quinarypane { width:880px; height:630px; margin:0 4px 0 4px; padding:1px; border:1px solid #ccc; overflow:auto; }
+
+
+/*=========================SCHEDULES====================================*/
+
+/*---session data-holder for the main schedule--*/
+.party { display:block; width:850px; height:auto; margin: 10px 2px 0 2px; padding:2px 4px 4px 4px; font-family: Arial, sans-serif; font-size: 1.1em;
+color: #333; border-bottom: 2px dotted #9c9; clear:both; }
+.party img {width:30px; height:30px;}
+
+/*---fields for schedule data---*/
+/*---time---*/
+.dist{ float:left;width:12em;margin: 12px 6px 0 6px;color: #333;}
+/*---party session number---*/
+.item {float:left;width:2.2em;margin: 12px 0 0 4px ;font-weight:bold;color:#888;}
+/*---title---*/
+.titl {float:left;width: 12em; margin:12px 0 0 4px;font-weight:bold;color:#000;}
+/*---speakers---*/
+.spea{float:left;margin: 12px 4px 0 8px;width: 12em;color: #333;}
+/*---optional description---*/
+.desc {float:left; width: 26em; margin: 12px 0; font-size: 1.1em;line-height: 1.25;color: #333;}
+
+
+
+/*----'day' divider-------------------------------------------*/
+.daybar { float:left; margin:4px 0; background-color:#36c; width:875px; height:20px; border-bottom:solid 2px #eee; font-family: "Century Gothic", Arial, sans-serif; font-weight: normal; font-size: 1.2em; line-height: 1.6em; text-transform:uppercase; text-align: center; color: #fff; }
+
+
+

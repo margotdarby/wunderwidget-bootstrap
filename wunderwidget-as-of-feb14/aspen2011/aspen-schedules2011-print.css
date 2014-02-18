@@ -1,0 +1,148 @@
+body {visibility:hidden;}
+.printable {visibility:visible;}
+
+#masthead {display:none;}
+#branding {display:none;}
+#ad-top {display:none;}
+
+#aspenNav {display:none;}
+#ad_leaderboard {display:none;}
+#aspenMain {visibility:hidden;}
+#aspenBod {visibility:hidden;}
+
+/*-- pertaining to main schedules --*/
+#schednav {display:none;}
+#mainpane {display:none;}
+#secondarypane {display:none;}
+#tertiarypane {display:none;}
+#quaternarypane {display:none;}
+
+#quinarypane {width:801px;position:absolute;top:80px; left: 80px;min-height:800px;}
+  
+/*-- pertaining to speakers module --*/  
+#speakerpane {display:none;}
+#itinerary-speakers {width:801px;position:absolute;top:80px; left: 80px;min-height:800px;}
+.footerbar-speaker { display:none; }
+
+/*-- pertaining to both main schedules and speakers module --*/        
+#journeysend {position:relative; width: 801px; margin:0; padding:0; border: 1px solid #36c; font: 13px normal, Helvetica, Arial, sans-serif; color:black; display:block; }
+#journeysendInstructions {display:none;}
+
+#logocontainer {position:relative; top: 0px; left: 0px; width:790px; height: 120px; margin:5px;}
+#journeysend h2 {position:absolute; top: 2px; left: 20px; font: 24px normal, Georgia, "Times New Roman", serif; color: black; display:inline;}
+#itinlogo img {position:absolute; top: 6px; left: 120px; width:220px;}
+
+#conflictCheck img {display:none;}	
+#email-print-buttons img {display:none;}
+
+#itinlogo img {float:left; width:220px; margin: 20px 20px 20px 400px;visibility:visible;clear:both;}
+
+	#Atimeblock {margin:0; padding:0;display:block;}
+	#Btimeblock {margin:0; padding:0;display:block;}
+	#Ctimeblock {margin:0; padding:0;display:block;}
+	#C1timeblock {margin:0; padding:0;display:block;}
+	#Dtimeblock {margin:0; padding:0;display:block;}
+	#Etimeblock {margin:0; padding:0;display:block;}
+	#Ftimeblock {margin:0; padding:0;display:block;}
+	#F1timeblock {margin:0; padding:0;display:block;}
+	#GT1timeblock {margin:0; padding:0;display:block;}
+	
+        
+  .daybar {
+	display:block;
+	width:760px;
+	height:28px;
+	margin:20px;
+	border-bottom:solid 4px #36c;
+	font-family: Helvetica,  Arial, sans-serif;
+	font-weight: normal;
+	font-size: 16pt; line-height: 18pt;
+	color:#36c;
+	text-transform:uppercase;
+	text-align: center;
+}
+        
+    .party {
+		display:block;
+		width:780px;
+		font-size:11pt;
+		margin:2px 6px 2px 6px;
+		font-family: Helvetica, Arial, sans-serif;
+		min-height:40px;
+		text-align: left;
+		clear:both;
+}
+
+    .cookingparty {
+		display:block;
+		width:780px;
+		font-size:11pt;
+		margin:2px 6px 2px 6px;
+		font-family: Helvetica, Arial, sans-serif;
+		min-height:40px;
+		text-align: left;
+		clear:both;	
+}
+    .wineparty {
+		display:block;
+		width:780px;
+		font-size:11pt;
+		margin:2px 6px 2px 6px;
+		font-family: Helvetica, Arial, sans-serif;
+		min-height:40px;
+		text-align: left;
+		clear:both;
+}
+
+    .reserveparty {
+		display:block;
+		width:780px;
+		font-size:11pt;
+		margin:2px 6px 2px 6px;
+		font-family: Helvetica, Arial, sans-serif;
+		min-height:40px;
+		text-align: left;
+		clear:both;
+}
+
+    .speakerparty {
+		display:block;
+		width:780px;
+		font-size:11pt;
+		margin:2px 6px 2px 6px;
+		font-family: Helvetica, Arial, sans-serif;
+		min-height:40px;
+		text-align: left;
+		clear:both;
+}
+
+
+/*---fields for the main schedules---*/
+.addto {
+	float:left;
+	width:10px;
+	height:50px;
+	margin: 0;
+	display:inline;
+}
+/*---time---*/
+.dist{float:left;display:inline;width:13em;margin: 0 6px 0 0;color: #000;}
+
+/*---party session number---*/
+.item {float:left;display:inline;width:2.2em;margin: 0 2px 0 0 ;font-weight:bold;color:#ddd;}
+
+/*---title---*/
+.titl {float:left;display:inline;width: 14em; margin: 0;font-weight:bold;color:#000;}
+
+/*---speakers---*/
+.spea{float:left;display:inline;margin: 0 0 0 4px;width: 12em;color: #000;}
+
+/*---optional description, mostly for trade events---*/
+.desc {float:left; display:inline;width: 8em; margin: 0; font-size: .8em;line-height: 1.25;color: #000;}
+
+/*---'type of event' icon---*/
+.icon
+{float:left;width: 30px;display:inline;height:30px;margin: 0 ;}
+        
+.printfooterbar {visibility:visible; width:auto; margin: 0 0 1px 0; padding: 0;}
+.printfooterbar img {visibility:visible; margin: 0; padding: 0;}
